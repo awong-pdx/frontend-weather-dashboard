@@ -1,3 +1,14 @@
+# Modules
+
+[eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb?activeTab=readme)  
+[react-bootstrap](https://react-bootstrap.github.io)  
+[react-chartjs-2](https://react-chartjs-2.js.org)  
+[axe-core](https://www.npmjs.com/package/@axe-core/react)
+
+# Tutorials and Outside Libraries Used
+
+[VSCode - ESLint, Prettier & Airbnb Setup](https://gist.github.com/bradtraversy/aab26d1e8983d9f8d79be1a9ca894ab4)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
