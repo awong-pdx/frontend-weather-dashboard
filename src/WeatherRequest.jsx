@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
 const currentWeatherURI = 'https://api.openweathermap.org/data/2.5/weather';
-const hourlyWeatherURL =
+const hourlyWeatherURI =
   'https://pro.openweathermap.org/data/2.5/forecast/hourly';
-const dailyWeatherURL =
+const dailyWeatherURI =
   'https://api.openweathermap.org/data/2.5/forecast/daily';
 
 const requestLonLat = async function requestWeatherByLonAndLat(URIparams, URI) {
@@ -38,14 +38,14 @@ export default function WeatherRequest(props) {
       .catch((error) => {
         console.error(error);
       });
-    requestLonLat(currentWeatherParams, hourlyWeatherURL)
+    requestLonLat(currentWeatherParams, hourlyWeatherURI)
       .then((data) => {
         setHourlyWeather(data);
       })
       .catch((error) => {
         console.error(error);
       });
-    requestLonLat(currentWeatherParams, dailyWeatherURL)
+    requestLonLat(currentWeatherParams, dailyWeatherURI)
       .then((data) => {
         setDailyWeather(data);
       })
