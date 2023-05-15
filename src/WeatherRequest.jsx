@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import axios from 'axios';
 
 const currentWeatherURI = 'https://api.openweathermap.org/data/2.5/weather';
 const hourlyWeatherURI =
@@ -7,11 +8,10 @@ const dailyWeatherURI =
   'https://api.openweathermap.org/data/2.5/forecast/daily';
 
 const requestLonLat = async function requestWeatherByLonAndLat(URIparams, URI) {
-  const response = await fetch(
+  const response = await axios(
     `${URI}?${new URLSearchParams(URIparams).toString()}`
   );
-  const responseJSON = await response.json();
-  return responseJSON;
+  return response.data;
 };
 
 export default function WeatherRequest(props) {
