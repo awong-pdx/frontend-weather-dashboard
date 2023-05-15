@@ -7,57 +7,75 @@ const hourlyWeatherURI =
 const dailyWeatherURI =
   'https://api.openweathermap.org/data/2.5/forecast/daily';
 
-const requestLonLat = async function requestWeatherByLonAndLat(URIparams, URI) {
-  const response = await axios(
-    `${URI}?${new URLSearchParams(URIparams).toString()}`
-  );
-  return response.data;
+const requestLonLat = async function requestWeatherByLonAndLat(
+  latitude,
+  longitude,
+  URI,
+  API_KEY
+) {
+  const URIparams = {
+    lat: latitude,
+    lon: longitude,
+    appid: API_KEY,
+    units: 'imperial',
+  };
+
+  try {
+    const response = await axios(
+      `${URI}?${new URLSearchParams(URIparams).toString()}`
+    );
+    return response.data;
+  } catch (error) {
+    return error;
+  }
 };
 
 export default function WeatherRequest(props) {
   const {
     coordinates,
-    setCurrentWeather,
-    setHourlyWeather,
-    setDailyWeather,
+    addCurrentWeather,
+    addHourlyWeather,
+    addDailyWeather,
     API_KEY,
   } = props;
 
-  useEffect(() => {
-    const currentWeatherParams = {
-      lat: coordinates.latitude,
-      lon: coordinates.longitude,
-      appid: API_KEY,
-      units: 'imperial',
-    };
+  const getWeather = async function getWeatherUsingRequest(
+    latitude,
+    longitude,
+    currentURI,
+    hourlyURI,
+    dailyURI
+  ) {
+    const currentWeather = await requestLonLat(
+      latitude,
+      longitude,
+      currentURI,
+      API_KEY
+    );
+    const hourlyWeather = await requestLonLat(
+      latitude,
+      longitude,
+      hourlyURI,
+      API_KEY
+    );
+    const dailyWeather = await requestLonLat(
+      latitude,
+      longitude,
+      dailyURI,
+      API_KEY
+    );
+    addCurrentWeather(currentWeather);
+    addHourlyWeather(hourlyWeather);
+    addDailyWeather(dailyWeather);
+  };
 
-    requestLonLat(currentWeatherParams, currentWeatherURI)
-      .then((data) => {
-        setCurrentWeather(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    requestLonLat(currentWeatherParams, hourlyWeatherURI)
-      .then((data) => {
-        setHourlyWeather(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    requestLonLat(currentWeatherParams, dailyWeatherURI)
-      .then((data) => {
-        setDailyWeather(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [
-    coordinates.latitude,
-    coordinates.longitude,
-    API_KEY,
-    setCurrentWeather,
-    setHourlyWeather,
-    setDailyWeather,
-  ]);
+  useEffect(() => {
+    getWeather(
+      coordinates.latitude,
+      coordinates.longitude,
+      currentWeatherURI,
+      hourlyWeatherURI,
+      dailyWeatherURI
+    );
+  }, [coordinates.latitude, coordinates.longitude]);
 }
