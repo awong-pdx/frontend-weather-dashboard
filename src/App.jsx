@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
+import WeatherProvider from './components/WeatherProvider';
+import Test from './Test';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -52,6 +54,7 @@ function App() {
 
   return (
     <WeatherProvider>
+      <Test />
       <div className="App">
         <p>Our weather dashboard!</p>
       <label htmlFor="search">

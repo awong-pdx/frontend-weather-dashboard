@@ -13,7 +13,8 @@
         "allowFunctions": true,
         "allowBind": false
       }
-    ]
+    ],
+    "react/prop-types": ["warn", { "ignore": ["children"] }]
   },
   "env": {
     "browser": true

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import requestLonLat from '../WeatherRequest';
 
-const API_KEY = process.env.REACT_APP_WEATHER_KEY_API;
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 const currentWeatherURI = 'https://api.openweathermap.org/data/2.5/weather';
 const hourlyWeatherURI =
   'https://pro.openweathermap.org/data/2.5/forecast/hourly';
@@ -12,6 +12,9 @@ const WeatherContext = createContext();
 export const useWeather = () => useContext(WeatherContext);
 
 export default function WeatherProvider({ children }) {
+  // propTypes : {
+  //   children: PropTypes.node
+  // }
   const coordinates = {
     latitude: '45.50742',
     longitude: '-122.68984',
@@ -59,3 +62,7 @@ export default function WeatherProvider({ children }) {
     </WeatherContext.Provider>
   );
 }
+
+// WeatherProvider.propTypes = {
+//   children: PropTypes.node
+// }
