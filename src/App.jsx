@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
@@ -7,13 +7,28 @@ const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 function App() {
   const [geoData, setGeoData] = useState({});
 
-  const retrieveGeoData = async (city = '') => {
+  useEffect(() => {
+    setGeoData({
+      longitude: 45.5202471,
+      latitude: -122.674194,
+    });
+  }, []);
+
+  const retrieveGeoData = async (city) => {
+    if (city === '') {
+      return new Error('city name must be specified');
+    }
+
     try {
       const response = await axios.get(
         `${geocodingURI}${city}&appid=${weatherApiKey}`
       );
 
       const { data } = response;
+      if (data.length === 0) {
+        return new Error('city name does not exist');
+      }
+
       const [location] = data;
       const coordinates = {
         longitude: location.lon,
@@ -21,9 +36,7 @@ function App() {
       };
 
       setGeoData(coordinates);
-      // Only console logging geoData so eslint doesn't throw error
-      // remove later when passing geoData as prop
-      console.log('The coordinates are: ');
+      // Remove console log when integrated with current,daily,and hourly weather api
       console.log(geoData);
       return undefined;
     } catch (error) {
@@ -33,8 +46,6 @@ function App() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      // Remove later as well, only to show results of city name entered
-      console.log(`The city searched for is ${event.target.value}`);
       retrieveGeoData(event.target.value);
     }
   };
