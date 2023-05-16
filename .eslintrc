@@ -3,7 +3,17 @@
   "plugins": ["prettier"],
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "ignoreDOMComponents": false,
+        "ignoreRefs": false,
+        "allowArrowFunctions": false,
+        "allowFunctions": true,
+        "allowBind": false
+      }
+    ]
   },
   "env": {
     "browser": true
