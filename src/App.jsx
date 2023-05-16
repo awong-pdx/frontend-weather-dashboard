@@ -12,12 +12,14 @@ function App() {
       const response = await axios.get(
         `${geocodingURI}${city}&appid=${weatherApiKey}`
       );
+
       const { data } = response;
       const [location] = data;
       const coordinates = {
         longitude: location.lon,
         latitude: location.lat,
       };
+
       setGeoData(coordinates);
       // Only console logging geoData so eslint doesn't throw error
       // remove later when passing geoData as prop
