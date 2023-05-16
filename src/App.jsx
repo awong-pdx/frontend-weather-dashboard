@@ -51,8 +51,9 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <p>Our weather dashboard!</p>
+    <WeatherProvider>
+      <div className="App">
+        <p>Our weather dashboard!</p>
       <label htmlFor="search">
         <input
           type="text"
@@ -61,7 +62,8 @@ function App() {
           onKeyDown={handleKeyDown}
         />
       </label>
-    </div>
+      </div>
+    </WeatherProvider>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import requestLonLat from '../WeatherRequest';
 
-const API_KEY = '39023aff7ae25b6655f72f0935e31fc6';
+const API_KEY = process.env.REACT_APP_WEATHER_KEY_API;
 const currentWeatherURI = 'https://api.openweathermap.org/data/2.5/weather';
 const hourlyWeatherURI =
   'https://pro.openweathermap.org/data/2.5/forecast/hourly';

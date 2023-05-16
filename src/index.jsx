@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import WeatherProvider from './components/WeatherProvider';
 
 const axe = require('@axe-core/react');
 
@@ -11,8 +10,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 root.render(
   <React.StrictMode>
-    <WeatherProvider>
-      <App />
-    </WeatherProvider>
+    <App />
   </React.StrictMode>
 );
