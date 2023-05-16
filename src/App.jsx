@@ -21,6 +21,7 @@ function App() {
       setGeoData(coordinates);
       // Only console logging geoData so eslint doesn't throw error
       // remove later when passing geoData as prop
+      console.log('The coordinates are: ');
       console.log(geoData);
       return undefined;
     } catch (error) {
@@ -30,6 +31,8 @@ function App() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
+      // Remove later as well, only to show results of city name entered
+      console.log(`The city searched for is ${event.target.value}`);
       retrieveGeoData(event.target.value);
     }
   };
