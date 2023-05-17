@@ -11,8 +11,8 @@ function App() {
 
   useEffect(() => {
     setGeoData({
-      longitude: 45.5202471,
-      latitude: -122.674194,
+      longitude: -122.674194,
+      latitude: 45.5202471,
     });
   }, []);
 
@@ -39,7 +39,8 @@ function App() {
 
       setGeoData(coordinates);
       // Remove console log when integrated with current,daily,and hourly weather api
-      console.log(geoData);
+      console.log(geoData.latitude);
+      console.log(geoData.longitude);
       return undefined;
     } catch (error) {
       return error;
@@ -53,7 +54,7 @@ function App() {
   };
 
   return (
-    <WeatherProvider>
+    <WeatherProvider geoData={geoData}>
       <Test />
       <div className="App">
         <p>Our weather dashboard!</p>

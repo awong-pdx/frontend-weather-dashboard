@@ -11,14 +11,12 @@ const dailyWeatherURI =
 const WeatherContext = createContext();
 export const useWeather = () => useContext(WeatherContext);
 
-export default function WeatherProvider({ children }) {
-  // propTypes : {
-  //   children: PropTypes.node
-  // }
-  const coordinates = {
-    latitude: '45.50742',
-    longitude: '-122.68984',
-  };
+export default function WeatherProvider(props) {
+  const {geoData, children} = props;
+  // const coordinates = {
+  //   latitude: '45.50742',
+  //   longitude: '-122.68984',
+  // };
 
   const [currentWeather, setCurrentWeather] = useState();
   const [hourlyWeather, setHourlyWeather] = useState();
@@ -45,24 +43,22 @@ export default function WeatherProvider({ children }) {
   };
 
   useEffect(() => {
+    if(geoData.latitude && geoData.longitude) {
     getWeather(
-      coordinates.latitude,
-      coordinates.longitude,
+      geoData.latitude,
+      geoData.longitude,
       currentWeatherURI,
       hourlyWeatherURI,
       dailyWeatherURI
     );
-  }, [coordinates.latitude, coordinates.longitude]);
+    }
+  }, [geoData.latitude, geoData.longitude]);
 
   return (
     <WeatherContext.Provider
       value={{ currentWeather, hourlyWeather, dailyWeather }}
     >
-      {children}
+      { children } 
     </WeatherContext.Provider>
   );
 }
-
-// WeatherProvider.propTypes = {
-//   children: PropTypes.node
-// }
