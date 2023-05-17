@@ -14,7 +14,8 @@
         "allowBind": false
       }
     ],
-    "react/prop-types": ["warn", { "ignore": ["children"] }]
+    "react/prop-types": ["warn", { "ignore": ["children"] }],
+    "react/jsx-no-constructed-context-values": "warn"
   },
   "env": {
     "browser": true
