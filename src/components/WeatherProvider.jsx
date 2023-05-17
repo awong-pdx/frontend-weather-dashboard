@@ -13,10 +13,6 @@ export const useWeather = () => useContext(WeatherContext);
 
 export default function WeatherProvider(props) {
   const { geoData, children } = props;
-  // const coordinates = {
-  //   latitude: '45.50742',
-  //   longitude: '-122.68984',
-  // };
 
   const [currentWeather, setCurrentWeather] = useState();
   const [hourlyWeather, setHourlyWeather] = useState();
