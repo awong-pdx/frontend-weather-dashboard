@@ -2,7 +2,20 @@
   "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "plugins": ["prettier"],
   "rules": {
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "ignoreDOMComponents": false,
+        "ignoreRefs": false,
+        "allowArrowFunctions": true,
+        "allowFunctions": true,
+        "allowBind": false
+      }
+    ],
+    "react/prop-types": ["warn", { "ignore": ["children"] }],
+    "react/jsx-no-constructed-context-values": "warn"
   },
   "env": {
     "browser": true

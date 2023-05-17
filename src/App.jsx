@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
+import WeatherProvider from './components/WeatherProvider';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -9,8 +10,8 @@ function App() {
 
   useEffect(() => {
     setGeoData({
-      longitude: 45.5202471,
-      latitude: -122.674194,
+      longitude: -122.674194,
+      latitude: 45.5202471,
     });
   }, []);
 
@@ -36,8 +37,6 @@ function App() {
       };
 
       setGeoData(coordinates);
-      // Remove console log when integrated with current,daily,and hourly weather api
-      console.log(geoData);
       return undefined;
     } catch (error) {
       return error;
@@ -51,17 +50,19 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <p>Our weather dashboard!</p>
-      <label htmlFor="search">
-        <input
-          type="text"
-          id="search"
-          name="search"
-          onKeyDown={handleKeyDown}
-        />
-      </label>
-    </div>
+    <WeatherProvider geoData={geoData}>
+      <div className="App">
+        <p>Our weather dashboard!</p>
+        <label htmlFor="search">
+          <input
+            type="text"
+            id="search"
+            name="search"
+            onKeyDown={handleKeyDown}
+          />
+        </label>
+      </div>
+    </WeatherProvider>
   );
 }
 
