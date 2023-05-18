@@ -1,0 +1,34 @@
+//default variable overrides come before the @import
+$theme-colors: (
+  'info': #ffaaaa,
+);
+
+$custom-colors: (
+  'tomato': tomato,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+//additional custom code (for classes, etc.) comes after the @import
+.customClass {
+  background-color: #ffaaaa;
+}
+
+.dark {
+  background-color: #000;
+}
+
+.light {
+  background-color: #fff;
+}
+
+.sidebar {
+  width: 30%;
+}
+
+.main-dashboard {
+  width: 70%;
+}

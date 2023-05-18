@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 import WeatherProvider from './components/WeatherProvider';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
@@ -51,16 +52,23 @@ function App() {
 
   return (
     <WeatherProvider geoData={geoData}>
-      <div className="App">
-        <p>Our weather dashboard!</p>
-        <label htmlFor="search">
-          <input
-            type="text"
-            id="search"
-            name="search"
-            onKeyDown={handleKeyDown}
-          />
-        </label>
+      <div className="App light d-flex">
+        <div className="sidebar border border-2 border-primary vh-100">
+          <label htmlFor="search" className="bg-custom-color">
+            <input
+              type="text"
+              id="search"
+              name="search"
+              onKeyDown={handleKeyDown}
+            />
+            <Button as="a" variant="tomato">
+              Button
+            </Button>
+          </label>
+        </div>
+        <div className="main-dashboard border border-2 border-primary vh-100">
+          <p>Our weather dashboard!</p>
+        </div>
       </div>
     </WeatherProvider>
   );
