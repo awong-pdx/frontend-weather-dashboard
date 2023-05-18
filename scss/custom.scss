@@ -1,0 +1,22 @@
+//default variable overrides come before the @import
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+//additional custom code (for classes, etc.) comes after the @import
+.dark {
+  background-color: #000;
+}
+
+.light {
+  background-color: #fff;
+}
+
+.dashboard-container {
+  height: 100vh;
+}
+.sidebar {
+}
+
+.main-dashboard {
+  min-height: 80%;
+}

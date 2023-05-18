@@ -51,16 +51,22 @@ function App() {
 
   return (
     <WeatherProvider geoData={geoData}>
-      <div className="App">
-        <p>Our weather dashboard!</p>
-        <label htmlFor="search">
-          <input
-            type="text"
-            id="search"
-            name="search"
-            onKeyDown={handleKeyDown}
-          />
-        </label>
+      <div className="App light container-fluid">
+        <div className="dashboard-container row">
+          <div className="sidebar col-sm-4 border border-2 border-primary">
+            <label htmlFor="search" className="bg-custom-color">
+              <input
+                type="text"
+                id="search"
+                name="search"
+                onKeyDown={handleKeyDown}
+              />
+            </label>
+          </div>
+          <div className="main-dashboard col-sm-8 border border-2 border-primary">
+            <p>Our weather dashboard!</p>
+          </div>
+        </div>
       </div>
     </WeatherProvider>
   );
