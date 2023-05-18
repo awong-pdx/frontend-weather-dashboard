@@ -26,9 +26,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 }
 
 .sidebar {
-  width: 30%;
 }
 
 .main-dashboard {
-  width: 70%;
+  min-height: 80%;
 }
