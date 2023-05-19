@@ -9,6 +9,8 @@ const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 function App() {
   const [geoData, setGeoData] = useState({});
+  const { theme } = useTheme();
+  const appClass = `App container-fluid ${theme}`;
 
   useEffect(() => {
     setGeoData({
@@ -51,13 +53,8 @@ function App() {
     }
   };
 
-  const { theme } = useTheme();
-  const appClass = `App container-fluid ${theme}`;
-
   return (
-    // <ThemeProvider>
     <WeatherProvider geoData={geoData}>
-      {/* <div className="App container-fluid"> */}
       <div className={appClass}>
         <div className="dashboard-container row">
           <div className="sidebar col-sm-4 border border-2 border-primary">
