@@ -58,7 +58,14 @@ function App() {
       <div className={appClass}>
         <div className="dashboard-container row">
           <div className="sidebar col-sm-4 border border-2 border-primary">
-            <ToggleButton />
+            <div className="container">
+              <div className="row">
+                <div className="col" />
+                <div className="col-3">
+                  <ToggleButton />
+                </div>
+              </div>
+            </div>
             <label htmlFor="search" className="bg-custom-color">
               <input
                 type="text"
