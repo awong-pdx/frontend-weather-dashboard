@@ -10,7 +10,6 @@ const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 function App() {
   const [geoData, setGeoData] = useState({});
   const { theme } = useTheme();
-  const appClass = `App container-fluid ${theme}`;
 
   useEffect(() => {
     setGeoData({
@@ -55,9 +54,9 @@ function App() {
 
   return (
     <WeatherProvider geoData={geoData}>
-      <div className={appClass}>
+      <div className={`App container-fluid ${theme}`}>
         <div className="dashboard-container row">
-          <div className="sidebar col-sm-4 border border-2 border-primary">
+          <section className="sidebar col-sm-4 border border-2 border-primary">
             <div className="container">
               <div className="row mt-1">
                 <div className="col" />
@@ -74,10 +73,10 @@ function App() {
                 onKeyDown={handleKeyDown}
               />
             </label>
-          </div>
-          <div className="main-dashboard col-sm-8 border border-2 border-primary">
+          </section>
+          <section className="main-dashboard col-sm-8 border border-2 border-primary">
             <p>Our weather dashboard!</p>
-          </div>
+          </section>
         </div>
       </div>
     </WeatherProvider>
