@@ -61,7 +61,7 @@ function App() {
             <div className="container">
               <div className="row mt-1">
                 <div className="col" />
-                <div className="col-3">
+                <div className="col-sm-4 col-3 col-xl-2">
                   <ToggleButton />
                 </div>
               </div>
