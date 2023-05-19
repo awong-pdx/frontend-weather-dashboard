@@ -1,12 +1,14 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
+import SearchBar from './components/SearchBar';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 function App() {
   const [geoData, setGeoData] = useState({});
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     setGeoData({
@@ -43,25 +45,36 @@ function App() {
     }
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      retrieveGeoData(event.target.value);
-    }
-  };
+  useEffect(() => {
+    retrieveGeoData(searchInput);
+    console.log(searchInput);
+    console.log(geoData);
+  }, [searchInput]);
+  // const handleKeyDown = (event) => {
+  //   if (event.key === 'Enter') {
+  //     retrieveGeoData(event.target.value);
+  //   }
+  // };
 
   return (
     <WeatherProvider geoData={geoData}>
       <div className="App light container-fluid">
         <div className="dashboard-container row">
           <div className="sidebar col-sm-4 border border-2 border-primary">
-            <label htmlFor="search" className="bg-custom-color">
+            <SearchBar
+              onNewSearch={(search) => {
+                setSearchInput(search);
+              }}
+            />
+
+            {/* <label htmlFor="search" className="bg-custom-color">
               <input
                 type="text"
                 id="search"
                 name="search"
                 onKeyDown={handleKeyDown}
               />
-            </label>
+            </label> */}
           </div>
           <div className="main-dashboard col-sm-8 border border-2 border-primary">
             <p>Our weather dashboard!</p>
