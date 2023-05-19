@@ -47,14 +47,7 @@ function App() {
 
   useEffect(() => {
     retrieveGeoData(searchInput);
-    console.log(searchInput);
-    console.log(geoData);
   }, [searchInput]);
-  // const handleKeyDown = (event) => {
-  //   if (event.key === 'Enter') {
-  //     retrieveGeoData(event.target.value);
-  //   }
-  // };
 
   return (
     <WeatherProvider geoData={geoData}>
@@ -66,15 +59,6 @@ function App() {
                 setSearchInput(search);
               }}
             />
-
-            {/* <label htmlFor="search" className="bg-custom-color">
-              <input
-                type="text"
-                id="search"
-                name="search"
-                onKeyDown={handleKeyDown}
-              />
-            </label> */}
           </div>
           <div className="main-dashboard col-sm-8 border border-2 border-primary">
             <p>Our weather dashboard!</p>
