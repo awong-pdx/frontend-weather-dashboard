@@ -59,7 +59,7 @@ function App() {
         <div className="dashboard-container row">
           <div className="sidebar col-sm-4 border border-2 border-primary">
             <div className="container">
-              <div className="row">
+              <div className="row mt-1">
                 <div className="col" />
                 <div className="col-3">
                   <ToggleButton />
@@ -81,7 +81,6 @@ function App() {
         </div>
       </div>
     </WeatherProvider>
-    // </ThemeProvider>
   );
 }
 
