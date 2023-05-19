@@ -1,6 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
+import { useTheme } from './components/ThemeProvider';
+import ToggleButton from './components/ToggleButton';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -49,11 +51,17 @@ function App() {
     }
   };
 
+  const { theme } = useTheme();
+  const appClass = `App container-fluid ${theme}`;
+
   return (
+    // <ThemeProvider>
     <WeatherProvider geoData={geoData}>
-      <div className="App light container-fluid">
+      {/* <div className="App container-fluid"> */}
+      <div className={appClass}>
         <div className="dashboard-container row">
           <div className="sidebar col-sm-4 border border-2 border-primary">
+            <ToggleButton />
             <label htmlFor="search" className="bg-custom-color">
               <input
                 type="text"
@@ -69,6 +77,7 @@ function App() {
         </div>
       </div>
     </WeatherProvider>
+    // </ThemeProvider>
   );
 }
 

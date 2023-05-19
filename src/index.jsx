@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import ThemeProvider from './components/ThemeProvider';
 
 const axe = require('@axe-core/react');
 
@@ -12,6 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
