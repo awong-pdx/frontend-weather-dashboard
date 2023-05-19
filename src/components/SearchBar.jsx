@@ -1,32 +1,14 @@
 import React, { useState } from 'react';
-import { useInput } from '../hooks/customHooks';
+import { useInput } from '../utilities/customHooks';
+import { validate } from '../utilities/helperFunctions';
 
 export default function SearchBar({ onNewSearch = (f) => f }) {
   const [searchProp, resetSearch] = useInput('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  //   const newErrorMsg = (message) => {
-  //     setErrorMessage(message);
-  //   }
-
-  //     useEffect(() => {
-  //         newErrorMsg(errorMessage);
-  //     }, [errorMessage]);
-  const validate = (input) => {
-    let validated = false;
-    if (input.trim() === '') {
-      setErrorMessage('Please enter a city.');
-    } else {
-      setErrorMessage('');
-      validated = true;
-    }
-
-    return validated;
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (validate(searchProp.value)) {
+    if (validate(searchProp.value, setErrorMessage)) {
       onNewSearch(searchProp.value);
     } else {
       onNewSearch('');
@@ -46,7 +28,7 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
           placeholder="City name"
           //   required
         />
-        {`${errorMessage}`}
+        <p>{`${errorMessage}`}</p>
       </label>
     </form>
   );
