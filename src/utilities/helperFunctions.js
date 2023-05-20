@@ -5,7 +5,6 @@ export const validate = (input, setErrorMessage) => {
   if (input.trim() === '') {
     setErrorMessage('Please enter a city.');
   } else if (regex.test(input) === false) {
-    console.log(regex.test(input));
     setErrorMessage('Please enter a valid city name.');
   } else {
     setErrorMessage('');

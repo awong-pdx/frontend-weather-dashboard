@@ -19,14 +19,13 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="search">
-        Search
+        Search:
         <input
           id="search"
           value={searchProp.value}
           onChange={searchProp.onChange}
           type="text"
           placeholder="City name"
-          //   required
         />
         <p>{`${errorMessage}`}</p>
       </label>
