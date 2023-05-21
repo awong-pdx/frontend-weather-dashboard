@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useWeather } from './WeatherProvider';
+import CreateDailyWeather from '../CreateDailyWeather';
 // import { useTheme } from './ThemeProvider';
 
 export default function DailyWeather() {
@@ -10,8 +11,9 @@ export default function DailyWeather() {
   useEffect(() => {
     if (dailyWeather) {
       const { list } = dailyWeather;
-      const dailyWeatherInfo = list.map((weatherData) => {
+      const dailyWeatherInfo = list.map((weatherData, index) => {
         const weatherObj = {
+          id: index,
           timestamp: weatherData.dt,
           temperature: weatherData.temp.day,
           iconKey: weatherData.weather[0].icon,
@@ -27,6 +29,7 @@ export default function DailyWeather() {
   return (
     <div className="container-fluid">
       <h1>Testing Daily Weather</h1>
+      <CreateDailyWeather />
     </div>
   );
 }
