@@ -5,10 +5,24 @@
 //additional custom code (for classes, etc.) comes after the @import
 .dark {
   background-color: #000;
+  color: #fff;
 }
 
 .light {
   background-color: #fff;
+  color: #000;
+}
+
+.btn-dark {
+  background-color: #000;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-light {
+  background-color: #fff;
+  border-color: #000;
+  color: #000;
 }
 
 .dashboard-container {
