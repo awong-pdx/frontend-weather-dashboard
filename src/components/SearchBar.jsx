@@ -27,8 +27,9 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
           onChange={searchProp.onChange}
           type="text"
           placeholder="City name"
+          aria-required
         />
-        <p>{`${errorMessage}`}</p>
+        <p aria-live="polite">{`${errorMessage}`}</p>
       </label>
     </form>
   );
