@@ -5,6 +5,6 @@ export const useInput = function useFormInputWithUseState(initialValue) {
   const [value, setValue] = useState(initialValue);
   return [
     { value, onChange: (e) => setValue(e.target.value) },
-    () => setValue(initialValue),
+    (resetValue = initialValue) => setValue(resetValue),
   ];
 };

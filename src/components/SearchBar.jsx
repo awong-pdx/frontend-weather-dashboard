@@ -10,10 +10,11 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
     event.preventDefault();
     if (validate(searchProp.value, setErrorMessage)) {
       onNewSearch(searchProp.value);
+      resetSearch();
     } else {
       onNewSearch('');
+      resetSearch(searchProp.value);
     }
-    resetSearch();
   };
 
   return (
