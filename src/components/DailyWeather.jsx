@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useWeather } from './WeatherProvider';
 import CreateDailyWeather from '../CreateDailyWeather';
-// import { useTheme } from './ThemeProvider';
 
 export default function DailyWeather() {
   const { dailyWeather } = useWeather();
-  // const { theme } = useTheme; // to style the daily weather
   const [weather, setWeather] = useState([]);
 
   useEffect(() => {

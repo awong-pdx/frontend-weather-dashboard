@@ -1,7 +1,8 @@
 import React from 'react';
 
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 export default function CreateDailyWeather({ info }) {
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const weatherIconURL = `https://openweathermap.org/img/wn/${info.iconKey}@2x.png`;
 
   const today = new Date(info.timestamp * 1000);
