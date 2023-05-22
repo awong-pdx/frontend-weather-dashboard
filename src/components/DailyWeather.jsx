@@ -20,16 +20,22 @@ export default function DailyWeather() {
         };
         return weatherObj;
       });
-
       setWeather(dailyWeatherInfo);
-      console.log(weather); // remove later
     }
   }, [dailyWeather]);
+
+  if (weather.length === 0) {
+    return null;
+  }
 
   return (
     <div className="container-fluid">
       <h1>Testing Daily Weather</h1>
-      <CreateDailyWeather />
+      <div className="row">
+        {weather.map((element) => (
+          <CreateDailyWeather key={element.id} info={element} />
+        ))}
+      </div>
     </div>
   );
 }
