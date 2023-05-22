@@ -8,10 +8,10 @@ export default function CreateDailyWeather({ info }) {
   const currentDay = today.getDay();
 
   return (
-    <div className="col">
-      <p>{daysOfWeek[currentDay]}</p>
+    <div className="col border border-primary rounded text-center m-1">
+      <h4>{daysOfWeek[currentDay]}</h4>
       <img src={weatherIconURL} alt="Icon representing the current weather" />
-      <p>{info.temperature}</p>
+      <h5>{Math.round(info.temperature)}°</h5>
     </div>
   );
 }
