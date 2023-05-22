@@ -3,6 +3,7 @@ import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
 import ToggleButton from './components/ToggleButton';
+import SearchBar from './components/SearchBar';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -10,6 +11,7 @@ const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 function App() {
   const [geoData, setGeoData] = useState({});
   const { theme } = useTheme();
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     setGeoData({
@@ -46,11 +48,9 @@ function App() {
     }
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      retrieveGeoData(event.target.value);
-    }
-  };
+  useEffect(() => {
+    retrieveGeoData(searchInput);
+  }, [searchInput]);
 
   return (
     <WeatherProvider geoData={geoData}>
@@ -65,14 +65,11 @@ function App() {
                 </div>
               </div>
             </div>
-            <label htmlFor="search" className="bg-custom-color">
-              <input
-                type="text"
-                id="search"
-                name="search"
-                onKeyDown={handleKeyDown}
-              />
-            </label>
+            <SearchBar
+              onNewSearch={(search) => {
+                setSearchInput(search);
+              }}
+            />
           </section>
           <section className="main-dashboard col-sm-8 border border-2 border-primary">
             <p>Our weather dashboard!</p>
