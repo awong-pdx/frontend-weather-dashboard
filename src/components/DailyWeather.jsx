@@ -13,7 +13,8 @@ export default function DailyWeather() {
         const weatherObj = {
           id: index,
           timestamp: weatherData.dt,
-          temperature: weatherData.temp.day,
+          minTemperature: weatherData.temp.min,
+          maxTemperature: weatherData.temp.max,
           iconKey: weatherData.weather[0].icon,
         };
         return weatherObj;
