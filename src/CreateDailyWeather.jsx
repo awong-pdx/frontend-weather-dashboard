@@ -2,16 +2,24 @@ import React from 'react';
 
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export default function CreateDailyWeather({ info }) {
-  const weatherIconURL = `https://openweathermap.org/img/wn/${info.iconKey}@2x.png`;
-  
-  const today = new Date(info.timestamp * 1000);
+export default function CreateDailyWeather({ weatherInfo }) {
+  const {
+    timestamp,
+    minTemperature,
+    maxTemperature,
+    iconKey,
+    weatherDescription,
+  } = weatherInfo;
+
+  const weatherIconURL = `https://openweathermap.org/img/wn/${iconKey}@2x.png`;
+
+  const today = new Date(timestamp * 1000);
   const currentDay = today.getDay();
   const currentMonth = today.getMonth();
   const currentDayOfMonth = today.getDate();
 
-  const minTemp = Math.round(info.minTemperature);
-  const maxTemp = Math.round(info.maxTemperature);
+  const minTemp = Math.round(minTemperature);
+  const maxTemp = Math.round(maxTemperature);
 
   return (
     <div className="col border border-primary rounded text-center m-1">
@@ -21,7 +29,7 @@ export default function CreateDailyWeather({ info }) {
       </p>
       <img
         src={weatherIconURL}
-        alt={`Weather icon representing ${info.weatherDescription}`}
+        alt={`Weather icon representing ${weatherDescription}`}
       />
       <p>
         <span className="text-secondary">{minTemp}° </span>/ {maxTemp}°
