@@ -4,7 +4,7 @@ const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default function CreateDailyWeather({ info }) {
   const weatherIconURL = `https://openweathermap.org/img/wn/${info.iconKey}@2x.png`;
-
+  
   const today = new Date(info.timestamp * 1000);
   const currentDay = today.getDay();
   const currentMonth = today.getMonth();
@@ -19,7 +19,10 @@ export default function CreateDailyWeather({ info }) {
       <p>
         {currentMonth + 1}/{currentDayOfMonth}
       </p>
-      <img src={weatherIconURL} alt="Icon representing the current weather" />
+      <img
+        src={weatherIconURL}
+        alt={`Weather icon representing ${info.weatherDescription}`}
+      />
       <p>
         <span className="text-secondary">{minTemp}° </span>/ {maxTemp}°
       </p>

@@ -16,6 +16,7 @@ export default function DailyWeather() {
           minTemperature: weatherData.temp.min,
           maxTemperature: weatherData.temp.max,
           iconKey: weatherData.weather[0].icon,
+          weatherDescription: weatherData.weather[0].description,
         };
         return weatherObj;
       });
