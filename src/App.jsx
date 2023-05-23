@@ -4,6 +4,7 @@ import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
 import ToggleButton from './components/ToggleButton';
 import SearchBar from './components/SearchBar';
+import DailyWeather from './components/DailyWeather';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -73,6 +74,7 @@ function App() {
           </section>
           <section className="main-dashboard col-sm-8 border border-2 border-primary">
             <p>Our weather dashboard!</p>
+            <DailyWeather />
           </section>
         </div>
       </div>
