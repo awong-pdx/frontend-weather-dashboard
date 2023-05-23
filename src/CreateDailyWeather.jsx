@@ -7,12 +7,18 @@ export default function CreateDailyWeather({ info }) {
 
   const today = new Date(info.timestamp * 1000);
   const currentDay = today.getDay();
+  const currentMonth = today.getMonth();
+  const currentDayOfMonth = today.getDate();
+
   const minTemp = Math.round(info.minTemperature);
   const maxTemp = Math.round(info.maxTemperature);
 
   return (
     <div className="col border border-primary rounded text-center m-1">
-      <h4>{daysOfWeek[currentDay]}</h4>
+      <h5>{daysOfWeek[currentDay]}</h5>
+      <p>
+        {currentMonth + 1}/{currentDayOfMonth}
+      </p>
       <img src={weatherIconURL} alt="Icon representing the current weather" />
       <p>
         <span className="text-secondary">{minTemp}° </span>/ {maxTemp}°

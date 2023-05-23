@@ -29,7 +29,6 @@ export default function DailyWeather() {
 
   return (
     <div className="container-fluid">
-      <h1>Testing Daily Weather</h1>
       <div className="row">
         {weather.map((element) => (
           <CreateDailyWeather key={element.id} info={element} />
