@@ -2,9 +2,10 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
-import ToggleButton from './components/ToggleButton';
-import SearchBar from './components/SearchBar';
+// import ToggleButton from './components/ToggleButton';
+// import SearchBar from './components/SearchBar';
 import DailyWeather from './components/DailyWeather';
+import Sidebar from './components/Sidebar';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -57,21 +58,11 @@ function App() {
     <WeatherProvider geoData={geoData}>
       <div className={`App container-fluid ${theme}`}>
         <div className="dashboard-container row">
-          <section className="sidebar col-sm-4 border border-2 border-primary">
-            <div className="container">
-              <div className="row mt-1">
-                <div className="col" />
-                <div className="col-sm-4 col-3 col-xl-2">
-                  <ToggleButton />
-                </div>
-              </div>
-            </div>
-            <SearchBar
-              onNewSearch={(search) => {
-                setSearchInput(search);
-              }}
-            />
-          </section>
+          <Sidebar
+            onNewSearch={(search) => {
+              setSearchInput(search);
+            }}
+          />
           <section className="main-dashboard col-sm-8 border border-2 border-primary">
             <p>Our weather dashboard!</p>
             <DailyWeather />
