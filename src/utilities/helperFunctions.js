@@ -36,16 +36,19 @@ export const getHourString = function getFormattedHourStringFromDate(
 ) {
   // const localHoursIn24Format = date.getHours();
   // const hoursIn24Format = date.getHours();
-  const offsetHours =
-    (date.getTimezoneOffset() / 60 + timezone / 3600 + date.getHours()) % 24;
+  const localTime = date.getHours();
+  const localGMTOffsetInHours = date.getTimezoneOffset() / 60;
+  const cityGMTOffsetInHours = timezone / 3600;
+  const cityTime =
+    (localGMTOffsetInHours + cityGMTOffsetInHours + localTime) % 24;
   let hourString;
 
-  if (offsetHours < 12) {
-    if (offsetHours === 0) hourString = 'midnight';
-    else hourString = `${offsetHours} am`;
-  } else if (offsetHours > 12) {
-    if (offsetHours === 12) hourString = 'noon';
-    else hourString = `${offsetHours - 12} pm`;
+  if (cityTime < 12) {
+    if (cityTime === 0) hourString = 'midnight';
+    else hourString = `${cityTime} am`;
+  } else if (cityTime > 12) {
+    if (cityTime === 12) hourString = 'noon';
+    else hourString = `${cityTime - 12} pm`;
   }
 
   return hourString;
