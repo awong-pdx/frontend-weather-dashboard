@@ -3,20 +3,23 @@ import { useWeather } from './WeatherProvider';
 
 const toCapitalized = function capitalizeString(str) {
   if (!str) return '';
+
   const words = str.split(' ');
   const capitalizedWords = words.map(
     (word) => `${word.charAt(0).toUpperCase()}${word.substring(1)}`
   );
+
   return capitalizedWords.join(' ');
 };
 
-const toLocalDate = function convertTimestampToHour(timestamp) {
+const toLocalDate = function convertTimestampTo24Hour(timestamp) {
   return new Date(timestamp * 1000);
 };
 
-const getHourString = function getHourFromDate(date) {
+const getHourString = function getFormattedHourStringFromDate(date) {
   const hoursIn24Format = date.getHours();
   let hourString;
+
   if (hoursIn24Format < 12) {
     if (hoursIn24Format === 0) hourString = 'midnight';
     else hourString = `${hoursIn24Format} am`;
@@ -24,8 +27,8 @@ const getHourString = function getHourFromDate(date) {
     if (hoursIn24Format === 12) hourString = 'noon';
     else hourString = `${hoursIn24Format - 12} pm`;
   }
+
   return hourString;
-  // return date.getHours() > 12 ? `${date.getHours() - 12}` : date.getHours();
 };
 
 const getIconSrc = function getWeatherIconSrc(iconId) {
@@ -39,27 +42,17 @@ export default function WeatherSummary() {
   const summaryHeader = `${currentWeather.name}, ${currentWeather.sys.country}`;
   const summaryIconURL = getIconSrc(currentWeather.weather[0].icon);
   const summaryIconAltText = `An icon representing ${currentWeather.weather[0].description}`;
-  //   const summaryIcon = (
-  //     <img
-  //       className="img-fluid"
-  //       src={summaryIconURL}
-  //       alt={summaryIconAltDescription}
-  //     />
-  //   );
   const summaryDescription = `${toCapitalized(
     currentWeather.weather[0].description
   )}`;
-  const summaryTemperature = `${currentWeather.main.temp}°`;
-
-  //   const getHourly = function getWeatherForHour(weatherForHour) {
-  //     return weatherForHour.weather[0].description;
-  //   };
+  const summaryTemperature = `${Math.round(currentWeather.main.temp)}°`;
 
   const hourlyForecast = hourlyWeather.list
     .slice(0, 4)
     .map((weatherForHour) => (
       <div key={weatherForHour.dt} className="row align-items-center">
-        <div className="col">
+        <div className="col" />
+        <div className="col fs-4">
           {getHourString(toLocalDate(weatherForHour.dt))}
         </div>
         <div className="col">
@@ -68,15 +61,16 @@ export default function WeatherSummary() {
             alt={`An icon representing ${weatherForHour.weather[0].description}`}
           />
         </div>
+        <div className="col" />
       </div>
     ));
 
   return (
-    <div className="container text-center border border-primary rounded">
-      <h3 className="row justify-content-center">{summaryHeader}</h3>
+    <div className="weather-summary container text-center border border-primary rounded">
+      <h2 className="row justify-content-center">{summaryHeader}</h2>
       <img src={summaryIconURL} alt={summaryIconAltText} />
-      <h4 className="row justify-content-center">{summaryDescription}</h4>
-      <h4 className="row justify-content-center">{summaryTemperature}</h4>
+      <h3 className="row justify-content-center">{summaryDescription}</h3>
+      <h3 className="row justify-content-center">{summaryTemperature}</h3>
       {hourlyForecast}
     </div>
   );

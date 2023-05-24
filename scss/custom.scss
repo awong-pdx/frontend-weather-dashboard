@@ -29,6 +29,9 @@
   height: 100vh;
 }
 .sidebar {
+  .weather-summary {
+    max-width: 75%;
+  }
 }
 
 .main-dashboard {
