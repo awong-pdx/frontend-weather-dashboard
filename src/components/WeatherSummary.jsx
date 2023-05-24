@@ -1,39 +1,11 @@
 import React from 'react';
 import { useWeather } from './WeatherProvider';
-
-const toCapitalized = function capitalizeString(str) {
-  if (!str) return '';
-
-  const words = str.split(' ');
-  const capitalizedWords = words.map(
-    (word) => `${word.charAt(0).toUpperCase()}${word.substring(1)}`
-  );
-
-  return capitalizedWords.join(' ');
-};
-
-const toLocalDate = function convertTimestampTo24Hour(timestamp) {
-  return new Date(timestamp * 1000);
-};
-
-const getHourString = function getFormattedHourStringFromDate(date) {
-  const hoursIn24Format = date.getHours();
-  let hourString;
-
-  if (hoursIn24Format < 12) {
-    if (hoursIn24Format === 0) hourString = 'midnight';
-    else hourString = `${hoursIn24Format} am`;
-  } else if (hoursIn24Format > 12) {
-    if (hoursIn24Format === 12) hourString = 'noon';
-    else hourString = `${hoursIn24Format - 12} pm`;
-  }
-
-  return hourString;
-};
-
-const getIconSrc = function getWeatherIconSrc(iconId) {
-  return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
-};
+import {
+  toCapitalized,
+  toLocalDate,
+  getHourString,
+  getIconSrc,
+} from '../utilities/helperFunctions';
 
 export default function WeatherSummary() {
   const { currentWeather, hourlyWeather } = useWeather();
