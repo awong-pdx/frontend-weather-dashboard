@@ -19,7 +19,10 @@ export const toCapitalized = function capitalizeString(str) {
 
   const words = str.split(' ');
   const capitalizedWords = words.map(
-    (word) => `${word.charAt(0).toUpperCase()}${word.substring(1)}`
+    (word) =>
+      `${word.charAt(0).toUpperCase()}${
+        word.length > 1 ? word.substring(1) : ''
+      }`
   );
 
   return capitalizedWords.join(' ');
@@ -30,23 +33,25 @@ export const toLocalDate = function convertTimestampToLocalDate(timestamp) {
   return new Date(timestamp * 1000);
 };
 
+// returns an hour string in the city's local time
 export const getHourString = function getFormattedHourStringFromDate(
   date,
   timezone
 ) {
-  // const localHoursIn24Format = date.getHours();
-  // const hoursIn24Format = date.getHours();
-  const localTime = date.getHours();
-  const localGMTOffsetInHours = date.getTimezoneOffset() / 60;
+  // const localTime = date.getHours();
+  const gmtTimeInHours = date.getUTCHours();
+  // const localGMTOffsetInHours = date.getTimezoneOffset() / 60;
   const cityGMTOffsetInHours = timezone / 3600;
-  const cityTime =
-    (localGMTOffsetInHours + cityGMTOffsetInHours + localTime) % 24;
+  let cityTime = Math.round(gmtTimeInHours + cityGMTOffsetInHours);
+  if (cityTime < 0) cityTime += 24;
+  // const cityTime =
+  //   (localGMTOffsetInHours + cityGMTOffsetInHours + localTime) % 24;
   let hourString;
 
   if (cityTime < 12) {
     if (cityTime === 0) hourString = 'midnight';
     else hourString = `${cityTime} am`;
-  } else if (cityTime > 12) {
+  } else if (cityTime > 11) {
     if (cityTime === 12) hourString = 'noon';
     else hourString = `${cityTime - 12} pm`;
   }
