@@ -25,20 +25,27 @@ export const toCapitalized = function capitalizeString(str) {
   return capitalizedWords.join(' ');
 };
 
+// returns a date in local time (GMT +/- local timezone)
 export const toLocalDate = function convertTimestampToLocalDate(timestamp) {
   return new Date(timestamp * 1000);
 };
 
-export const getHourString = function getFormattedHourStringFromDate(date) {
-  const hoursIn24Format = date.getHours();
+export const getHourString = function getFormattedHourStringFromDate(
+  date,
+  timezone
+) {
+  // const localHoursIn24Format = date.getHours();
+  // const hoursIn24Format = date.getHours();
+  const offsetHours =
+    (date.getTimezoneOffset() / 60 + timezone / 3600 + date.getHours()) % 24;
   let hourString;
 
-  if (hoursIn24Format < 12) {
-    if (hoursIn24Format === 0) hourString = 'midnight';
-    else hourString = `${hoursIn24Format} am`;
-  } else if (hoursIn24Format > 12) {
-    if (hoursIn24Format === 12) hourString = 'noon';
-    else hourString = `${hoursIn24Format - 12} pm`;
+  if (offsetHours < 12) {
+    if (offsetHours === 0) hourString = 'midnight';
+    else hourString = `${offsetHours} am`;
+  } else if (offsetHours > 12) {
+    if (offsetHours === 12) hourString = 'noon';
+    else hourString = `${offsetHours - 12} pm`;
   }
 
   return hourString;

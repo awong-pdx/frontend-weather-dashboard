@@ -11,6 +11,7 @@ export default function WeatherSummary() {
   const { currentWeather, hourlyWeather } = useWeather();
   if (!(currentWeather && hourlyWeather)) return null;
 
+  const { timezone } = currentWeather;
   const summaryHeader = `${currentWeather.name}, ${currentWeather.sys.country}`;
   const summaryIconURL = getIconSrc(currentWeather.weather[0].icon);
   const summaryIconAltText = `An icon representing ${currentWeather.weather[0].description}`;
@@ -25,7 +26,7 @@ export default function WeatherSummary() {
       <div key={weatherForHour.dt} className="row align-items-center">
         <div className="col" />
         <div className="col fs-4">
-          {getHourString(toLocalDate(weatherForHour.dt))}
+          {getHourString(toLocalDate(weatherForHour.dt), timezone)}
         </div>
         <div className="col">
           <img
