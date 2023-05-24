@@ -31,14 +31,14 @@
 .sidebar {
   .search-bar {
     max-width: 100%;
-    .label {
+    label {
       max-width: inherit;
-      .input {
+      input {
         max-width: inherit;
       }
     }
   }
-  .weather-summary {
+  .summary-weather {
     max-width: 75%;
   }
 }

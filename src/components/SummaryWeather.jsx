@@ -7,7 +7,7 @@ import {
   getIconSrc,
 } from '../utilities/helperFunctions';
 
-export default function WeatherSummary() {
+export default function SummaryWeather() {
   const { currentWeather, hourlyWeather } = useWeather();
   if (!(currentWeather && hourlyWeather)) return null;
 
@@ -39,7 +39,7 @@ export default function WeatherSummary() {
     ));
 
   return (
-    <div className="weather-summary container py-4 text-center border border-primary rounded">
+    <div className="summary-weather container py-4 text-center border border-primary rounded">
       <h2 className="row justify-content-center fs-1">{summaryHeader}</h2>
       <h3 className="row justify-content-center fs-1">{summaryTemperature}</h3>
       <img

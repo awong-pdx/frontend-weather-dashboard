@@ -1,7 +1,7 @@
 import React from 'react';
 import ToggleButton from './ToggleButton';
 import SearchBar from './SearchBar';
-import WeatherSummary from './WeatherSummary';
+import SummaryWeather from './SummaryWeather';
 
 export default function Sidebar({ onNewSearch }) {
   return (
@@ -17,7 +17,7 @@ export default function Sidebar({ onNewSearch }) {
           <SearchBar onNewSearch={onNewSearch} />
         </div>
         <div className="row">
-          <WeatherSummary />
+          <SummaryWeather />
         </div>
       </div>
     </section>

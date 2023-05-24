@@ -33,19 +33,18 @@ export const toLocalDate = function convertTimestampToLocalDate(timestamp) {
   return new Date(timestamp * 1000);
 };
 
-// returns an hour string in the city's local time
+// returns an hour string (12-hour format) in the city's local time
 export const getHourString = function getFormattedHourStringFromDate(
   date,
   timezone
 ) {
-  // const localTime = date.getHours();
-  const gmtTimeInHours = date.getUTCHours();
-  // const localGMTOffsetInHours = date.getTimezoneOffset() / 60;
-  const cityGMTOffsetInHours = timezone / 3600;
-  let cityTime = Math.round(gmtTimeInHours + cityGMTOffsetInHours);
+  const UTCTimeInHours = date.getUTCHours();
+  const secondsInHour = 3600;
+  const cityUTCOffsetInHours = timezone / secondsInHour;
+  // rounding to correct for unusual timezones, i.e. UTC +3:30
+  let cityTime = Math.round(UTCTimeInHours + cityUTCOffsetInHours);
   if (cityTime < 0) cityTime += 24;
-  // const cityTime =
-  //   (localGMTOffsetInHours + cityGMTOffsetInHours + localTime) % 24;
+  else if (cityTime > 23) cityTime %= 24;
   let hourString;
 
   if (cityTime < 12) {
