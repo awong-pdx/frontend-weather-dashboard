@@ -29,6 +29,15 @@
   height: 100vh;
 }
 .sidebar {
+  .search-bar {
+    max-width: 100%;
+    .label {
+      max-width: inherit;
+      .input {
+        max-width: inherit;
+      }
+    }
+  }
   .weather-summary {
     max-width: 75%;
   }

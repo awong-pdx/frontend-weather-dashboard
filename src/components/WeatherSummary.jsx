@@ -66,11 +66,18 @@ export default function WeatherSummary() {
     ));
 
   return (
-    <div className="weather-summary container text-center border border-primary rounded">
-      <h2 className="row justify-content-center">{summaryHeader}</h2>
-      <img src={summaryIconURL} alt={summaryIconAltText} />
-      <h3 className="row justify-content-center">{summaryDescription}</h3>
-      <h3 className="row justify-content-center">{summaryTemperature}</h3>
+    <div className="weather-summary container py-4 text-center border border-primary rounded">
+      <h2 className="row justify-content-center fs-1">{summaryHeader}</h2>
+      <h3 className="row justify-content-center fs-1">{summaryTemperature}</h3>
+      <img
+        src={summaryIconURL}
+        alt={summaryIconAltText}
+        height="200px"
+        width="200px"
+      />
+      <h3 className="row justify-content-center fs-2 mb-2">
+        {summaryDescription}
+      </h3>
       {hourlyForecast}
     </div>
   );

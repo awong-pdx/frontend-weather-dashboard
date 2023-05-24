@@ -5,17 +5,21 @@ import WeatherSummary from './WeatherSummary';
 
 export default function Sidebar({ onNewSearch }) {
   return (
-    <section className="sidebar col-sm-4 border border-2 border-primary">
+    <section className="sidebar text-center col-sm-4 border border-2 border-primary">
       <div className="container">
-        <div className="row mt-1">
+        <div className="row mt-2">
           <div className="col" />
           <div className="col-sm-4 col-3 col-xl-2">
             <ToggleButton />
           </div>
         </div>
+        <div className="row">
+          <SearchBar onNewSearch={onNewSearch} />
+        </div>
+        <div className="row">
+          <WeatherSummary />
+        </div>
       </div>
-      <SearchBar onNewSearch={onNewSearch} />
-      <WeatherSummary />
     </section>
   );
 }
