@@ -2,8 +2,6 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
-// import ToggleButton from './components/ToggleButton';
-// import SearchBar from './components/SearchBar';
 import DailyWeather from './components/DailyWeather';
 import Sidebar from './components/Sidebar';
 
