@@ -37,6 +37,19 @@ export default function SummaryWeather() {
         <div className="col" />
       </div>
     ));
+  // const hourlyForecast = hourlyWeather.list
+  // .slice(0, 4)
+  // .map((weatherForHour) => (
+  //   <div key={weatherForHour.dt}>
+  //     <div className="fs-4">
+  //       {getHourString(toLocalDate(weatherForHour.dt), timezone)}
+  //       <img
+  //         src={getIconSrc(weatherForHour.weather[0].icon)}
+  //         alt={An icon representing ${weatherForHour.weather[0].description}}
+  //       />
+  //     </div>
+  //   </div>
+  // ));
 
   return (
     <div className="summary-weather container py-4 text-center border border-primary rounded">
@@ -54,4 +67,20 @@ export default function SummaryWeather() {
       {hourlyForecast}
     </div>
   );
+  // return (
+  //   <div className="summary-weather d-flex flex-column w-75 m-auto mt-3 border border-primary rounded">
+  //     <h2>{summaryHeader}</h2>
+  //     <h3>{summaryTemperature}</h3>
+  //     <div>
+  //       <img
+  //         src={summaryIconURL}
+  //         alt={summaryIconAltText}
+  //         height="150px"
+  //         width="150px"
+  //       />
+  //     </div>
+  //     <h3>{summaryDescription}</h3>
+  //     {hourlyForecast}
+  //   </div>
+  // );
 }
