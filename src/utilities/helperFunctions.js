@@ -48,10 +48,10 @@ export const getHourString = function getFormattedHourStringFromDate(
   let hourString;
 
   if (cityTime < 12) {
-    if (cityTime === 0) hourString = 'midnight';
+    if (cityTime === 0) hourString = '12 am';
     else hourString = `${cityTime} am`;
   } else if (cityTime > 11) {
-    if (cityTime === 12) hourString = 'noon';
+    if (cityTime === 12) hourString = '12 pm';
     else hourString = `${cityTime - 12} pm`;
   }
 
