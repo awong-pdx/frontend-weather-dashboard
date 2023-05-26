@@ -27,9 +27,18 @@
 
 .dashboard-container {
   height: 100vh;
+  max-height: 100vh;
 }
+
 .sidebar {
+  max-height: inherit;
+  .toggle-button {
+    display: block;
+    margin-top: 0.5vw;
+    margin-left: auto;
+  }
   .search-bar {
+    margin-top: 0.5vw;
     max-width: 100%;
     label {
       max-width: inherit;
@@ -39,7 +48,9 @@
     }
   }
   .summary-weather {
-    max-width: 75%;
+    max-width: 85%;
+    max-height: 85%;
+    overflow: hidden auto;
   }
 }
 

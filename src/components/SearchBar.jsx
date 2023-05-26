@@ -18,7 +18,7 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   };
 
   return (
-    <form className="search-bar" onSubmit={handleSubmit}>
+    <form className="search-bar text-center" onSubmit={handleSubmit}>
       <label htmlFor="search">
         Search:
         <input
