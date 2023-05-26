@@ -29,10 +29,13 @@ export default function DailyWeather() {
   }
 
   return (
-    <div className="container-fluid">
-      <div className="row">
+    <div>
+      <div className="row px-2">
         {weather.map((dailyForecastData) => (
-          <CreateDailyWeather key={dailyForecastData.id} weatherInfo={dailyForecastData} />
+          <CreateDailyWeather
+            key={dailyForecastData.id}
+            weatherInfo={dailyForecastData}
+          />
         ))}
       </div>
     </div>
