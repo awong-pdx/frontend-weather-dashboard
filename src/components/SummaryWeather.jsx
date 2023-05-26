@@ -21,9 +21,9 @@ export default function SummaryWeather() {
   const summaryTemperature = `${Math.round(currentWeather.main.temp)}°`;
 
   const hourlyForecast = hourlyWeather.list
-    .slice(0, 4)
+    .slice(0, 5)
     .map((weatherForHour) => (
-      <div key={weatherForHour.dt} className="fs-4">
+      <div key={weatherForHour.dt} className="summary-font-4">
         {getHourString(toLocalDate(weatherForHour.dt), timezone)}
         <img
           src={getIconSrc(weatherForHour.weather[0].icon)}
@@ -33,10 +33,10 @@ export default function SummaryWeather() {
     ));
 
   return (
-    <section className="summary-weather d-flex flex-column align-items-center py-4 m-auto border border-primary rounded">
-      <h1>{summaryHeader}</h1>
-      <p className="fs-1">{summaryTemperature}</p>
-      <div>
+    <section className="summary-weather m-auto border border-primary rounded">
+      <h1 className="summary-font-1">{summaryHeader}</h1>
+      <p className="summary-font-1">{summaryTemperature}</p>
+      <div className="summary-image">
         <img
           className="img-fluid"
           src={summaryIconURL}
@@ -45,9 +45,13 @@ export default function SummaryWeather() {
           alt={summaryIconAltText}
         />
       </div>
-      <p className="mb-2 fs-2">{summaryDescription}</p>
-      <h2 className="visually-hidden">Hourly Forecast</h2>
-      {hourlyForecast}
+      <p className="summary-description mb-2 summary-font-2">
+        {summaryDescription}
+      </p>
+      <div className="summary-hourly">
+        <h2 className="visually-hidden">Hourly Forecast</h2>
+        {hourlyForecast}
+      </div>
     </section>
   );
 }
