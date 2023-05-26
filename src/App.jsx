@@ -54,7 +54,7 @@ function App() {
 
   return (
     <WeatherProvider geoData={geoData}>
-      <div className={`App container-fluid ${theme}`}>
+      <main className={`App container-fluid ${theme}`}>
         <div className="dashboard-container row">
           <Sidebar
             onNewSearch={(search) => {
@@ -66,7 +66,7 @@ function App() {
             <DailyWeather />
           </section>
         </div>
-      </div>
+      </main>
     </WeatherProvider>
   );
 }
