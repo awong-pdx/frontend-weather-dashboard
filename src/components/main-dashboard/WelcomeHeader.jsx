@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default function WelcomeHeader() {
-  return <h1>This is our weather dashboard</h1>;
+  return (
+    <div className="row mb-5">
+      <h1>Welcome to our weather dashboard!</h1>
+    </div>
+  );
 }
