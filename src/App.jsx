@@ -2,8 +2,8 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
-import DailyWeather from './components/DailyWeather';
-import Sidebar from './components/Sidebar';
+import DailyWeather from './components/main-dashboard/DailyWeather';
+import Sidebar from './components/sidebar/Sidebar';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;

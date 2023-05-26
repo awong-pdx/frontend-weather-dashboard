@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useWeather } from './WeatherProvider';
-import CreateDailyWeather from '../CreateDailyWeather';
+import { useWeather } from '../WeatherProvider';
+import CreateDailyWeather from '../../CreateDailyWeather';
 
 export default function DailyWeather() {
   const { dailyWeather } = useWeather();

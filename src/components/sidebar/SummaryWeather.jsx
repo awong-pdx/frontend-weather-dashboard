@@ -1,11 +1,11 @@
 import React from 'react';
-import { useWeather } from './WeatherProvider';
+import { useWeather } from '../WeatherProvider';
 import {
   toCapitalized,
   toLocalDate,
   getHourString,
   getIconSrc,
-} from '../utilities/helperFunctions';
+} from '../../utilities/helperFunctions';
 
 export default function SummaryWeather() {
   const { currentWeather, hourlyWeather } = useWeather();

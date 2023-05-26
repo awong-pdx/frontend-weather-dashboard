@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useInput } from '../utilities/customHooks';
-import { validate } from '../utilities/helperFunctions';
+import { useInput } from '../../utilities/customHooks';
+import { validate } from '../../utilities/helperFunctions';
 
 export default function SearchBar({ onNewSearch = (f) => f }) {
   const [searchProp, resetSearch] = useInput('');
