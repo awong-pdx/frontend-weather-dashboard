@@ -2,8 +2,8 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
-import DailyWeather from './components/main-dashboard/DailyWeather';
 import Sidebar from './components/sidebar/Sidebar';
+import MainDashboard from './components/main-dashboard/MainDashboard';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -61,10 +61,7 @@ function App() {
               setSearchInput(search);
             }}
           />
-          <section className="main-dashboard col-sm-8 border border-2 border-primary">
-            <p>Our weather dashboard!</p>
-            <DailyWeather />
-          </section>
+          <MainDashboard />
         </div>
       </main>
     </WeatherProvider>
