@@ -75,8 +75,37 @@
       position: relative;
       bottom: 80px;
     }
+    .summary-hourly {
+      position: relative;
+      bottom: 60px;
+    }
 
     @media (min-width: 768px) {
+      max-height: 85%;
+
+      .summary-font-1 {
+        font-size: 3.5em;
+      }
+      .summary-font-2 {
+        font-size: 3em;
+      }
+      .summary-font-4 {
+        font-size: 2.5em;
+      }
+      .summary-image {
+        position: relative;
+        bottom: 55px;
+      }
+      .summary-description {
+        position: relative;
+        bottom: 65px;
+      }
+      .summary-hourly {
+        position: relative;
+        bottom: 40px;
+      }
+    }
+    @media (min-width: 1400px) {
       max-height: 85%;
 
       .summary-font-1 {
