@@ -61,3 +61,18 @@ export const getHourString = function getFormattedHourStringFromDate(
 export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
+
+export const getCurrentTime = () => {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  let minute = currentTime.getMinutes().toString();
+  if (minute.length === 1) minute = `0${minute}`;
+  let seconds = currentTime.getSeconds().toString();
+  if (seconds.length === 1) seconds = `0${seconds}`;
+
+  const timeOfDay = hours < 12 ? 'AM' : 'PM';
+  const convertedTime = hours > 12 ? hours - 12 : hours;
+  const fullTime = `${convertedTime}:${minute}:${seconds}${timeOfDay}`;
+
+  return fullTime;
+};

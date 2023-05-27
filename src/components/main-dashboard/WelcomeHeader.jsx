@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentTime } from '../../utilities/customHooks';
+import { getCurrentTime } from '../../utilities/helperFunctions';
 
 export default function WelcomeHeader() {
   const [time, setTime] = useState(0);
@@ -12,7 +12,7 @@ export default function WelcomeHeader() {
     return () => {
       clearTimeout(timer);
     };
-  });
+  }, [time]);
 
   return (
     <div className="row justify-content-end mb-2">
