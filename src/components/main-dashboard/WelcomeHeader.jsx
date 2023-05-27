@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getCurrentTime } from '../../utilities/helperFunctions';
 
 export default function WelcomeHeader() {
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(getCurrentTime());
 
   useEffect(() => {
     const timer = setTimeout(() => {
