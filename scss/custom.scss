@@ -136,3 +136,20 @@
 .main-dashboard {
   min-height: 80%;
 }
+
+.animation-wrapper {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading-bar {
+  width: 6rem;
+  height: 6rem;
+}
+
+.loading-screen {
+  opacity: 0.5;
+}
