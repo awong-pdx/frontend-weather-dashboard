@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentTime } from '../../utilities/helperFunctions';
+import {
+  getCurrentDate,
+  getCurrentTime,
+} from '../../utilities/helperFunctions';
 
 export default function WelcomeHeader() {
   const [time, setTime] = useState(getCurrentTime());
+  const currentDay = getCurrentDate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,9 +20,10 @@ export default function WelcomeHeader() {
 
   return (
     <div className="row justify-content-end mb-2">
-      <div className="col-6 text-end">
-        <p>{time}</p>
-        <h2>Welcome to our weather dashboard!</h2>
+      <div className="welcome-header col-8 text-end">
+        <h2>Welcome back *name!</h2>
+        <p>{currentDay}</p>
+        <p>Current local time: {time}</p>
       </div>
     </div>
   );

@@ -64,15 +64,17 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
 
 export const getCurrentTime = () => {
   const currentTime = new Date();
-  const hours = currentTime.getHours();
-  let minute = currentTime.getMinutes().toString();
-  if (minute.length === 1) minute = `0${minute}`;
-  let seconds = currentTime.getSeconds().toString();
-  if (seconds.length === 1) seconds = `0${seconds}`;
+  return currentTime.toLocaleTimeString('en-US');
+};
 
-  const timeOfDay = hours < 12 ? 'AM' : 'PM';
-  const convertedTime = hours > 12 ? hours - 12 : hours;
-  const fullTime = `${convertedTime}:${minute}:${seconds}${timeOfDay}`;
+export const getCurrentDate = () => {
+  const currentDate = new Date();
 
-  return fullTime;
+  const options = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
+  return currentDate.toLocaleDateString('en-US', options);
 };
