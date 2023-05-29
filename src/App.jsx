@@ -66,7 +66,7 @@ function App() {
           <h4>Loading...</h4>
         </div>
       )}
-      <WeatherProvider geoData={geoData} loading={setLoading}>
+      <WeatherProvider geoData={geoData} loadingAnimation={setLoading}>
         <main
           className={`App container-fluid ${theme} ${
             loading ? 'loading-screen' : ''

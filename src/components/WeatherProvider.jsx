@@ -12,7 +12,7 @@ const WeatherContext = createContext();
 export const useWeather = () => useContext(WeatherContext);
 
 export default function WeatherProvider(props) {
-  const { geoData, loading, children } = props;
+  const { geoData, loadingAnimation, children } = props;
 
   const [currentWeather, setCurrentWeather] = useState();
   const [hourlyWeather, setHourlyWeather] = useState();
@@ -36,7 +36,7 @@ export default function WeatherProvider(props) {
     setCurrentWeather(current);
     setHourlyWeather(hourly);
     setDailyWeather(daily);
-    loading(false);
+    loadingAnimation(false);
   };
 
   useEffect(() => {

@@ -6,23 +6,24 @@ import {
 
 export default function WelcomeHeader() {
   const [time, setTime] = useState(getCurrentTime());
-  const currentDay = getCurrentDate();
+  const [currentDate, setCurrentDate] = useState(getCurrentDate());
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setTime(getCurrentTime());
+      setCurrentDate(getCurrentDate());
     }, 1000);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [time]);
+  }, [time, currentDate]);
 
   return (
     <div className="row justify-content-end mb-2">
       <div className="welcome-header col-8 text-end mt-2">
-        <h2>Welcome back *name!</h2>
-        <p>{currentDay}</p>
+        <h2>Welcome back insertName!</h2>
+        <p>{currentDate}</p>
         <p>Current local time: {time}</p>
       </div>
     </div>
