@@ -78,3 +78,19 @@ export const getCurrentDate = () => {
   };
   return currentDate.toLocaleDateString('en-US', options);
 };
+
+export const getTimeNoSec = (timestamp) => {
+  const currentTime = new Date(timestamp * 1000);
+  const currentMinute = currentTime.getMinutes();
+  let currentHour = currentTime.getHours();
+  let period = 'AM';
+
+  if (currentHour >= 12) {
+    period = 'PM';
+    if (currentHour > 12) {
+      currentHour -= 12;
+    }
+  }
+
+  return `${currentHour}:${currentMinute} ${period}`;
+};
