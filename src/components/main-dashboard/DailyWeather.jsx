@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useWeather } from './WeatherProvider';
-import CreateDailyWeather from '../CreateDailyWeather';
+import { useWeather } from '../WeatherProvider';
+import CreateDailyWeather from '../../CreateDailyWeather';
 
 export default function DailyWeather() {
   const { dailyWeather } = useWeather();
@@ -29,12 +29,13 @@ export default function DailyWeather() {
   }
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        {weather.map((dailyForecastData) => (
-          <CreateDailyWeather key={dailyForecastData.id} weatherInfo={dailyForecastData} />
-        ))}
-      </div>
+    <div className="row px-2">
+      {weather.map((dailyForecastData) => (
+        <CreateDailyWeather
+          key={dailyForecastData.id}
+          weatherInfo={dailyForecastData}
+        />
+      ))}
     </div>
   );
 }

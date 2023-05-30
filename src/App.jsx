@@ -1,24 +1,22 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
+import Bars from 'react-loading-icons/dist/esm/components/bars';
 import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
-import DailyWeather from './components/DailyWeather';
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/sidebar/Sidebar';
+import MainDashboard from './components/main-dashboard/MainDashboard';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 function App() {
-  const [geoData, setGeoData] = useState({});
+  const [geoData, setGeoData] = useState({
+    longitude: -122.674194,
+    latitude: 45.5202471,
+  });
   const { theme } = useTheme();
   const [searchInput, setSearchInput] = useState('');
-
-  useEffect(() => {
-    setGeoData({
-      longitude: -122.674194,
-      latitude: 45.5202471,
-    });
-  }, []);
+  const [loading, setLoading] = useState(true);
 
   const retrieveGeoData = async (city) => {
     if (city === '') {
@@ -26,6 +24,7 @@ function App() {
     }
 
     try {
+      setLoading(true);
       const response = await axios.get(
         `${geocodingURI}${city}&appid=${weatherApiKey}`
       );
@@ -41,6 +40,13 @@ function App() {
         latitude: location.lat,
       };
 
+      if (
+        coordinates.longitude === geoData.longitude &&
+        coordinates.latitude === geoData.latitude
+      ) {
+        setLoading(false);
+      }
+
       setGeoData(coordinates);
       return undefined;
     } catch (error) {
@@ -53,21 +59,30 @@ function App() {
   }, [searchInput]);
 
   return (
-    <WeatherProvider geoData={geoData}>
-      <main className={`App container-fluid ${theme}`}>
-        <div className="dashboard-container row">
-          <Sidebar
-            onNewSearch={(search) => {
-              setSearchInput(search);
-            }}
-          />
-          <section className="main-dashboard col-sm-8 border border-2 border-primary">
-            <p>Our weather dashboard!</p>
-            <DailyWeather />
-          </section>
+    <div>
+      {loading && (
+        <div className="animation-wrapper">
+          <Bars className="loading-bar" fill="#06bcee" />
+          <h4>Loading...</h4>
         </div>
-      </main>
-    </WeatherProvider>
+      )}
+      <WeatherProvider geoData={geoData} loadingAnimation={setLoading}>
+        <main
+          className={`App container-fluid ${theme} ${
+            loading ? 'loading-screen' : ''
+          }`}
+        >
+          <div className="dashboard-container row">
+            <Sidebar
+              onNewSearch={(search) => {
+                setSearchInput(search);
+              }}
+            />
+            <MainDashboard />
+          </div>
+        </main>
+      </WeatherProvider>
+    </div>
   );
 }
 

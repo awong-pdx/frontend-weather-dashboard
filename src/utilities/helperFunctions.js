@@ -61,3 +61,20 @@ export const getHourString = function getFormattedHourStringFromDate(
 export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
+
+export const getCurrentTime = () => {
+  const currentTime = new Date();
+  return currentTime.toLocaleTimeString('en-US');
+};
+
+export const getCurrentDate = () => {
+  const currentDate = new Date();
+
+  const options = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
+  return currentDate.toLocaleDateString('en-US', options);
+};

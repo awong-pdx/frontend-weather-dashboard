@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useInput } from '../utilities/customHooks';
-import { validate } from '../utilities/helperFunctions';
+import { useInput } from '../../utilities/customHooks';
+import { validate } from '../../utilities/helperFunctions';
 
 export default function SearchBar({ onNewSearch = (f) => f }) {
   const [searchProp, resetSearch] = useInput('');
@@ -9,10 +9,9 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validate(searchProp.value, setErrorMessage)) {
-      onNewSearch(searchProp.value);
+      onNewSearch(searchProp.value.toLowerCase());
       resetSearch();
     } else {
-      onNewSearch('');
       resetSearch(searchProp.value);
     }
   };

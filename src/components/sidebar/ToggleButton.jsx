@@ -1,6 +1,6 @@
 import React from 'react';
 import { MoonFill, SunFill } from 'react-bootstrap-icons';
-import { useTheme } from './ThemeProvider';
+import { useTheme } from '../ThemeProvider';
 
 export default function ToggleButton() {
   const { theme, toggleTheme } = useTheme();
