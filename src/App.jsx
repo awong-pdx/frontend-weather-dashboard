@@ -40,13 +40,6 @@ function App() {
         latitude: location.lat,
       };
 
-      if (
-        coordinates.latitude === geoData.latitude &&
-        coordinates.longitude === geoData.longitude
-      ) {
-        setLoading(false);
-      }
-
       setGeoData(coordinates);
       return undefined;
     } catch (error) {

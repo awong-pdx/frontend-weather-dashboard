@@ -9,10 +9,9 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validate(searchProp.value, setErrorMessage)) {
-      onNewSearch(searchProp.value);
+      onNewSearch(searchProp.value.toLowerCase());
       resetSearch();
     } else {
-      onNewSearch('');
       resetSearch(searchProp.value);
     }
   };
