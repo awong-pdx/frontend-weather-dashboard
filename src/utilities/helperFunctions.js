@@ -62,11 +62,13 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
 
+// time depends on system settings
 export const getCurrentTime = () => {
   const currentTime = new Date();
   return currentTime.toLocaleTimeString('en-US');
 };
 
+// time depends on system settings
 export const getCurrentDate = () => {
   const currentDate = new Date();
 
