@@ -81,7 +81,7 @@ export const getCurrentDate = () => {
 
 export const getTimeNoSec = (timestamp) => {
   const currentTime = new Date(timestamp * 1000);
-  const currentMinute = currentTime.getMinutes();
+  const currentMinute = currentTime.getMinutes().toString().padStart(2, '0');
   let currentHour = currentTime.getHours();
   let period = 'AM';
 
