@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useWeather } from '../../WeatherProvider';
-import { getTimeNoSec } from '../../../utilities/helperFunctions';
+import { getHourAndMinString } from '../../../utilities/helperFunctions';
 import sunriseImage from '../../../images/sunrise.svg';
 import sunsetImage from '../../../images/sunset.svg';
 
@@ -10,9 +10,9 @@ export default function Sun() {
 
   useEffect(() => {
     if (currentWeather) {
-      const { sys } = currentWeather;
-      const sunriseTime = getTimeNoSec(sys.sunrise);
-      const sunsetTime = getTimeNoSec(sys.sunset);
+      const { sys, timezone } = currentWeather;
+      const sunriseTime = getHourAndMinString(sys.sunrise, timezone);
+      const sunsetTime = getHourAndMinString(sys.sunset, timezone);
       setWeather({
         sunrise: sunriseTime,
         sunset: sunsetTime,

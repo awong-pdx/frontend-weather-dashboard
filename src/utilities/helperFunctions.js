@@ -81,11 +81,14 @@ export const getCurrentDate = () => {
   return currentDate.toLocaleDateString('en-US', options);
 };
 
-export const getTimeNoSec = (timestamp) => {
-  const currentTime = new Date(timestamp * 1000);
+export const getHourAndMinString = (date, timezone) => {
+  const currentTime = new Date(date * 1000);
   const currentMinute = currentTime.getMinutes().toString().padStart(2, '0');
   let currentHour = currentTime.getHours();
   let period = 'AM';
+
+  // REMOVE LATER!!
+  console.log(timezone);
 
   if (currentHour >= 12) {
     period = 'PM';
