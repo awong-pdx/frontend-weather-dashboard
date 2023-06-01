@@ -2,6 +2,7 @@ import React from 'react';
 import DailyWeather from './DailyWeather';
 import WelcomeHeader from './WelcomeHeader';
 import WeatherDetailTop from './WeatherDetailTop';
+import WeatherDetailBottom from './WeatherDetailBottom';
 
 export default function MainDashboard() {
   return (
@@ -9,6 +10,7 @@ export default function MainDashboard() {
       <WelcomeHeader />
       <DailyWeather />
       <WeatherDetailTop />
+      <WeatherDetailBottom />
     </section>
   );
 }
