@@ -82,13 +82,14 @@ export const getCurrentDate = () => {
 };
 
 export const getHourAndMinString = (date, timezone) => {
-  const currentTime = new Date(date * 1000);
-  const currentMinute = currentTime.getMinutes().toString().padStart(2, '0');
-  let currentHour = currentTime.getHours();
-  let period = 'AM';
+  const currentTimeUnadjusted = new Date((date + timezone) * 1000);
+  const currentMinute = currentTimeUnadjusted
+    .getUTCMinutes()
+    .toString()
+    .padStart(2, '0');
+  let currentHour = currentTimeUnadjusted.getUTCHours();
 
-  // REMOVE LATER!!
-  console.log(timezone);
+  let period = 'AM';
 
   if (currentHour >= 12) {
     period = 'PM';
