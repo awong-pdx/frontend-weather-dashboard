@@ -22,7 +22,7 @@ export default function WelcomeHeader() {
   return (
     <div className="row justify-content-end mb-2">
       <div className="welcome-header col-8 text-end mt-2">
-        <h2>Welcome back insertName!</h2>
+        <h2>Welcome back!</h2>
         <p>{currentDate}</p>
         <p>Current local time: {time}</p>
       </div>

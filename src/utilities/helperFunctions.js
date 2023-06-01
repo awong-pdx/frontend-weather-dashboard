@@ -62,11 +62,13 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
 
+// time depends on system settings
 export const getCurrentTime = () => {
   const currentTime = new Date();
   return currentTime.toLocaleTimeString('en-US');
 };
 
+// time depends on system settings
 export const getCurrentDate = () => {
   const currentDate = new Date();
 
@@ -77,4 +79,24 @@ export const getCurrentDate = () => {
     year: 'numeric',
   };
   return currentDate.toLocaleDateString('en-US', options);
+};
+
+export const getHourAndMinString = (date, timezone) => {
+  const currentTimeUnadjusted = new Date((date + timezone) * 1000);
+  const currentMinute = currentTimeUnadjusted
+    .getUTCMinutes()
+    .toString()
+    .padStart(2, '0');
+  let currentHour = currentTimeUnadjusted.getUTCHours();
+
+  let period = 'AM';
+
+  if (currentHour >= 12) {
+    period = 'PM';
+    if (currentHour > 12) {
+      currentHour -= 12;
+    }
+  }
+
+  return `${currentHour}:${currentMinute} ${period}`;
 };
