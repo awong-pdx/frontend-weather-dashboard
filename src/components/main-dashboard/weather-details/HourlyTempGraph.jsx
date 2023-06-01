@@ -1,7 +1,27 @@
 import React from 'react';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { useWeather } from '../../WeatherProvider';
 import { toLocalDate, getHourString } from '../../../utilities/helperFunctions';
-// import { Line } from 'react-chartjs-2';
+
+Chart.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export default function HourlyTempGraph() {
   const { hourlyWeather } = useWeather();
@@ -14,11 +34,23 @@ export default function HourlyTempGraph() {
       getHourString(toLocalDate(weatherForHour.dt), timezone)
     );
 
-  console.log(hourlyTimeXValues);
+  const hourlyWeatherYValues = hourlyWeather.list
+    .slice(0, 5)
+    .map((weatherForHour) => Math.round(weatherForHour.main.temp));
+
+  const data = {
+    labels: hourlyTimeXValues,
+    datasets: [
+      {
+        label: 'Temperature',
+        data: hourlyWeatherYValues,
+      },
+    ],
+  };
 
   return (
     <div className="col-8 border border-primary rounded">
-      <h1>Hourly Weather Graph</h1>
+      <Line data={data} />
     </div>
   );
 }
