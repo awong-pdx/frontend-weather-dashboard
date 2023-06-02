@@ -2,12 +2,12 @@ import React from 'react';
 import ToggleButton from './ToggleButton';
 import SearchBar from './SearchBar';
 import SummaryWeather from './SummaryWeather';
-import LoginBox from './LoginBox';
+import LoginButton from './LoginButton';
 
 export default function Sidebar({ onLoginToggle, onNewSearch }) {
   return (
     <section className="sidebar col-sm-4 border border-2 border-primary">
-      <LoginBox onLoginToggle={onLoginToggle} />
+      <LoginButton onLoginToggle={onLoginToggle} />
       <ToggleButton />
       <SearchBar onNewSearch={onNewSearch} />
       <SummaryWeather />
