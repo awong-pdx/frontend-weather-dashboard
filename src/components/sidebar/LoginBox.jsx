@@ -36,7 +36,7 @@ export default function LoginBox({ onLoginToggle = (f) => f }) {
           id="email"
           value={emailProp.value}
           onChange={emailProp.onChange}
-          aria-required
+          required
         />
       </label>
       <label htmlFor="password">
@@ -47,7 +47,7 @@ export default function LoginBox({ onLoginToggle = (f) => f }) {
           id="password"
           value={passwordProp.value}
           onChange={passwordProp.onChange}
-          aria-required
+          required
         />
         <p aria-live="polite">{errorMessage}</p>
       </label>
