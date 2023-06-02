@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useInput } from '../../utilities/customHooks';
 import { useUser } from '../UserProvider';
+import { useTheme } from '../ThemeProvider';
 
 export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
+  const { theme } = useTheme();
   const { currentUser, login, logout } = useUser();
   const [emailProp, resetEmail] = useInput('');
   const [passwordProp, resetPassword] = useInput('');
@@ -52,7 +54,9 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
         />
         <p aria-live="polite">{errorMessage}</p>
       </label>
-      <button type="submit">Submit</button>
+      <button className={`btn btn-${theme}`} type="submit">
+        Submit
+      </button>
     </form>
   );
 
@@ -60,7 +64,9 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
   return (
     <form action="" className="logout-box" onSubmit={handleLogoutSubmit}>
       <div>{currentUser.email}</div>
-      <button type="submit">Log Out</button>
+      <button className={`btn btn-${theme}`} type="submit">
+        Log Out
+      </button>
     </form>
   );
 }

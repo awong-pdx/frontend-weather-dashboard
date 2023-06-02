@@ -7,7 +7,7 @@ import LoginButton from './LoginButton';
 export default function Sidebar({ onLoginToggle, onNewSearch }) {
   return (
     <section className="sidebar col-sm-4 border border-2 border-primary">
-      <div>
+      <div className="sidebar-top">
         <LoginButton onLoginToggle={onLoginToggle} />
         <ToggleButton />
       </div>

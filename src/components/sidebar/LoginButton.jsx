@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import LoginBox from './LoginBox';
+import { useTheme } from '../ThemeProvider';
 
 export default function LoginButton({ onLoginToggle }) {
+  const { theme } = useTheme();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,25 +12,18 @@ export default function LoginButton({ onLoginToggle }) {
 
   return (
     <>
-      <button type="button" onClick={handleShow}>
+      <button
+        type="button"
+        className={`modal-button btn btn-${theme}`}
+        onClick={handleShow}
+      >
         Login
       </button>
 
-      <Modal className="my-modal" show={show} onHide={handleClose}>
-        {/* <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header> */}
-        <Modal.Body>
+      <Modal className="dashboard-modal" show={show} onHide={handleClose}>
+        <Modal.Body className={`rounded ${theme} bg-${theme}`}>
           <LoginBox onLoginToggle={onLoginToggle} handleClose={handleClose} />
         </Modal.Body>
-        {/* <Modal.Footer>
-          <button type="button" onClick={handleClose}>
-            Close
-          </button>
-          <button type="button" onClick={handleClose}>
-            Save Changes
-          </button>
-        </Modal.Footer> */}
       </Modal>
     </>
   );

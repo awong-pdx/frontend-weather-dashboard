@@ -30,22 +30,35 @@
   max-height: 100vh;
 }
 
-.my-modal {
-  width: 30% !important;
-  max-width: none !important;
-  margin-left: 20px;
-  margin-top: 20px;
-  height: fit-content;
+.dashboard-modal {
+  @media (min-width: 768px) {
+    width: 30% !important;
+    // max-width: none !important;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: fit-content;
+  }
+}
+
+.modal-content {
+  max-width: 300px;
 }
 
 .sidebar {
   max-height: inherit;
-
-  .toggle-button {
-    display: block;
+  .sidebar-top {
     margin-top: 0.5vw;
-    margin-left: auto;
+    margin-bottom: 1vw;
+    display: flex;
+    justify-content: space-between;
+    .modal-button {
+    }
+    .toggle-button {
+      // display: block;
+      // margin-left: auto;
+    }
   }
+
   .search-bar {
     margin-top: 0.5vw;
     max-width: 100%;
