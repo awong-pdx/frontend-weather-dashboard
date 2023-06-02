@@ -38,10 +38,6 @@ export default function UserProvider(props) {
     return success;
   };
 
-  //   const loggedIn = function checkIfUserLoggedIn() {
-  //     return currentUser !== null;
-  //   };
-
   return (
     <userContext.Provider value={{ currentUser, login, logout }}>
       {children}

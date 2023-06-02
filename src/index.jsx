@@ -4,12 +4,29 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import ThemeProvider from './components/ThemeProvider';
+import UserProvider from './components/UserProvider';
 
 const axe = require('@axe-core/react');
 
-const USER_DATA = [ 
-  { id: 0, name: 'Jo', email: 'jo@email.com', password: 'password123', homeCity: 'Portland', profileImg: '', isLoggedIn: false },
-  { id: 1, name: 'Coco', email: 'coco@email.com', password: 'password123', homeCity: 'Frankfurt', profileImg: '', isLoggedIn: false},
+const USER_DATA = [
+  {
+    id: 0,
+    name: 'Jo',
+    email: 'jo@email.com',
+    password: 'password123',
+    homeCity: 'New York',
+    profileImg: '',
+    isLoggedIn: false,
+  },
+  {
+    id: 1,
+    name: 'Coco',
+    email: 'coco@email.com',
+    password: 'password123',
+    homeCity: 'Frankfurt',
+    profileImg: '',
+    isLoggedIn: false,
+  },
 ];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +36,9 @@ if (process.env.NODE_ENV !== 'production') {
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App users={USER_DATA} />
+      <UserProvider users={USER_DATA}>
+        <App />
+      </UserProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
