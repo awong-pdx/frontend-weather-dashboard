@@ -159,7 +159,7 @@
 }
 
 .sun {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -168,6 +168,10 @@
 
 .hourly-graph {
   height: 250px;
+}
+
+.humidity {
+  font-family: 'Libre Franklin', sans-serif;
 }
 
 .humidity-header {

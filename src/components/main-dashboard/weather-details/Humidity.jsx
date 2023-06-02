@@ -7,19 +7,22 @@ export default function Humidity() {
   const { currentWeather } = useWeather();
   if (!currentWeather) return null;
   let humidityDescription = 'Ideal humidity levels';
+  let humidityBarColor = '#28a745'; // default to green color
 
   const { humidity } = currentWeather.main;
   if (humidity >= 70 || humidity < 25) {
     humidityDescription = 'Poor humidity levels';
+    humidityBarColor = '#dc3545';
   } else if (
     (humidity < 70 && humidity >= 60) ||
     (humidity >= 25 && humidity < 30)
   ) {
     humidityDescription = 'Fair humidity levels';
+    humidityBarColor = '#ffc107';
   }
 
   return (
-    <div className="col-4 border border-primary rounded pb-2">
+    <div className="humidity col-4 border border-primary rounded pb-3">
       <div className="humidity-header pt-2">
         <h4>Humidity</h4>
         <img
@@ -30,10 +33,14 @@ export default function Humidity() {
         />
       </div>
       <div className="text-center">
-        <h2>{`${humidity}% `}</h2>
+        <h1>{`${humidity}% `}</h1>
         <p>{humidityDescription}</p>
       </div>
-      <ProgressBar completed={`${humidity}`} animateOnRender="true" />
+      <ProgressBar
+        completed={`${humidity}`}
+        animateOnRender="true"
+        bgColor={humidityBarColor}
+      />
     </div>
   );
 }
