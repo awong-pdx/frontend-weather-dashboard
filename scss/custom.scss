@@ -160,4 +160,12 @@
 
 .sun {
   font-family: 'DM Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hourly-graph {
+  height: 250px;
 }
