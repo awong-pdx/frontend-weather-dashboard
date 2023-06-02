@@ -9,7 +9,7 @@ export default function UserProvider(props) {
   const [currentUser, setCurrentUser] = useState(null);
 
   const getUser = function getUserFromUsersData(email) {
-    return users.filter((user) => user.id === email);
+    return users.filter((user) => user.email === email);
   };
 
   const login = function loginUser(email, password) {
