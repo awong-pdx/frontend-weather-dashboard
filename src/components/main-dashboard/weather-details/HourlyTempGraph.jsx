@@ -57,7 +57,7 @@ export default function HourlyTempGraph() {
       y: {
         title: {
           display: true,
-          text: 'Temperature (F°)',
+          text: 'Temperature (°F)',
           fontSize: 12,
         },
       },
@@ -68,7 +68,7 @@ export default function HourlyTempGraph() {
     labels: hourlyTimeXValues,
     datasets: [
       {
-        label: ' Temperature (F°)',
+        label: ' Temperature (°F)',
         data: hourlyWeatherYValues,
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
@@ -80,7 +80,7 @@ export default function HourlyTempGraph() {
 
   return (
     <div className="col-8 border border-primary rounded py-1">
-      <Line className="hourlyGraph" options={options} data={data} />
+      <Line className="hourly-graph" options={options} data={data} />
     </div>
   );
 }
