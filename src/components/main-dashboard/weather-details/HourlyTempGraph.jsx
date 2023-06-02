@@ -8,7 +8,6 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
 import { useWeather } from '../../WeatherProvider';
 import { toLocalDate, getHourString } from '../../../utilities/helperFunctions';
@@ -19,8 +18,7 @@ Chart.register(
   PointElement,
   LineElement,
   Title,
-  Tooltip,
-  Legend
+  Tooltip
 );
 
 export default function HourlyTempGraph() {
@@ -40,24 +38,49 @@ export default function HourlyTempGraph() {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Hourly Temperature',
+        fontSize: 14,
+      },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Time',
+          fontSize: 12,
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Temperature (F°)',
+          fontSize: 12,
+        },
+      },
+    },
   };
 
   const data = {
     labels: hourlyTimeXValues,
     datasets: [
       {
-        label: 'Hourly Temperature (F°)',
+        label: ' Temperature (F°)',
         data: hourlyWeatherYValues,
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
         borderWidth: 3,
+        tension: 0.4,
       },
     ],
   };
 
   return (
-    <div className="col-8 border border-primary rounded">
-      <Line options={options} data={data} />
+    <div className="col-8 border border-primary rounded py-1">
+      <Line className="hourlyGraph" options={options} data={data} />
     </div>
   );
 }

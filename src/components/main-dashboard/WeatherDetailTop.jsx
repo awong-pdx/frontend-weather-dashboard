@@ -4,7 +4,7 @@ import HourlyTempGraph from './weather-details/HourlyTempGraph';
 
 export default function WeatherDetailTop() {
   return (
-    <div className="row px-2">
+    <div className="row p-2">
       <HourlyTempGraph />
       <Sun />
     </div>

@@ -24,7 +24,7 @@ export default function Sun() {
     return null;
   }
   return (
-    <div className="sun col-4 border border-primary rounded pt-1">
+    <div className="sun col-4 border border-primary rounded">
       <h4>
         <img src={sunriseImage} alt="Sunrise icon" width="90px" />
         Sunrise: {weather.sunrise}
