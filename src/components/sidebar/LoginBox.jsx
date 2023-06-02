@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useInput } from '../../utilities/customHooks';
 import { useUser } from '../UserProvider';
 
-export default function LoginBox({ onLoginToggle = (f) => f }) {
+export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
   const { currentUser, login, logout } = useUser();
   const [emailProp, resetEmail] = useInput('');
   const [passwordProp, resetPassword] = useInput('');
@@ -16,6 +16,7 @@ export default function LoginBox({ onLoginToggle = (f) => f }) {
       resetEmail();
       resetPassword();
       onLoginToggle(true);
+      handleClose();
     }
   };
 

@@ -7,8 +7,10 @@ import LoginButton from './LoginButton';
 export default function Sidebar({ onLoginToggle, onNewSearch }) {
   return (
     <section className="sidebar col-sm-4 border border-2 border-primary">
-      <LoginButton onLoginToggle={onLoginToggle} />
-      <ToggleButton />
+      <div>
+        <LoginButton onLoginToggle={onLoginToggle} />
+        <ToggleButton />
+      </div>
       <SearchBar onNewSearch={onNewSearch} />
       <SummaryWeather />
     </section>

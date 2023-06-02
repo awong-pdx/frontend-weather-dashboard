@@ -30,6 +30,14 @@
   max-height: 100vh;
 }
 
+.my-modal {
+  width: 30% !important;
+  max-width: none !important;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: fit-content;
+}
+
 .sidebar {
   max-height: inherit;
 
