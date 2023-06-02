@@ -14,17 +14,22 @@ export default function UserProvider(props) {
 
   const login = function loginUser(email, password) {
     // assumes that emails are unique
-    const matchedUsers = getUser(email);
     let success = false;
+    let error = '';
 
+    const matchedUsers = getUser(email);
     if (matchedUsers.length > 0) {
       if (matchedUsers[0].password === password) {
         setCurrentUser(matchedUsers[0]);
         success = true;
+      } else {
+        error = 'The password for that user is incorrect.';
       }
+    } else {
+      error = 'A user with that email does not exist.';
     }
 
-    return success;
+    return { success, error };
   };
 
   const logout = function logoutUser() {

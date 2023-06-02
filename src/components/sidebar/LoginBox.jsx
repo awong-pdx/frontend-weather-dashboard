@@ -10,14 +10,12 @@ export default function LoginBox({ onLoginToggle = (f) => f }) {
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-
-    if (login(emailProp.value, passwordProp.value)) {
+    const { success, error } = login(emailProp.value, passwordProp.value);
+    setErrorMessage(error);
+    if (success) {
       resetEmail();
       resetPassword();
       onLoginToggle(true);
-    } else {
-      // TODO
-      setErrorMessage('Error');
     }
   };
 
@@ -51,14 +49,11 @@ export default function LoginBox({ onLoginToggle = (f) => f }) {
           onChange={passwordProp.onChange}
           aria-required
         />
-        <p>{errorMessage}</p>
+        <p aria-live="polite">{errorMessage}</p>
       </label>
       <button type="submit">Submit</button>
     </form>
   );
-
-  // const logoutForm = (
-  // );
 
   if (!currentUser) return loginForm;
   return (
