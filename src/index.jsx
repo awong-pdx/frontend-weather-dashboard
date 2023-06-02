@@ -15,8 +15,6 @@ const USER_DATA = [
     email: 'jo@email.com',
     password: 'password123',
     homeCity: 'New York',
-    profileImg: '',
-    isLoggedIn: false,
   },
   {
     id: 1,
@@ -24,8 +22,6 @@ const USER_DATA = [
     email: 'coco@email.com',
     password: 'password123',
     homeCity: 'Frankfurt',
-    profileImg: '',
-    isLoggedIn: false,
   },
 ];
 
