@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useInput } from '../../utilities/customHooks';
 import { useUser } from '../UserProvider';
 
-// export default function LoginBox({ onNewLogin = (f) => f }) {
-export default function LoginBox() {
+export default function LoginBox({ onLoginToggle = (f) => f }) {
   const { currentUser, login, logout } = useUser();
   const [emailProp, resetEmail] = useInput('');
   const [passwordProp, resetPassword] = useInput('');
@@ -15,6 +14,7 @@ export default function LoginBox() {
     if (login(emailProp.value, passwordProp.value)) {
       resetEmail();
       resetPassword();
+      onLoginToggle(true);
     } else {
       // TODO
       setErrorMessage('Error');
@@ -25,6 +25,7 @@ export default function LoginBox() {
     event.preventDefault();
 
     logout();
+    onLoginToggle(false);
   };
 
   const loginForm = (

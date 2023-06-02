@@ -5,6 +5,7 @@ import WeatherProvider from './components/WeatherProvider';
 import { useTheme } from './components/ThemeProvider';
 import Sidebar from './components/sidebar/Sidebar';
 import MainDashboard from './components/main-dashboard/MainDashboard';
+import { useUser } from './components/UserProvider';
 
 const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -15,7 +16,9 @@ function App() {
     latitude: 45.5202471,
   });
   const { theme } = useTheme();
+  const { currentUser } = useUser();
   const [searchInput, setSearchInput] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const retrieveGeoData = async (city) => {
@@ -55,8 +58,12 @@ function App() {
   };
 
   useEffect(() => {
-    retrieveGeoData(searchInput);
-  }, [searchInput]);
+    let cityToSearch;
+
+    if (loggedIn && searchInput === '') cityToSearch = currentUser.homeCity;
+    else cityToSearch = searchInput;
+    retrieveGeoData(cityToSearch);
+  }, [searchInput, loggedIn]);
 
   return (
     <div>
@@ -76,6 +83,10 @@ function App() {
             <Sidebar
               onNewSearch={(search) => {
                 setSearchInput(search);
+              }}
+              onLoginToggle={(login) => {
+                setSearchInput('');
+                setLoggedIn(login);
               }}
             />
             <MainDashboard />
