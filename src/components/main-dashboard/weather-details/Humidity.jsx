@@ -6,19 +6,26 @@ import humidityIcon from '../../../images/humidityIcon.png';
 export default function Humidity() {
   const { currentWeather } = useWeather();
   if (!currentWeather) return null;
+
+  const red = '#dc3545';
+  const yellow = '#ffc107';
+  const poorLevels = 'Poor humidity levels';
+  const fairLevels = 'Fair humidity levels';
+
+  // default description and color (green)
   let humidityDescription = 'Ideal humidity levels';
-  let humidityBarColor = '#28a745'; // default to green color
+  let humidityBarColor = '#28a745';
 
   const { humidity } = currentWeather.main;
   if (humidity >= 70 || humidity < 25) {
-    humidityDescription = 'Poor humidity levels';
-    humidityBarColor = '#dc3545';
+    humidityDescription = poorLevels;
+    humidityBarColor = red;
   } else if (
     (humidity < 70 && humidity >= 60) ||
     (humidity >= 25 && humidity < 30)
   ) {
-    humidityDescription = 'Fair humidity levels';
-    humidityBarColor = '#ffc107';
+    humidityDescription = fairLevels;
+    humidityBarColor = yellow;
   }
 
   return (
