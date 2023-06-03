@@ -38,7 +38,7 @@ export default function Humidity() {
       </div>
       <ProgressBar
         completed={`${humidity}`}
-        animateOnRender="true"
+        animateOnRender
         bgColor={humidityBarColor}
       />
     </div>
