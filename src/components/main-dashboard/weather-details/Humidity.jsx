@@ -27,9 +27,10 @@ export default function Humidity() {
         <h4>Humidity</h4>
         <img
           src={humidityIcon}
+          className="humidity-icon"
           alt="Icon representing humidity"
-          width="35px"
-          height="35px"
+          width="30px"
+          height="30px"
         />
       </div>
       <div className="text-center">
@@ -40,6 +41,7 @@ export default function Humidity() {
         completed={`${humidity}`}
         animateOnRender
         bgColor={humidityBarColor}
+        labelColor="black"
       />
     </div>
   );

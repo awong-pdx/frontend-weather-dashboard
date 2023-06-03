@@ -181,3 +181,10 @@ $child-font-family: 'Libre Franklin', sans-serif;
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .humidity-icon {
+    width: 27px;
+    height: 27px;
+  }
+}
