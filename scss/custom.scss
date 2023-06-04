@@ -53,6 +53,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
 }
 
 .sidebar-outer {
+  font-family: $header-font-family;
   max-height: inherit;
   justify-content: center;
   display: flex;
@@ -63,8 +64,8 @@ $child-font-family: 'Libre Franklin', sans-serif;
     height: 95%;
     border-radius: 30px;
     //remove later:
-    background-color: hsl(225, 60%, 94%);
-    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: hsl(225, 60%, 93%);
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
 
   .sidebar-top {
     margin-top: 0.5vw;
@@ -99,6 +100,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
         }
     }
     .summary-weather {
+      font-family: $child-font-family;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -128,6 +130,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
         bottom: 80px;
       }
       .summary-hourly {
+        font-family: $header-font-family;
         position: relative;
         bottom: 60px;
       }
@@ -188,6 +191,19 @@ $child-font-family: 'Libre Franklin', sans-serif;
 
 .main-dashboard {
   min-height: 80%;
+  max-height: inherit;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  .main-dashboard-inner {
+    max-width: 98%;
+    height: 97%;
+    border-radius: 30px;
+    //remove later:
+    background-color: hsl(225, 60%, 93%);
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .animation-wrapper {
