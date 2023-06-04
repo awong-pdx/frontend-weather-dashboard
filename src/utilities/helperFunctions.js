@@ -63,13 +63,77 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
 };
 
 export const getIconFromSrc = function getWeatherIconSrcPath(
-  { id },
+  { id, icon },
   animated = false
 ) {
-  const thunderstormsRain = /^(200|201|202|230|231|232)$/;
-  const thunderstorms = /^(210|211|212)$/;
-  const drizzle = /^(3(?:0[0-9]|1[0-9]|20|21))$/;
-  return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
+  const SVGType = animated ? `animated` : `static`;
+  const srcType = `src/images/weather-conditions/${SVGType}/`;
+  const iconStringMatches = [];
+  let srcString = '';
+  let iconStringMatch = '';
+
+  const iconNames = {
+    'thunderstorms-rain': [200, 201, 202, 230, 231, 232],
+    thunderstorms: [210, 211, 212, 221],
+    drizzle: [
+      300, 301, 302, 310, 311, 312, 313, 314, 321, 520, 521, 522, 531, 804,
+    ],
+    rain: [500, 501, 502, 503, 504],
+    sleet: [511, 611, 612, 613, 615, 616],
+    snow: [600, 601, 602, 620, 621, 622],
+    mist: [701],
+    smoke: [711, 762],
+    haze: [721],
+    'dust-wind': [731, 751],
+    dust: [761],
+    wind: [771],
+    tornado: [781],
+    'clear-day': [800],
+    'clear-night': [800],
+    'partly-cloudy-day': [801],
+    'partly-cloudy-night': [801],
+    cloudy: [802],
+    'overcast-day': [803],
+    'overcast-night': [803],
+  };
+
+  Object.entries(iconNames).forEach(([key, value]) => {
+    if (value.includes(icon)) iconStringMatches.push(key);
+  });
+
+  if (iconStringMatches) {
+    if (iconStringMatches.length > 1) {
+      if (iconStringMatches.includes('clear-day')) {
+        if (id === '01d') {
+          iconStringMatch = 'clear-day';
+        } else {
+          iconStringMatch = 'clear-night';
+        }
+      } else if (iconStringMatches.includes('partly-cloudy-day')) {
+        if (id === '02d') {
+          iconStringMatch = 'partly-cloudy-day';
+        } else {
+          iconStringMatch = 'partly-cloudy-night';
+        }
+      } else if (iconStringMatches.includes('cloudy')) {
+        if (id === '03d') {
+          iconStringMatch = 'cloudy';
+        }
+      } else if (iconStringMatches.includes('overcast-day')) {
+        if (id === '04d') {
+          iconStringMatch = 'overcast-day';
+        } else {
+          iconStringMatch = 'overcast-night';
+        }
+      }
+    } else {
+      [iconStringMatch] = iconStringMatches;
+    }
+
+    srcString = `${srcType}${iconStringMatch}.svg`;
+  }
+
+  return srcString;
 };
 
 // time depends on system settings
