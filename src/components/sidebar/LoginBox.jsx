@@ -32,6 +32,7 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
   const loginForm = (
     <form className="login-box" onSubmit={handleLoginSubmit}>
       <label htmlFor="email">
+        <span className="visually-hidden">Login email</span>
         <input
           className={`form-control dashboard-input dashboard-input-${theme}`}
           type="email"
@@ -44,6 +45,7 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
         />
       </label>
       <label htmlFor="password">
+        <span className="visually-hidden">Login password</span>
         <input
           className={`form-control dashboard-input dashboard-input-${theme}`}
           type="password"

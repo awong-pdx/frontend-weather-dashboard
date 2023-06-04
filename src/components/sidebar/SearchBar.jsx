@@ -21,6 +21,7 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   return (
     <form className="search-bar text-center" onSubmit={handleSubmit}>
       <label htmlFor="search">
+        <span className="visually-hidden">Type a city name to search:</span>
         <input
           id="search"
           className={`form-control dashboard-input dashboard-input-${theme}`}
