@@ -7,7 +7,7 @@ export default function Pressure() {
   const { currentWeather } = useWeather();
   if (!currentWeather) return null;
 
-  const percentage = 66;
+  const percentage = 1100;
 
   const { pressure } = currentWeather.main;
 
@@ -21,10 +21,12 @@ export default function Pressure() {
       </div>
       <div className="text-center">
         <CircularProgressbar
-          className="pressure-gauge text-center"
+          className="pressure-gauge"
           circleRatio={0.75}
           value={percentage}
-          text={`${percentage}%`}
+          minValue={500}
+          maxValue={1200}
+          text={`${percentage}hPa`}
           styles={buildStyles({
             rotation: 1 / 2 + 1 / 8,
             strokeLinecap: 'butt',
