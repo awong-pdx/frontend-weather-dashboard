@@ -2,9 +2,17 @@
 $header-font-family: 'DM Sans', sans-serif;
 $child-font-family: 'Libre Franklin', sans-serif;
 
+$light-gradient-primary: #bdccef;
+$light-gradient-secondary: #e6ecf9;
+$light-primary: hsl(225, 60%, 93%);
+// $light-secondary: #000;
+$light-button-primary: hsl(221, 99%, 84%);
+$light-input-primary: hsl(221, 71%, 84%);
+$light-input-secondary: hsl(221, 71%, 90%);
+$summary-window: #ccd8f075;
 @import '../node_modules/bootstrap/scss/bootstrap';
-
 //additional custom code (for classes, etc.) comes after the @import
+
 .dark {
   background-color: #000;
   color: #fff;
@@ -16,25 +24,26 @@ $child-font-family: 'Libre Franklin', sans-serif;
 }
 
 .light {
-  // background-color: #bdccef;
-  // background-color: #e6ecf9;
-  background: linear-gradient(#bdccef, #e6ecf9);
+  background: linear-gradient(
+    $light-gradient-primary,
+    $light-gradient-secondary
+  );
   color: #000;
   .btn-light {
-    background-color: hsl(221, 99%, 84%);
+    background-color: $light-button-primary;
     color: #000;
     &:hover,
     &:focus {
-      background-color: hsl(221, 71%, 90%);
-      border-color: hsl(221, 71%, 90%);
+      background-color: $light-input-secondary;
+      border-color: $light-input-secondary;
     }
   }
   .sidebar-inner-light {
-    background-color: hsl(225, 60%, 93%);
+    background-color: $light-primary;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
   .main-dashboard-inner-light {
-    background-color: hsl(225, 60%, 93%);
+    background-color: $light-primary;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
@@ -60,12 +69,12 @@ $child-font-family: 'Libre Franklin', sans-serif;
   }
 }
 .dashboard-input-light {
-  background-color: #b9cbf3;
+  background-color: $light-input-primary;
   border: 0;
   border-radius: 30px;
   &:focus,
   &:hover {
-    background-color: hsl(221, 71%, 90%);
+    background-color: $light-input-secondary;
   }
 }
 .dashboard-button {
@@ -85,7 +94,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
   .modal-content {
     max-width: 300px;
     .modal-body {
-      background: hsl(225, 60%, 93%);
+      background: $light-primary;
       border-radius: 30px;
 
       .login-box {
@@ -156,7 +165,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
       overflow: hidden auto;
       font-size: 0.5em;
       padding-top: 4em;
-      background-color: #ccd8f075;
+      background-color: $summary-window;
       box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
 
       .summary-font-1 {
