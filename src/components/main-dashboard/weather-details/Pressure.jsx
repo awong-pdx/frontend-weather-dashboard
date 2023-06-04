@@ -19,18 +19,19 @@ export default function Pressure() {
       <div className="weather-detail-header pt-2">
         <h4>Pressure</h4>
       </div>
-      <CircularProgressbar
-        className="pressure-gauge"
-        circleRatio={0.75}
-        value={percentage}
-        text={`${percentage}%`}
-        styles={buildStyles({
-          rotation: 1 / 2 + 1 / 8,
-          strokeLinecap: 'butt',
-          trailColor: '#eee',
-        })}
-      />
-      ;
+      <div className="text-center">
+        <CircularProgressbar
+          className="pressure-gauge text-center"
+          circleRatio={0.75}
+          value={percentage}
+          text={`${percentage}%`}
+          styles={buildStyles({
+            rotation: 1 / 2 + 1 / 8,
+            strokeLinecap: 'butt',
+            trailColor: '#eee',
+          })}
+        />
+      </div>
     </div>
   );
 }
