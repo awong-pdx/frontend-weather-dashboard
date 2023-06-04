@@ -30,17 +30,33 @@
   max-height: 100vh;
 }
 
+.dashboard-modal {
+  @media (min-width: 768px) {
+    width: 30% !important;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: fit-content;
+  }
+
+  .modal-content {
+    max-width: 300px;
+  }
+}
+
 .sidebar {
   max-height: inherit;
 
-  .toggle-button {
-    display: block;
+  .sidebar-top {
     margin-top: 0.5vw;
-    margin-left: auto;
+    margin-bottom: 1vw;
+    display: flex;
+    justify-content: space-between;
   }
+
   .search-bar {
     margin-top: 0.5vw;
     max-width: 100%;
+
     label {
       max-width: inherit;
       input {
