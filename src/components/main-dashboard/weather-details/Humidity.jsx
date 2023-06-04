@@ -36,8 +36,8 @@ export default function Humidity() {
           src={humidityIcon}
           className="humidity-icon"
           alt="Icon representing humidity"
-          width="30px"
-          height="30px"
+          width="27px"
+          height="27px"
         />
       </div>
       <div className="text-center">
