@@ -8,6 +8,11 @@ $child-font-family: 'Libre Franklin', sans-serif;
 .dark {
   background-color: #000;
   color: #fff;
+  .btn-dark {
+    background-color: #000;
+    border-color: #fff;
+    color: #fff;
+  }
 }
 
 .light {
@@ -15,31 +20,15 @@ $child-font-family: 'Libre Franklin', sans-serif;
   // background-color: #e6ecf9;
   background: linear-gradient(#bdccef, #e6ecf9);
   color: #000;
-}
-
-.btn-dark {
-  background-color: #000;
-  border-color: #fff;
-  color: #fff;
-}
-
-.btn-light {
-  background-color: #b9cbf3;
-  // background-color: #f7f0e4;
-  // border-color: hsl(222, 60%, 92%);
-  color: #000;
-  &:hover,
-  &:focus
-  // &:active:focus-visible,
-  // &:active:hover,
-  // &:active:focus
-  {
-    background-color: hsl(221, 71%, 90%);
-    border-color: hsl(221, 71%, 90%);
+  .btn-light {
+    background-color: #b9cbf3;
+    color: #000;
+    &:hover,
+    &:focus {
+      background-color: hsl(221, 71%, 90%);
+      border-color: hsl(221, 71%, 90%);
+    }
   }
-  // :hover {
-  //   background-color: #bdccef;
-  // }
 }
 
 .dashboard-container {
@@ -72,8 +61,6 @@ $child-font-family: 'Libre Franklin', sans-serif;
   .sidebar-inner {
     max-width: 95%;
     height: 95%;
-    // min-height: 95%;
-    // max-height: 95%;
     border-radius: 30px;
     //remove later:
     background-color: hsl(225, 60%, 94%);
@@ -92,18 +79,17 @@ $child-font-family: 'Libre Franklin', sans-serif;
       margin-left: auto;
       border-radius: 30px;
     }
-  .search-bar {
-    margin-top: 0.5vw;
-    max-width: 100%;
-
-    label {
+    .search-bar {
+      margin-top: 2vw;
+      max-width: 100%;
+      // text-align: center;
+      label {
         display: hidden;
       max-width: inherit;
         input {
           max-width: inherit;
           // match btn-light
           background-color: #b9cbf3;
-          // background-color: hsl(38, 54%, 96%);
           border: 0;
           border-radius: 30px;
           &:focus,
@@ -123,7 +109,6 @@ $child-font-family: 'Libre Franklin', sans-serif;
       padding-top: 4em;
       background-color: #ccd8f075;
       box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
-      // box-shadow: 0 ;
 
       .summary-font-1 {
         font-size: 3em;
