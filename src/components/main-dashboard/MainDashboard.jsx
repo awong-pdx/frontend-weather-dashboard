@@ -3,11 +3,15 @@ import DailyWeather from './DailyWeather';
 import WelcomeHeader from './WelcomeHeader';
 import WeatherDetailTop from './WeatherDetailTop';
 import WeatherDetailBottom from './WeatherDetailBottom';
+import { useTheme } from '../ThemeProvider';
 
 export default function MainDashboard() {
+  const { theme } = useTheme();
   return (
     <section className="main-dashboard col-sm-8 border border-2 border-primary">
-      <div className="main-dashboard-inner container">
+      <div
+        className={`main-dashboard-inner main-dashboard-inner-${theme} container`}
+      >
         <WelcomeHeader />
         <DailyWeather />
         <WeatherDetailTop />

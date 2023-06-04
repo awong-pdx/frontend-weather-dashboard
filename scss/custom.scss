@@ -21,13 +21,21 @@ $child-font-family: 'Libre Franklin', sans-serif;
   background: linear-gradient(#bdccef, #e6ecf9);
   color: #000;
   .btn-light {
-    background-color: #b9cbf3;
+    background-color: hsl(221, 99%, 84%);
     color: #000;
     &:hover,
     &:focus {
       background-color: hsl(221, 71%, 90%);
       border-color: hsl(221, 71%, 90%);
     }
+  }
+  .sidebar-inner-light {
+    background-color: hsl(225, 60%, 93%);
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+  }
+  .main-dashboard-inner-light {
+    background-color: hsl(225, 60%, 93%);
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -39,16 +47,42 @@ $child-font-family: 'Libre Franklin', sans-serif;
   }
 }
 
+//needs to be separate for modal
+.dashboard-input {
+  background-color: #b9cbf3;
+  border: 0;
+  border-radius: 30px;
+  &:focus,
+  &:hover {
+    background-color: hsl(221, 71%, 90%);
+  }
+}
+.dashboard-button {
+  border-radius: 30px;
+  border: 0;
+}
+
 .dashboard-modal {
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(md) {
+    // @media (min-width: 768px) {
     width: 30% !important;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 5vw;
+    margin-top: 6vw;
     height: fit-content;
   }
 
   .modal-content {
     max-width: 300px;
+    .modal-body {
+      background: hsl(225, 60%, 93%);
+      border-radius: 30px;
+
+      .login-box {
+        input {
+          margin-top: 7px;
+        }
+      }
+    }
   }
 }
 
@@ -64,29 +98,30 @@ $child-font-family: 'Libre Franklin', sans-serif;
     height: 95%;
     border-radius: 30px;
     //remove later:
-    background-color: hsl(225, 60%, 93%);
-    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+    // background-color: hsl(225, 60%, 93%);
 
-  .sidebar-top {
-    margin-top: 0.5vw;
-    margin-bottom: 1vw;
-    display: flex;
-    justify-content: space-between;
-  }
-
-    .toggle-button {
-      display: block;
-      margin-top: 1vw;
-      margin-left: auto;
-      border-radius: 30px;
+    .sidebar-top {
+      margin-top: 0.5vw;
+      margin-bottom: 1vw;
+      display: flex;
+      justify-content: space-between;
+      .modal-button {
+        border-radius: 50%;
+      }
+      .toggle-button {
+        // display: block;
+        margin-top: 1vw;
+        margin-left: auto;
+      }
     }
+
     .search-bar {
       margin-top: 2vw;
       max-width: 100%;
       // text-align: center;
       label {
         display: hidden;
-      max-width: inherit;
+        max-width: inherit;
         input {
           max-width: inherit;
           // match btn-light
@@ -98,6 +133,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
             background-color: hsl(221, 71%, 90%);
           }
         }
+      }
     }
     .summary-weather {
       font-family: $child-font-family;
@@ -201,8 +237,6 @@ $child-font-family: 'Libre Franklin', sans-serif;
     height: 97%;
     border-radius: 30px;
     //remove later:
-    background-color: hsl(225, 60%, 93%);
-    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
 

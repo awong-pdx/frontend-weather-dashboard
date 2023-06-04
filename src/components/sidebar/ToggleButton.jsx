@@ -16,7 +16,7 @@ export default function ToggleButton() {
   return (
     <button
       type="button"
-      className={`toggle-button btn btn-${theme}`}
+      className={`toggle-button btn btn-${theme} dashboard-button`}
       onClick={() => {
         handleClick();
       }}

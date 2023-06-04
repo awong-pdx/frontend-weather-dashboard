@@ -21,7 +21,7 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
       <label htmlFor="search">
         <input
           id="search"
-          className="form-control"
+          className="form-control dashboard-input"
           value={searchProp.value}
           onChange={searchProp.onChange}
           type="text"

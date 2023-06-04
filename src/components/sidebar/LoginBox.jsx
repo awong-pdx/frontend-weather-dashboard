@@ -32,29 +32,31 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
   const loginForm = (
     <form className="login-box" onSubmit={handleLoginSubmit}>
       <label htmlFor="email">
-        Email:
         <input
+          className="form-control dashboard-input"
           type="email"
           name="email"
           id="email"
+          placeholder="Email:"
           value={emailProp.value}
           onChange={emailProp.onChange}
           required
         />
       </label>
       <label htmlFor="password">
-        Password:
         <input
+          className="form-control dashboard-input"
           type="password"
           name="password"
           id="password"
+          placeholder="Password:"
           value={passwordProp.value}
           onChange={passwordProp.onChange}
           required
         />
         <p aria-live="polite">{errorMessage}</p>
       </label>
-      <button className={`btn btn-${theme}`} type="submit">
+      <button className={`btn btn-${theme} dashboard-button`} type="submit">
         Submit
       </button>
     </form>
