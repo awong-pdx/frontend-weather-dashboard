@@ -27,6 +27,9 @@ $summary-window: #ccd8f075;
   // background-color: #000;
   background: linear-gradient($dark-gradient-primary, $dark-gradient-secondary);
   color: #fff;
+  .dashboard-text-secondary {
+    color: #a2a8ae;
+  }
   .btn-dark {
     background-color: $dark-button-primary;
     // border-color: #fff;
@@ -39,11 +42,13 @@ $summary-window: #ccd8f075;
   }
   .sidebar-inner-dark {
     background-color: $dark-primary;
-    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 20px 1px rgba(255, 255, 255, 0.05);
   }
   .main-dashboard-inner-dark {
     background-color: $dark-primary;
-    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 20px 1px rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -53,6 +58,9 @@ $summary-window: #ccd8f075;
     $light-gradient-secondary
   );
   color: #000;
+  .dashboard-text-secondary {
+    color: #424d4d;
+  }
   .btn-light {
     background-color: $light-button-primary;
     color: #000;
@@ -62,6 +70,7 @@ $summary-window: #ccd8f075;
       border-color: $light-input-secondary;
     }
   }
+
   .sidebar-inner-light {
     background-color: $light-primary;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
@@ -81,6 +90,7 @@ $summary-window: #ccd8f075;
   &:hover {
     // background-color: hsl(221, 71%, 90%);
     background-color: $dark-input-secondary;
+    color: #fff;
   }
 }
 .dashboard-input-light {
