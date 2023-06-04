@@ -182,9 +182,13 @@ $child-font-family: 'Libre Franklin', sans-serif;
   justify-content: space-between;
 }
 
-@media (max-width: 768px) {
-  .humidity-icon {
-    width: 27px;
-    height: 27px;
+@media (max-width: 642px) {
+  .humidity-header {
+    display: block;
+    text-align: center;
+
+    .humidity-icon {
+      display: none;
+    }
   }
 }

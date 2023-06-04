@@ -1,7 +1,7 @@
 import React from 'react';
 import ProgressBar from '@ramonak/react-progress-bar';
 import { useWeather } from '../../WeatherProvider';
-import humidityIcon from '../../../images/humidity.svg';
+import humidityIcon from '../../../images/humidity.png';
 
 export default function Humidity() {
   const { currentWeather } = useWeather();
