@@ -1,4 +1,6 @@
 //default variable overrides come before the @import
+$header-font-family: 'DM Sans', sans-serif;
+$child-font-family: 'Libre Franklin', sans-serif;
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 
@@ -171,11 +173,11 @@
 }
 
 .welcome-header {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: $header-font-family;
 }
 
 .sun {
-  font-family: 'DM Sans', sans-serif;
+  font-family: $child-font-family;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,4 +186,25 @@
 
 .hourly-graph {
   height: 250px;
+}
+
+.humidity {
+  font-family: $child-font-family;
+}
+
+.humidity-header {
+  font-family: $header-font-family;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 642px) {
+  .humidity-header {
+    display: block;
+    text-align: center;
+
+    .humidity-icon {
+      display: none;
+    }
+  }
 }
