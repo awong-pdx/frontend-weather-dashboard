@@ -1,4 +1,4 @@
-/default variable overrides come before the @import
+//default variable overrides come before the @import
 $header-font-family: 'DM Sans', sans-serif;
 $child-font-family: 'Libre Franklin', sans-serif;
 
@@ -117,10 +117,7 @@ $summary-window: #ccd8f075;
   max-height: 100vh;
 }
 
-
-
 .dashboard-modal {
-
   .modal-content {
     max-width: 300px;
     background: none;
