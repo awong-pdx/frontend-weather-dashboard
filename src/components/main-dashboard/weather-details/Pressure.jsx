@@ -1,9 +1,13 @@
 import React from 'react';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useWeather } from '../../WeatherProvider';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function Pressure() {
   const { currentWeather } = useWeather();
   if (!currentWeather) return null;
+
+  const percentage = 66;
 
   const { pressure } = currentWeather.main;
 
@@ -15,6 +19,18 @@ export default function Pressure() {
       <div className="weather-detail-header pt-2">
         <h4>Pressure</h4>
       </div>
+      <CircularProgressbar
+        className="pressure-gauge"
+        circleRatio={0.75}
+        value={percentage}
+        text={`${percentage}%`}
+        styles={buildStyles({
+          rotation: 1 / 2 + 1 / 8,
+          strokeLinecap: 'butt',
+          trailColor: '#eee',
+        })}
+      />
+      ;
     </div>
   );
 }
