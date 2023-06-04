@@ -62,6 +62,16 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
 
+export const getIconFromSrc = function getWeatherIconSrcPath(
+  { id },
+  animated = false
+) {
+  const thunderstormsRain = /^(200|201|202|230|231|232)$/;
+  const thunderstorms = /^(210|211|212)$/;
+  const drizzle = /^(3(?:0[0-9]|1[0-9]|20|21))$/;
+  return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
+};
+
 // time depends on system settings
 export const getCurrentTime = () => {
   const currentTime = new Date();
