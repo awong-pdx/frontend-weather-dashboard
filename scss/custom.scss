@@ -147,7 +147,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
       }
     }
     .summary-weather {
-      font-family: $child-font-family;
+      // font-family: $header-font-family;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -177,7 +177,7 @@ $child-font-family: 'Libre Franklin', sans-serif;
         bottom: 80px;
       }
       .summary-hourly {
-        font-family: $header-font-family;
+        font-family: $child-font-family;
         position: relative;
         bottom: 60px;
       }
