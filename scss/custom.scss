@@ -48,7 +48,18 @@ $child-font-family: 'Libre Franklin', sans-serif;
 }
 
 //needs to be separate for modal
-.dashboard-input {
+.dashboard-input-dark {
+  background-color: #000;
+  color: #fff;
+  border: 0;
+  border-radius: 30px;
+  &:focus,
+  &:hover {
+    // background-color: hsl(221, 71%, 90%);
+    background-color: #fff;
+  }
+}
+.dashboard-input-light {
   background-color: #b9cbf3;
   border: 0;
   border-radius: 30px;
@@ -125,13 +136,13 @@ $child-font-family: 'Libre Franklin', sans-serif;
         input {
           max-width: inherit;
           // match btn-light
-          background-color: #b9cbf3;
+          // background-color: #b9cbf3;
           border: 0;
           border-radius: 30px;
-          &:focus,
-          &:hover {
-            background-color: hsl(221, 71%, 90%);
-          }
+          // &:focus,
+          // &:hover {
+          //   background-color: hsl(221, 71%, 90%);
+          // }
         }
       }
     }
