@@ -12,11 +12,12 @@ export default function WindStatus() {
   const cardinalDirection = d2d(deg);
 
   return (
-    <div className="humidity col-4 border border-primary rounded">
-      <div className="humidity-header pt-2">
-        <h4>Wind Status</h4>
+    <div className="weather-detail col-4 border border-primary rounded">
+      <div className="weather-detail-header pt-2">
+        <h4>Wind</h4>
         <img
           src={windIcon}
+          className="wind-icon"
           alt="Icon representing wind"
           width="30px"
           height="30px"

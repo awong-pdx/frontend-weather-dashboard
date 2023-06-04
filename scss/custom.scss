@@ -188,22 +188,23 @@ $child-font-family: 'Libre Franklin', sans-serif;
   height: 250px;
 }
 
-.humidity {
+.weather-detail {
   font-family: $child-font-family;
 }
 
-.humidity-header {
+.weather-detail-header {
   font-family: $header-font-family;
   display: flex;
   justify-content: space-between;
 }
 
 @media (max-width: 642px) {
-  .humidity-header {
+  .weather-detail-header {
     display: block;
     text-align: center;
 
-    .humidity-icon {
+    .humidity-icon,
+    .wind-icon {
       display: none;
     }
   }
