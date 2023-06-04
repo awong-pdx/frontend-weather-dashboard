@@ -35,7 +35,7 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
         Email:
         <input
           type="email"
-          name=""
+          name="email"
           id="email"
           value={emailProp.value}
           onChange={emailProp.onChange}
@@ -46,7 +46,7 @@ export default function LoginBox({ handleClose, onLoginToggle = (f) => f }) {
         Password:
         <input
           type="password"
-          name=""
+          name="password"
           id="password"
           value={passwordProp.value}
           onChange={passwordProp.onChange}
