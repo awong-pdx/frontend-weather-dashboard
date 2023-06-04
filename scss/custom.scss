@@ -2,24 +2,48 @@
 $header-font-family: 'DM Sans', sans-serif;
 $child-font-family: 'Libre Franklin', sans-serif;
 
-$light-gradient-primary: #bdccef;
-$light-gradient-secondary: #e6ecf9;
+// light theme
+$light-gradient-primary: hsl(222, 61%, 84%);
+$light-gradient-secondary: hsl(221, 61%, 94%);
 $light-primary: hsl(225, 60%, 93%);
 // $light-secondary: #000;
 $light-button-primary: hsl(221, 99%, 84%);
 $light-input-primary: hsl(221, 71%, 84%);
 $light-input-secondary: hsl(221, 71%, 90%);
+// dark theme
+$dark-gradient-primary: hsla(221, 99%, 5%, 1);
+$dark-gradient-secondary: hsla(221, 99%, 15%, 1);
+$dark-primary: hsl(225, 60%, 15%);
+// $dark-secondary: #000;
+$dark-button-primary: hsl(221, 99%, 5%);
+$dark-input-primary: hsl(221, 71%, 5%);
+$dark-input-secondary: hsl(221, 71%, 11%);
+
 $summary-window: #ccd8f075;
 @import '../node_modules/bootstrap/scss/bootstrap';
 //additional custom code (for classes, etc.) comes after the @import
 
 .dark {
-  background-color: #000;
+  // background-color: #000;
+  background: linear-gradient($dark-gradient-primary, $dark-gradient-secondary);
   color: #fff;
   .btn-dark {
-    background-color: #000;
-    border-color: #fff;
+    background-color: $dark-button-primary;
+    // border-color: #fff;
     color: #fff;
+    &:hover,
+    &:focus {
+      background-color: $dark-input-secondary;
+      border-color: $dark-input-secondary;
+    }
+  }
+  .sidebar-inner-dark {
+    background-color: $dark-primary;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+  }
+  .main-dashboard-inner-dark {
+    background-color: $dark-primary;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -47,25 +71,16 @@ $summary-window: #ccd8f075;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
-
-.dashboard-container {
-  height: 100vh;
-  max-height: 100vh;
-  .btn {
-    border: 0;
-  }
-}
-
 //needs to be separate for modal
 .dashboard-input-dark {
-  background-color: #000;
+  background-color: $dark-input-primary;
   color: #fff;
   border: 0;
   border-radius: 30px;
   &:focus,
   &:hover {
     // background-color: hsl(221, 71%, 90%);
-    background-color: #fff;
+    background-color: $dark-input-secondary;
   }
 }
 .dashboard-input-light {
@@ -77,6 +92,22 @@ $summary-window: #ccd8f075;
     background-color: $light-input-secondary;
   }
 }
+
+.modal-body-dark {
+  background: $dark-primary;
+}
+.modal-body-light {
+  background: $light-primary;
+}
+
+.dashboard-container {
+  height: 100vh;
+  max-height: 100vh;
+  .btn {
+    border: 0;
+  }
+}
+
 .dashboard-button {
   border-radius: 30px;
   border: 0;
@@ -93,8 +124,9 @@ $summary-window: #ccd8f075;
 
   .modal-content {
     max-width: 300px;
+    background: none;
+    border: none;
     .modal-body {
-      background: $light-primary;
       border-radius: 30px;
 
       .login-box {

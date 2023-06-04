@@ -21,7 +21,7 @@ export default function LoginButton({ onLoginToggle }) {
       </button>
 
       <Modal className="dashboard-modal" show={show} onHide={handleClose}>
-        <Modal.Body className={`${theme} bg-${theme}`}>
+        <Modal.Body className={`${theme}  modal-body-${theme}`}>
           <LoginBox onLoginToggle={onLoginToggle} handleClose={handleClose} />
         </Modal.Body>
       </Modal>
