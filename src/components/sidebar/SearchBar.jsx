@@ -19,9 +19,9 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   return (
     <form className="search-bar text-center" onSubmit={handleSubmit}>
       <label htmlFor="search">
-        Search:
         <input
           id="search"
+          className="form-control"
           value={searchProp.value}
           onChange={searchProp.onChange}
           type="text"
