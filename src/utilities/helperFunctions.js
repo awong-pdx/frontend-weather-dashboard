@@ -98,29 +98,29 @@ export const getIconFromSrc = function getWeatherIconSrcPath(
   };
 
   Object.entries(iconNames).forEach(([key, value]) => {
-    if (value.includes(icon)) iconStringMatches.push(key);
+    if (value.includes(id)) iconStringMatches.push(key);
   });
 
   if (iconStringMatches) {
     if (iconStringMatches.length > 1) {
       if (iconStringMatches.includes('clear-day')) {
-        if (id === '01d') {
+        if (icon === '01d') {
           iconStringMatch = 'clear-day';
         } else {
           iconStringMatch = 'clear-night';
         }
       } else if (iconStringMatches.includes('partly-cloudy-day')) {
-        if (id === '02d') {
+        if (icon === '02d') {
           iconStringMatch = 'partly-cloudy-day';
         } else {
           iconStringMatch = 'partly-cloudy-night';
         }
       } else if (iconStringMatches.includes('cloudy')) {
-        if (id === '03d') {
+        if (icon === '03d') {
           iconStringMatch = 'cloudy';
         }
       } else if (iconStringMatches.includes('overcast-day')) {
-        if (id === '04d') {
+        if (icon === '04d') {
           iconStringMatch = 'overcast-day';
         } else {
           iconStringMatch = 'overcast-night';

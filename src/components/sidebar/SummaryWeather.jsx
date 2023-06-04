@@ -5,6 +5,7 @@ import {
   toLocalDate,
   getHourString,
   getIconSrc,
+  getIconFromSrc,
 } from '../../utilities/helperFunctions';
 
 export default function SummaryWeather() {
@@ -26,7 +27,10 @@ export default function SummaryWeather() {
       <div key={weatherForHour.dt} className="summary-font-4">
         {getHourString(toLocalDate(weatherForHour.dt), timezone)}
         <img
-          src={getIconSrc(weatherForHour.weather[0].icon)}
+          // src={getIconSrc(weatherForHour.weather[0].icon)}
+          // src={getIconFromSrc(weatherForHour.weather[0], false)}
+          src="src/images/weather-conditions/static/clear-night.svg"
+          // src/images/weather-conditions/static/clear-day.svg
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
         />
       </div>
