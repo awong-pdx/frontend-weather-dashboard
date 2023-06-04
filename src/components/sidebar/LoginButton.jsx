@@ -14,7 +14,7 @@ export default function LoginButton({ onLoginToggle }) {
     <>
       <button
         type="button"
-        className={`modal-button btn btn-${theme}`}
+        className={`dashboard-button modal-button btn btn-${theme}`}
         onClick={handleShow}
       >
         Login

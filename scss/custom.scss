@@ -1,4 +1,4 @@
-//default variable overrides come before the @import
+/default variable overrides come before the @import
 $header-font-family: 'DM Sans', sans-serif;
 $child-font-family: 'Libre Franklin', sans-serif;
 
@@ -6,34 +6,35 @@ $child-font-family: 'Libre Franklin', sans-serif;
 $light-gradient-primary: hsl(222, 61%, 84%);
 $light-gradient-secondary: hsl(221, 61%, 94%);
 $light-primary: hsl(225, 60%, 93%);
-// $light-secondary: #000;
+$light-text: #000;
 $light-button-primary: hsl(221, 99%, 84%);
 $light-input-primary: hsl(221, 71%, 84%);
 $light-input-secondary: hsl(221, 71%, 90%);
+
 // dark theme
 $dark-gradient-primary: hsla(221, 99%, 5%, 1);
 $dark-gradient-secondary: hsla(221, 99%, 15%, 1);
 $dark-primary: hsl(225, 60%, 15%);
-// $dark-secondary: #000;
+$dark-text: #fff;
 $dark-button-primary: hsl(221, 99%, 5%);
 $dark-input-primary: hsl(221, 71%, 5%);
 $dark-input-secondary: hsl(221, 71%, 11%);
 
 $summary-window: #ccd8f075;
+
 @import '../node_modules/bootstrap/scss/bootstrap';
 //additional custom code (for classes, etc.) comes after the @import
 
 .dark {
-  // background-color: #000;
   background: linear-gradient($dark-gradient-primary, $dark-gradient-secondary);
-  color: #fff;
+  color: $dark-text;
+
   .dashboard-text-secondary {
     color: #a2a8ae;
   }
   .btn-dark {
     background-color: $dark-button-primary;
-    // border-color: #fff;
-    color: #fff;
+    color: $dark-text;
     &:hover,
     &:focus {
       background-color: $dark-input-secondary;
@@ -42,12 +43,10 @@ $summary-window: #ccd8f075;
   }
   .sidebar-inner-dark {
     background-color: $dark-primary;
-    // box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 20px 1px rgba(255, 255, 255, 0.05);
   }
   .main-dashboard-inner-dark {
     background-color: $dark-primary;
-    // box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 20px 1px rgba(255, 255, 255, 0.05);
   }
 }
@@ -57,20 +56,20 @@ $summary-window: #ccd8f075;
     $light-gradient-primary,
     $light-gradient-secondary
   );
-  color: #000;
+  color: $light-text;
+
   .dashboard-text-secondary {
     color: #424d4d;
   }
   .btn-light {
     background-color: $light-button-primary;
-    color: #000;
+    color: $light-text;
     &:hover,
     &:focus {
       background-color: $light-input-secondary;
       border-color: $light-input-secondary;
     }
   }
-
   .sidebar-inner-light {
     background-color: $light-primary;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
@@ -80,17 +79,21 @@ $summary-window: #ccd8f075;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
+
 //needs to be separate for modal
+.dashboard-button {
+  border-radius: 30px;
+  border: 0;
+}
 .dashboard-input-dark {
   background-color: $dark-input-primary;
-  color: #fff;
+  color: $dark-text;
   border: 0;
   border-radius: 30px;
   &:focus,
   &:hover {
-    // background-color: hsl(221, 71%, 90%);
     background-color: $dark-input-secondary;
-    color: #fff;
+    color: $dark-text;
   }
 }
 .dashboard-input-light {
@@ -102,7 +105,6 @@ $summary-window: #ccd8f075;
     background-color: $light-input-secondary;
   }
 }
-
 .modal-body-dark {
   background: $dark-primary;
 }
@@ -113,29 +115,17 @@ $summary-window: #ccd8f075;
 .dashboard-container {
   height: 100vh;
   max-height: 100vh;
-  .btn {
-    border: 0;
-  }
 }
 
-.dashboard-button {
-  border-radius: 30px;
-  border: 0;
-}
+
 
 .dashboard-modal {
-  @include media-breakpoint-up(md) {
-    // @media (min-width: 768px) {
-    width: 30% !important;
-    margin-left: 5vw;
-    margin-top: 6vw;
-    height: fit-content;
-  }
 
   .modal-content {
     max-width: 300px;
     background: none;
     border: none;
+
     .modal-body {
       border-radius: 30px;
 
@@ -145,6 +135,13 @@ $summary-window: #ccd8f075;
         }
       }
     }
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 30% !important;
+    margin-left: 5vw;
+    margin-top: 6vw;
+    height: fit-content;
   }
 }
 
@@ -159,8 +156,6 @@ $summary-window: #ccd8f075;
     max-width: 95%;
     height: 95%;
     border-radius: 30px;
-    //remove later:
-    // background-color: hsl(225, 60%, 93%);
 
     .sidebar-top {
       margin-top: 0.5vw;
@@ -171,34 +166,24 @@ $summary-window: #ccd8f075;
         border-radius: 50%;
       }
       .toggle-button {
-        // display: block;
         margin-top: 1vw;
         margin-left: auto;
       }
     }
-
     .search-bar {
       margin-top: 2vw;
       max-width: 100%;
-      // text-align: center;
       label {
         display: hidden;
         max-width: inherit;
         input {
           max-width: inherit;
-          // match btn-light
-          // background-color: #b9cbf3;
           border: 0;
           border-radius: 30px;
-          // &:focus,
-          // &:hover {
-          //   background-color: hsl(221, 71%, 90%);
-          // }
         }
       }
     }
     .summary-weather {
-      // font-family: $header-font-family;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -298,7 +283,6 @@ $summary-window: #ccd8f075;
     max-width: 98%;
     height: 97%;
     border-radius: 30px;
-    //remove later:
   }
 }
 
