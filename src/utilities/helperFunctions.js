@@ -1,3 +1,26 @@
+import {
+  ClearDay,
+  ClearNight,
+  Cloudy,
+  Drizzle,
+  DustWind,
+  Dust,
+  Fog,
+  Mist,
+  OvercastDay,
+  OvercastNight,
+  PartlyCloudyDay,
+  PartlyCloudyNight,
+  Rain,
+  Sleet,
+  Smoke,
+  Snow,
+  ThunderstormsRain,
+  Thunderstorms,
+  Tornado,
+  Wind,
+} from '../images/weather-conditions/weatherConditionImages';
+
 export const validate = (input, setErrorMessage) => {
   let validated = false;
   // A city name must include at least one unicode letter, and may include numbers and spaces
@@ -63,77 +86,100 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
 };
 
 export const getIconFromSrc = function getWeatherIconSrcPath(
-  { id, icon },
-  animated = false
+  { id, icon } // animated = false
 ) {
-  const SVGType = animated ? `animated` : `static`;
-  const srcType = `src/images/weather-conditions/${SVGType}/`;
-  const iconStringMatches = [];
-  let srcString = '';
-  let iconStringMatch = '';
+  // const SVGType = animated ? `animated` : `static`;
+  // const srcType = `src/images/weather-conditions/${SVGType}/`;
+  const iconMatches = [];
+  // let srcString = '';
+  let iconMatch = '';
 
   const iconNames = {
-    'thunderstorms-rain': [200, 201, 202, 230, 231, 232],
-    thunderstorms: [210, 211, 212, 221],
-    drizzle: [
+    ThunderstormsRain: [200, 201, 202, 230, 231, 232],
+    Thunderstorms: [210, 211, 212, 221],
+    Drizzle: [
       300, 301, 302, 310, 311, 312, 313, 314, 321, 520, 521, 522, 531, 804,
     ],
-    rain: [500, 501, 502, 503, 504],
-    sleet: [511, 611, 612, 613, 615, 616],
-    snow: [600, 601, 602, 620, 621, 622],
-    mist: [701],
-    smoke: [711, 762],
-    haze: [721],
-    'dust-wind': [731, 751],
-    dust: [761],
-    wind: [771],
-    tornado: [781],
-    'clear-day': [800],
-    'clear-night': [800],
-    'partly-cloudy-day': [801],
-    'partly-cloudy-night': [801],
-    cloudy: [802],
-    'overcast-day': [803],
-    'overcast-night': [803],
+    Rain: [500, 501, 502, 503, 504],
+    Sleet: [511, 611, 612, 613, 615, 616],
+    Snow: [600, 601, 602, 620, 621, 622],
+    Mist: [701],
+    Smoke: [711, 762],
+    Haze: [721],
+    DustWind: [731, 751],
+    Dust: [761],
+    Wind: [771],
+    Tornado: [781],
+    ClearDay: [800],
+    ClearNight: [800],
+    PartlyCloudyDay: [801],
+    PartlyCloudyNight: [801],
+    Cloudy: [802],
+    OvercastDay: [803],
+    OvercastNight: [803],
   };
 
   Object.entries(iconNames).forEach(([key, value]) => {
-    if (value.includes(id)) iconStringMatches.push(key);
+    if (value.includes(id)) iconMatches.push(key);
   });
 
-  if (iconStringMatches) {
-    if (iconStringMatches.length > 1) {
-      if (iconStringMatches.includes('clear-day')) {
-        if (icon === '01d') {
-          iconStringMatch = 'clear-day';
-        } else {
-          iconStringMatch = 'clear-night';
-        }
-      } else if (iconStringMatches.includes('partly-cloudy-day')) {
-        if (icon === '02d') {
-          iconStringMatch = 'partly-cloudy-day';
-        } else {
-          iconStringMatch = 'partly-cloudy-night';
-        }
-      } else if (iconStringMatches.includes('cloudy')) {
-        if (icon === '03d') {
-          iconStringMatch = 'cloudy';
-        }
-      } else if (iconStringMatches.includes('overcast-day')) {
-        if (icon === '04d') {
-          iconStringMatch = 'overcast-day';
-        } else {
-          iconStringMatch = 'overcast-night';
-        }
+  if (iconMatches) {
+    if (iconMatches.includes(ClearDay)) {
+      if (icon === '01d') {
+        iconMatch = ClearDay;
+      } else {
+        iconMatch = ClearNight;
       }
-    } else {
-      [iconStringMatch] = iconStringMatches;
+    } else if (iconMatches.includes(PartlyCloudyDay)) {
+      if (icon === '02d') {
+        iconMatch = PartlyCloudyDay;
+      } else {
+        iconMatch = PartlyCloudyNight;
+      }
+    } else if (iconMatches.includes(Cloudy)) {
+      if (icon === '03d') {
+        iconMatch = Cloudy;
+      }
+    } else if (iconMatches.includes(OvercastDay)) {
+      if (icon === '04d') {
+        iconMatch = OvercastDay;
+      } else {
+        iconMatch = OvercastNight;
+      }
+    } else if (iconMatches.includes(Drizzle)) {
+      iconMatch = Drizzle;
+    } else if (iconMatches.includes(DustWind)) {
+      iconMatch = DustWind;
+    } else if (iconMatches.includes(Dust)) {
+      iconMatch = Dust;
+    } else if (iconMatches.includes(Fog)) {
+      iconMatch = Fog;
+    } else if (iconMatches.includes(Mist)) {
+      iconMatch = Mist;
+    } else if (iconMatches.includes(Rain)) {
+      iconMatch = Rain;
+    } else if (iconMatches.includes(Sleet)) {
+      iconMatch = Sleet;
+    } else if (iconMatches.includes(Snow)) {
+      iconMatch = Snow;
+    } else if (iconMatches.includes(Smoke)) {
+      iconMatch = Smoke;
+    } else if (iconMatches.includes(ThunderstormsRain)) {
+      iconMatch = ThunderstormsRain;
+    } else if (iconMatches.includes(Thunderstorms)) {
+      iconMatch = Thunderstorms;
+    } else if (iconMatches.includes(Tornado)) {
+      iconMatch = Tornado;
+    } else if (iconMatches.includes(Wind)) {
+      iconMatch = Wind;
     }
+    // [iconMatch] = iconMatches;
+    // }
 
-    srcString = `${srcType}${iconStringMatch}.svg`;
+    // srcString = `${srcType}${iconMatch}.svg`;
   }
 
-  return srcString;
+  return iconMatch;
 };
 
 // time depends on system settings
