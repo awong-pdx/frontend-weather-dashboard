@@ -115,10 +115,6 @@ export const getIconName = function matchIconNameWithID(
       } else {
         iconMatch = 'PartlyCloudyNight';
       }
-    } else if (iconMatches.includes('Cloudy')) {
-      if (icon === '03d') {
-        iconMatch = 'Cloudy';
-      }
     } else if (iconMatches.includes('OvercastDay')) {
       if (icon === '04d') {
         iconMatch = 'OvercastDay';
