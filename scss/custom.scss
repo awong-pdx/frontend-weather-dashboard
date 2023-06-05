@@ -204,8 +204,28 @@ $child-font-family: 'Libre Franklin', sans-serif;
     text-align: center;
 
     .humidity-icon,
-    .wind-icon {
+    .wind-icon,
+    .pressure-icon {
       display: none;
     }
+  }
+}
+
+.center-pressure-gauge {
+  display: flex;
+  justify-content: center;
+}
+
+.pressure-gauge-container {
+  height: 160px;
+  width: 160px;
+  max-width: 100%;
+
+  .pressure-gauge {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
