@@ -99,7 +99,11 @@ export const getIconName = function matchIconNameWithID(
   });
 
   if (iconMatches) {
-    if (iconMatches.includes('ClearDay')) {
+    if (iconMatches.length === 1) {
+      [iconMatch] = iconMatches;
+    }
+    else if
+    (iconMatches.includes('ClearDay')) {
       if (icon === '01d') {
         iconMatch = 'ClearDay';
       } else {
@@ -121,32 +125,6 @@ export const getIconName = function matchIconNameWithID(
       } else {
         iconMatch = 'OvercastNight';
       }
-    } else if (iconMatches.includes('Drizzle')) {
-      iconMatch = 'Drizzle';
-    } else if (iconMatches.includes('DustWind')) {
-      iconMatch = 'DustWind';
-    } else if (iconMatches.includes('Dust')) {
-      iconMatch = 'Dust';
-    } else if (iconMatches.includes('Fog')) {
-      iconMatch = 'Fog';
-    } else if (iconMatches.includes('Mist')) {
-      iconMatch = 'Mist';
-    } else if (iconMatches.includes('Rain')) {
-      iconMatch = 'Rain';
-    } else if (iconMatches.includes('Sleet')) {
-      iconMatch = 'Sleet';
-    } else if (iconMatches.includes('Snow')) {
-      iconMatch = 'Snow';
-    } else if (iconMatches.includes('Smoke')) {
-      iconMatch = 'Smoke';
-    } else if (iconMatches.includes('ThunderstormsRain')) {
-      iconMatch = 'ThunderstormsRain';
-    } else if (iconMatches.includes('Thunderstorms')) {
-      iconMatch = 'Thunderstorms';
-    } else if (iconMatches.includes('Tornado')) {
-      iconMatch = 'Tornado';
-    } else if (iconMatches.includes('Wind')) {
-      iconMatch = 'Wind';
     }
     if (animated) {
       iconMatch = iconMatch.concat('Animated');
