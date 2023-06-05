@@ -6,7 +6,9 @@ import {
   getHourString,
   getIconSrc,
   getIconFromSrc,
+  // getIconFromSrc,
 } from '../../utilities/helperFunctions';
+import getImageByKey from '../../images/weather-conditions/getImageByKey';
 
 export default function SummaryWeather() {
   const { currentWeather, hourlyWeather } = useWeather();
@@ -28,8 +30,9 @@ export default function SummaryWeather() {
         {getHourString(toLocalDate(weatherForHour.dt), timezone)}
         <img
           // src={getIconSrc(weatherForHour.weather[0].icon)}
-          src={getIconFromSrc(weatherForHour.weather[0])}
-          // src={Rain}
+          // src={getIconFromSrc(weatherForHour.weather[0])}
+          // src={getImageByKey('Rain')}
+          src={getImageByKey(getIconFromSrc(weatherForHour.weather[0]))}
           // src/images/weather-conditions/static/clear-day.svg
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
         />

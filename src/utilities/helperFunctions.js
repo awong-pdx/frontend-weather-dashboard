@@ -1,25 +1,25 @@
-import {
-  ClearDay,
-  ClearNight,
-  Cloudy,
-  Drizzle,
-  DustWind,
-  Dust,
-  Fog,
-  Mist,
-  OvercastDay,
-  OvercastNight,
-  PartlyCloudyDay,
-  PartlyCloudyNight,
-  Rain,
-  Sleet,
-  Smoke,
-  Snow,
-  ThunderstormsRain,
-  Thunderstorms,
-  Tornado,
-  Wind,
-} from '../images/weather-conditions/weatherConditionImages';
+// import {
+//   ClearDay,
+//   ClearNight,
+//   Cloudy,
+//   Drizzle,
+//   DustWind,
+//   Dust,
+//   Fog,
+//   Mist,
+//   OvercastDay,
+//   OvercastNight,
+//   PartlyCloudyDay,
+//   PartlyCloudyNight,
+//   Rain,
+//   Sleet,
+//   Smoke,
+//   Snow,
+//   ThunderstormsRain,
+//   Thunderstorms,
+//   Tornado,
+//   Wind,
+// } from '../images/weather-conditions/getImageByKey';
 
 export const validate = (input, setErrorMessage) => {
   let validated = false;
@@ -124,59 +124,55 @@ export const getIconFromSrc = function getWeatherIconSrcPath(
   });
 
   if (iconMatches) {
-    if (iconMatches.includes(ClearDay)) {
+    if (iconMatches.includes('ClearDay')) {
       if (icon === '01d') {
-        iconMatch = ClearDay;
+        iconMatch = 'ClearDay';
       } else {
-        iconMatch = ClearNight;
+        iconMatch = 'ClearNight';
       }
-    } else if (iconMatches.includes(PartlyCloudyDay)) {
+    } else if (iconMatches.includes('PartlyCloudyDay')) {
       if (icon === '02d') {
-        iconMatch = PartlyCloudyDay;
+        iconMatch = 'PartlyCloudyDay';
       } else {
-        iconMatch = PartlyCloudyNight;
+        iconMatch = 'PartlyCloudyNight';
       }
-    } else if (iconMatches.includes(Cloudy)) {
+    } else if (iconMatches.includes('Cloudy')) {
       if (icon === '03d') {
-        iconMatch = Cloudy;
+        iconMatch = 'Cloudy';
       }
-    } else if (iconMatches.includes(OvercastDay)) {
+    } else if (iconMatches.includes('OvercastDay')) {
       if (icon === '04d') {
-        iconMatch = OvercastDay;
+        iconMatch = 'OvercastDay';
       } else {
-        iconMatch = OvercastNight;
+        iconMatch = 'OvercastNight';
       }
-    } else if (iconMatches.includes(Drizzle)) {
-      iconMatch = Drizzle;
-    } else if (iconMatches.includes(DustWind)) {
-      iconMatch = DustWind;
-    } else if (iconMatches.includes(Dust)) {
-      iconMatch = Dust;
-    } else if (iconMatches.includes(Fog)) {
-      iconMatch = Fog;
-    } else if (iconMatches.includes(Mist)) {
-      iconMatch = Mist;
-    } else if (iconMatches.includes(Rain)) {
-      iconMatch = Rain;
-    } else if (iconMatches.includes(Sleet)) {
-      iconMatch = Sleet;
-    } else if (iconMatches.includes(Snow)) {
-      iconMatch = Snow;
-    } else if (iconMatches.includes(Smoke)) {
-      iconMatch = Smoke;
-    } else if (iconMatches.includes(ThunderstormsRain)) {
-      iconMatch = ThunderstormsRain;
-    } else if (iconMatches.includes(Thunderstorms)) {
-      iconMatch = Thunderstorms;
-    } else if (iconMatches.includes(Tornado)) {
-      iconMatch = Tornado;
-    } else if (iconMatches.includes(Wind)) {
-      iconMatch = Wind;
+    } else if (iconMatches.includes('Drizzle')) {
+      iconMatch = 'Drizzle';
+    } else if (iconMatches.includes('DustWind')) {
+      iconMatch = 'DustWind';
+    } else if (iconMatches.includes('Dust')) {
+      iconMatch = 'Dust';
+    } else if (iconMatches.includes('Fog')) {
+      iconMatch = 'Fog';
+    } else if (iconMatches.includes('Mist')) {
+      iconMatch = 'Mist';
+    } else if (iconMatches.includes('Rain')) {
+      iconMatch = 'Rain';
+    } else if (iconMatches.includes('Sleet')) {
+      iconMatch = 'Sleet';
+    } else if (iconMatches.includes('Snow')) {
+      iconMatch = 'Snow';
+    } else if (iconMatches.includes('Smoke')) {
+      iconMatch = 'Smoke';
+    } else if (iconMatches.includes('ThunderstormsRain')) {
+      iconMatch = 'ThunderstormsRain';
+    } else if (iconMatches.includes('Thunderstorms')) {
+      iconMatch = 'Thunderstorms';
+    } else if (iconMatches.includes('Tornado')) {
+      iconMatch = 'Tornado';
+    } else if (iconMatches.includes('Wind')) {
+      iconMatch = 'Wind';
     }
-    // [iconMatch] = iconMatches;
-    // }
-
-    // srcString = `${srcType}${iconMatch}.svg`;
   }
 
   return iconMatch;

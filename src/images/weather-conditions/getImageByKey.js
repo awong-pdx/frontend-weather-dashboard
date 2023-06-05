@@ -40,7 +40,7 @@ import ThunderstormsAnimated from './animated/thunderstorms.svg';
 import TornadoAnimated from './animated/tornado.svg';
 import WindAnimated from './animated/wind.svg';
 
-export {
+const images = {
   ClearDay,
   ClearNight,
   Cloudy,
@@ -82,3 +82,9 @@ export {
   TornadoAnimated,
   WindAnimated,
 };
+
+function getImageByKey(key) {
+  return images[key];
+}
+
+export default getImageByKey;
