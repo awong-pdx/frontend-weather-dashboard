@@ -1,26 +1,3 @@
-// import {
-//   ClearDay,
-//   ClearNight,
-//   Cloudy,
-//   Drizzle,
-//   DustWind,
-//   Dust,
-//   Fog,
-//   Mist,
-//   OvercastDay,
-//   OvercastNight,
-//   PartlyCloudyDay,
-//   PartlyCloudyNight,
-//   Rain,
-//   Sleet,
-//   Smoke,
-//   Snow,
-//   ThunderstormsRain,
-//   Thunderstorms,
-//   Tornado,
-//   Wind,
-// } from '../images/weather-conditions/getImageByKey';
-
 export const validate = (input, setErrorMessage) => {
   let validated = false;
   // A city name must include at least one unicode letter, and may include numbers and spaces
