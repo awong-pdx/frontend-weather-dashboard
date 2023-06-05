@@ -32,7 +32,8 @@ export default function CreateDailyWeather({ weatherInfo }) {
         alt={`Weather icon representing ${weatherDescription}`}
       />
       <p>
-        <span className="text-secondary">{minTemp}° </span>/ {maxTemp}°
+        <span className="dashboard-text-secondary">{minTemp}° </span>/ {maxTemp}
+        °
       </p>
     </div>
   );

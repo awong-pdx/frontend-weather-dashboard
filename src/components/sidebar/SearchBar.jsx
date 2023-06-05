@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useInput } from '../../utilities/customHooks';
 import { validate } from '../../utilities/helperFunctions';
+import { useTheme } from '../ThemeProvider';
 
 export default function SearchBar({ onNewSearch = (f) => f }) {
+  const { theme } = useTheme();
   const [searchProp, resetSearch] = useInput('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -19,9 +21,10 @@ export default function SearchBar({ onNewSearch = (f) => f }) {
   return (
     <form className="search-bar text-center" onSubmit={handleSubmit}>
       <label htmlFor="search">
-        Search:
+        <span className="visually-hidden">Type a city name to search:</span>
         <input
           id="search"
+          className={`form-control dashboard-input dashboard-input-${theme}`}
           value={searchProp.value}
           onChange={searchProp.onChange}
           type="text"

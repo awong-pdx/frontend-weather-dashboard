@@ -2,29 +2,114 @@
 $header-font-family: 'DM Sans', sans-serif;
 $child-font-family: 'Libre Franklin', sans-serif;
 
-@import '../node_modules/bootstrap/scss/bootstrap';
+// light theme
+$light-gradient-primary: hsl(222, 61%, 84%);
+$light-gradient-secondary: hsl(221, 61%, 94%);
+$light-primary: hsl(225, 60%, 93%);
+$light-text: #000;
+$light-button-primary: hsl(221, 99%, 84%);
+$light-input-primary: hsl(221, 71%, 84%);
+$light-input-secondary: hsl(221, 71%, 90%);
 
+// dark theme
+$dark-gradient-primary: hsla(221, 99%, 5%, 1);
+$dark-gradient-secondary: hsla(221, 99%, 15%, 1);
+$dark-primary: hsl(225, 60%, 15%);
+$dark-text: #fff;
+$dark-button-primary: hsl(221, 99%, 5%);
+$dark-input-primary: hsl(221, 71%, 5%);
+$dark-input-secondary: hsl(221, 71%, 11%);
+
+$summary-window: #ccd8f075;
+
+@import '../node_modules/bootstrap/scss/bootstrap';
 //additional custom code (for classes, etc.) comes after the @import
+
 .dark {
-  background-color: #000;
-  color: #fff;
+  background: linear-gradient($dark-gradient-primary, $dark-gradient-secondary);
+  color: $dark-text;
+
+  .dashboard-text-secondary {
+    color: #a2a8ae;
+  }
+  .btn-dark {
+    background-color: $dark-button-primary;
+    color: $dark-text;
+    &:hover,
+    &:focus {
+      background-color: $dark-input-secondary;
+      border-color: $dark-input-secondary;
+    }
+  }
+  .sidebar-inner-dark {
+    background-color: $dark-primary;
+    box-shadow: 0 1px 20px 1px rgba(255, 255, 255, 0.05);
+  }
+  .main-dashboard-inner-dark {
+    background-color: $dark-primary;
+    box-shadow: 0 1px 20px 1px rgba(255, 255, 255, 0.05);
+  }
 }
 
 .light {
-  background-color: #fff;
-  color: #000;
+  background: linear-gradient(
+    $light-gradient-primary,
+    $light-gradient-secondary
+  );
+  color: $light-text;
+
+  .dashboard-text-secondary {
+    color: #424d4d;
+  }
+  .btn-light {
+    background-color: $light-button-primary;
+    color: $light-text;
+    &:hover,
+    &:focus {
+      background-color: $light-input-secondary;
+      border-color: $light-input-secondary;
+    }
+  }
+  .sidebar-inner-light {
+    background-color: $light-primary;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+  }
+  .main-dashboard-inner-light {
+    background-color: $light-primary;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+  }
 }
 
-.btn-dark {
-  background-color: #000;
-  border-color: #fff;
-  color: #fff;
+//needs to be separate for modal
+.dashboard-button {
+  border-radius: 30px;
+  border: 0;
 }
-
-.btn-light {
-  background-color: #fff;
-  border-color: #000;
-  color: #000;
+.dashboard-input-dark {
+  background-color: $dark-input-primary;
+  color: $dark-text;
+  border: 0;
+  border-radius: 30px;
+  &:focus,
+  &:hover {
+    background-color: $dark-input-secondary;
+    color: $dark-text;
+  }
+}
+.dashboard-input-light {
+  background-color: $light-input-primary;
+  border: 0;
+  border-radius: 30px;
+  &:focus,
+  &:hover {
+    background-color: $light-input-secondary;
+  }
+}
+.modal-body-dark {
+  background: $dark-primary;
+}
+.modal-body-light {
+  background: $light-primary;
 }
 
 .dashboard-container {
@@ -33,119 +118,152 @@ $child-font-family: 'Libre Franklin', sans-serif;
 }
 
 .dashboard-modal {
-  @media (min-width: 768px) {
-    width: 30% !important;
-    margin-left: 20px;
-    margin-top: 20px;
-    height: fit-content;
-  }
-
   .modal-content {
     max-width: 300px;
+    background: none;
+    border: none;
+
+    .modal-body {
+      border-radius: 30px;
+
+      .login-box {
+        input {
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 30% !important;
+    margin-left: 5vw;
+    margin-top: 6vw;
+    height: fit-content;
   }
 }
 
-.sidebar {
+.sidebar-outer {
+  font-family: $header-font-family;
   max-height: inherit;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 
-  .sidebar-top {
-    margin-top: 0.5vw;
-    margin-bottom: 1vw;
-    display: flex;
-    justify-content: space-between;
-  }
+  .sidebar-inner {
+    max-width: 95%;
+    height: 95%;
+    border-radius: 30px;
 
-  .search-bar {
-    margin-top: 0.5vw;
-    max-width: 100%;
-
-    label {
-      max-width: inherit;
-      input {
-        max-width: inherit;
+    .sidebar-top {
+      margin-top: 0.5vw;
+      margin-bottom: 1vw;
+      display: flex;
+      justify-content: space-between;
+      .modal-button {
+        border-radius: 50%;
+      }
+      .toggle-button {
+        margin-top: 1vw;
+        margin-left: auto;
       }
     }
-  }
-  .summary-weather {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 85%;
-    max-height: 55%;
-    overflow: hidden auto;
-    font-size: 0.5em;
-    padding-top: 4em;
-
-    .summary-font-1 {
-      font-size: 3em;
+    .search-bar {
+      margin-top: 2vw;
+      max-width: 100%;
+      label {
+        display: hidden;
+        max-width: inherit;
+        input {
+          max-width: inherit;
+          border: 0;
+          border-radius: 30px;
+        }
+      }
     }
-    .summary-font-2 {
-      font-size: 2.5em;
-    }
-    .summary-font-4 {
-      font-size: 2em;
-    }
-    .summary-image {
-      position: relative;
-      bottom: 60px;
-    }
-    .summary-description {
-      position: relative;
-      bottom: 80px;
-    }
-    .summary-hourly {
-      position: relative;
-      bottom: 60px;
-    }
-
-    @media (min-width: 768px) {
-      max-height: 85%;
+    .summary-weather {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 85%;
+      max-height: 55%;
+      overflow: hidden auto;
+      font-size: 0.5em;
+      padding-top: 4em;
+      background-color: $summary-window;
+      box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
 
       .summary-font-1 {
-        font-size: 3.5em;
-      }
-      .summary-font-2 {
         font-size: 3em;
       }
-      .summary-font-4 {
+      .summary-font-2 {
         font-size: 2.5em;
       }
-      .summary-image {
-        position: relative;
-        bottom: 55px;
-      }
-      .summary-description {
-        position: relative;
-        bottom: 65px;
-      }
-      .summary-hourly {
-        position: relative;
-        bottom: 40px;
-      }
-    }
-    @media (min-width: 1400px) {
-      max-height: 85%;
-
-      .summary-font-1 {
-        font-size: 4.5em;
-      }
-      .summary-font-2 {
-        font-size: 4em;
-      }
       .summary-font-4 {
-        font-size: 3em;
+        font-size: 2em;
       }
       .summary-image {
         position: relative;
-        bottom: 55px;
+        bottom: 60px;
       }
       .summary-description {
         position: relative;
-        bottom: 65px;
+        bottom: 80px;
       }
       .summary-hourly {
+        font-family: $child-font-family;
         position: relative;
-        bottom: 40px;
+        bottom: 60px;
+      }
+
+      @include media-breakpoint-up(md) {
+        max-height: 75%;
+
+        .summary-font-1 {
+          font-size: 3.5em;
+        }
+        .summary-font-2 {
+          font-size: 3em;
+        }
+        .summary-font-4 {
+          font-size: 2.5em;
+        }
+        .summary-image {
+          position: relative;
+          bottom: 55px;
+        }
+        .summary-description {
+          position: relative;
+          bottom: 65px;
+        }
+        .summary-hourly {
+          position: relative;
+          bottom: 40px;
+        }
+      }
+      @include media-breakpoint-up(xxl) {
+        max-height: 75%;
+
+        .summary-font-1 {
+          font-size: 4.5em;
+        }
+        .summary-font-2 {
+          font-size: 4em;
+        }
+        .summary-font-4 {
+          font-size: 3em;
+        }
+        .summary-image {
+          position: relative;
+          bottom: 55px;
+        }
+        .summary-description {
+          position: relative;
+          bottom: 65px;
+        }
+        .summary-hourly {
+          position: relative;
+          bottom: 40px;
+        }
       }
     }
   }
@@ -153,6 +271,16 @@ $child-font-family: 'Libre Franklin', sans-serif;
 
 .main-dashboard {
   min-height: 80%;
+  max-height: inherit;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  .main-dashboard-inner {
+    max-width: 98%;
+    height: 97%;
+    border-radius: 30px;
+  }
 }
 
 .animation-wrapper {

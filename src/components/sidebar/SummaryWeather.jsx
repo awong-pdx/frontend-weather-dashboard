@@ -33,7 +33,7 @@ export default function SummaryWeather() {
     ));
 
   return (
-    <section className="summary-weather m-auto border border-primary rounded">
+    <section className="summary-weather m-auto rounded">
       <h1 className="summary-font-1">{summaryHeader}</h1>
       <p className="summary-font-1">{summaryTemperature}</p>
       <div className="summary-image">
@@ -48,6 +48,7 @@ export default function SummaryWeather() {
       <p className="summary-description mb-2 summary-font-2">
         {summaryDescription}
       </p>
+      <hr />
       <div className="summary-hourly">
         <h2 className="visually-hidden">Hourly Forecast</h2>
         {hourlyForecast}

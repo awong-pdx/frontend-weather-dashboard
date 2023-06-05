@@ -14,14 +14,14 @@ export default function LoginButton({ onLoginToggle }) {
     <>
       <button
         type="button"
-        className={`modal-button btn btn-${theme}`}
+        className={`dashboard-button modal-button btn btn-${theme}`}
         onClick={handleShow}
       >
         Login
       </button>
 
       <Modal className="dashboard-modal" show={show} onHide={handleClose}>
-        <Modal.Body className={`rounded ${theme} bg-${theme}`}>
+        <Modal.Body className={`${theme}  modal-body-${theme}`}>
           <LoginBox onLoginToggle={onLoginToggle} handleClose={handleClose} />
         </Modal.Body>
       </Modal>
