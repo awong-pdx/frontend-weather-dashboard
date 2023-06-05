@@ -23,11 +23,14 @@ export default function SummaryWeather() {
   const hourlyForecast = hourlyWeather.list
     .slice(0, 5)
     .map((weatherForHour) => (
-      <div key={weatherForHour.dt} className="summary-font-4">
+      <div key={weatherForHour.dt} className="summary-font-4 row summary-hourly-row">
+<div className="col text-center m-auto">
         {getHourString(toLocalDate(weatherForHour.dt), timezone)}
+</div>
         <img
           src={getImageByKey(getIconName(weatherForHour.weather[0]))}
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
+          className='col'
         />
       </div>
     ));

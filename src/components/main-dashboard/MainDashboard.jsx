@@ -8,7 +8,7 @@ import { useTheme } from '../ThemeProvider';
 export default function MainDashboard() {
   const { theme } = useTheme();
   return (
-    <section className="main-dashboard col-sm-8 border border-2 border-primary">
+    <section className="main-dashboard col-sm-9 border border-2 border-primary px-0">
       <div
         className={`main-dashboard-inner main-dashboard-inner-${theme} container`}
       >
