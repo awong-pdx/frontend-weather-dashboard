@@ -11,7 +11,8 @@ export default function DailyWeather() {
       const { list } = dailyWeather;
       const dailyWeatherInfo = list.map((weatherData, index) => {
         const weatherObj = {
-          id: index,
+          key: index,
+          id: weatherData.weather[0].id,
           timestamp: weatherData.dt,
           minTemperature: weatherData.temp.min,
           maxTemperature: weatherData.temp.max,
@@ -32,7 +33,7 @@ export default function DailyWeather() {
     <div className="row px-2">
       {weather.map((dailyForecastData) => (
         <CreateDailyWeather
-          key={dailyForecastData.id}
+          key={dailyForecastData.key}
           weatherInfo={dailyForecastData}
         />
       ))}
