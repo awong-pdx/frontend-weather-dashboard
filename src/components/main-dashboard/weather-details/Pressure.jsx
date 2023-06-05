@@ -15,28 +15,31 @@ export default function Pressure() {
         <h4>Pressure</h4>
         <img
           src={pressureIcon}
+          className="pressure-icon"
           alt="Icon representing atmospheric pressure"
           width="30px"
           height="30px"
         />
       </div>
-      <div className="text-center">
-        <CircularProgressbar
-          className="pressure-gauge"
-          circleRatio={0.75}
-          value={pressure}
-          minValue={980}
-          maxValue={1050}
-          text={`${pressure}hPa`}
-          strokeWidth={6}
-          styles={buildStyles({
-            rotation: 1 / 2 + 1 / 8,
-            strokeLinecap: 'butt',
-            trailColor: '#eee',
-            textColor: '#000',
-            textSize: '21px',
-          })}
-        />
+      <div className="center-pressure-gauge">
+        <div className="pressure-gauge-container">
+          <CircularProgressbar
+            className="pressure-gauge"
+            circleRatio={0.75}
+            value={pressure}
+            minValue={980}
+            maxValue={1050}
+            text={`${pressure}hPa`}
+            strokeWidth={6}
+            styles={buildStyles({
+              rotation: 1 / 2 + 1 / 8,
+              strokeLinecap: 'butt',
+              trailColor: '#eee',
+              textColor: '#000',
+              textSize: '21px',
+            })}
+          />
+        </div>
       </div>
     </div>
   );
