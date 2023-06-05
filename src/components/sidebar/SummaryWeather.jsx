@@ -4,9 +4,8 @@ import {
   toCapitalized,
   toLocalDate,
   getHourString,
-  getIconSrc,
+  // getIconSrc,
   getIconFromSrc,
-  // getIconFromSrc,
 } from '../../utilities/helperFunctions';
 import getImageByKey from '../../images/weather-conditions/getImageByKey';
 
@@ -16,7 +15,7 @@ export default function SummaryWeather() {
 
   const { timezone } = currentWeather;
   const summaryHeader = `${currentWeather.name}, ${currentWeather.sys.country}`;
-  const summaryIconURL = getIconSrc(currentWeather.weather[0].icon);
+  // const summaryIconURL = getIconSrc(currentWeather.weather[0].icon);
   const summaryIconAltText = `An icon representing ${currentWeather.weather[0].description}`;
   const summaryDescription = `${toCapitalized(
     currentWeather.weather[0].description
@@ -29,11 +28,7 @@ export default function SummaryWeather() {
       <div key={weatherForHour.dt} className="summary-font-4">
         {getHourString(toLocalDate(weatherForHour.dt), timezone)}
         <img
-          // src={getIconSrc(weatherForHour.weather[0].icon)}
-          // src={getIconFromSrc(weatherForHour.weather[0])}
-          // src={getImageByKey('Rain')}
           src={getImageByKey(getIconFromSrc(weatherForHour.weather[0]))}
-          // src/images/weather-conditions/static/clear-day.svg
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
         />
       </div>
@@ -46,7 +41,7 @@ export default function SummaryWeather() {
       <div className="summary-image">
         <img
           className="img-fluid"
-          src={summaryIconURL}
+          src={getImageByKey(getIconFromSrc(currentWeather.weather[0]))}
           height="200"
           width="200"
           alt={summaryIconAltText}

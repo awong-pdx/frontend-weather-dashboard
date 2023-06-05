@@ -65,10 +65,7 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
 export const getIconFromSrc = function getWeatherIconSrcPath(
   { id, icon } // animated = false
 ) {
-  // const SVGType = animated ? `animated` : `static`;
-  // const srcType = `src/images/weather-conditions/${SVGType}/`;
   const iconMatches = [];
-  // let srcString = '';
   let iconMatch = '';
 
   const iconNames = {
