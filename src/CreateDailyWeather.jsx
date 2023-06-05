@@ -9,11 +9,8 @@ export default function CreateDailyWeather({ weatherInfo }) {
     timestamp,
     minTemperature,
     maxTemperature,
-    // iconKey,
     weatherDescription,
   } = weatherInfo;
-
-  // const weatherIconURL = `https://openweathermap.org/img/wn/${iconKey}@2x.png`;
 
   const today = new Date(timestamp * 1000);
   const currentDay = today.getDay();
@@ -30,8 +27,7 @@ export default function CreateDailyWeather({ weatherInfo }) {
         {currentMonth + 1}/{currentDayOfMonth}
       </p>
       <img
-        // src={weatherIconURL}
-        src={getImageByKey(getIconName(weatherInfo))}
+        src={getImageByKey(getIconName(weatherInfo, true))}
         alt={`Weather icon representing ${weatherDescription}`}
       />
       <p>
