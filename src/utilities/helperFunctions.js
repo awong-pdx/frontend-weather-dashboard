@@ -62,8 +62,9 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
 
-export const getIconFromSrc = function getWeatherIconSrcPath(
-  { id, icon } // animated = false
+export const getIconName = function matchIconNameWithID(
+  { id, icon },
+  animated = false
 ) {
   const iconMatches = [];
   let iconMatch = '';
@@ -146,6 +147,9 @@ export const getIconFromSrc = function getWeatherIconSrcPath(
       iconMatch = 'Tornado';
     } else if (iconMatches.includes('Wind')) {
       iconMatch = 'Wind';
+    }
+    if (animated) {
+      iconMatch = iconMatch.concat('Animated');
     }
   }
 

@@ -4,7 +4,7 @@ import {
   toCapitalized,
   toLocalDate,
   getHourString,
-  getIconFromSrc,
+  getIconName,
 } from '../../utilities/helperFunctions';
 import getImageByKey from '../../images/weather-conditions/getImageByKey';
 
@@ -26,7 +26,7 @@ export default function SummaryWeather() {
       <div key={weatherForHour.dt} className="summary-font-4">
         {getHourString(toLocalDate(weatherForHour.dt), timezone)}
         <img
-          src={getImageByKey(getIconFromSrc(weatherForHour.weather[0]))}
+          src={getImageByKey(getIconName(weatherForHour.weather[0]))}
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
         />
       </div>
@@ -39,7 +39,7 @@ export default function SummaryWeather() {
       <div className="summary-image">
         <img
           className="img-fluid"
-          src={getImageByKey(getIconFromSrc(currentWeather.weather[0]))}
+          src={getImageByKey(getIconName(currentWeather.weather[0], true))}
           height="200"
           width="200"
           alt={summaryIconAltText}
