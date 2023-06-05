@@ -4,7 +4,6 @@ import {
   toCapitalized,
   toLocalDate,
   getHourString,
-  // getIconSrc,
   getIconFromSrc,
 } from '../../utilities/helperFunctions';
 import getImageByKey from '../../images/weather-conditions/getImageByKey';
@@ -15,7 +14,6 @@ export default function SummaryWeather() {
 
   const { timezone } = currentWeather;
   const summaryHeader = `${currentWeather.name}, ${currentWeather.sys.country}`;
-  // const summaryIconURL = getIconSrc(currentWeather.weather[0].icon);
   const summaryIconAltText = `An icon representing ${currentWeather.weather[0].description}`;
   const summaryDescription = `${toCapitalized(
     currentWeather.weather[0].description
