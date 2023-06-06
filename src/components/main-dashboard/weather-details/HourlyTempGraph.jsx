@@ -22,10 +22,13 @@ Chart.register(
   Tooltip
 );
 
+Chart.defaults.font.family = 'DM Sans';
+
 export default function HourlyTempGraph() {
   const { hourlyWeather } = useWeather();
   const { theme } = useTheme();
-  const graphLabelColor = theme === 'dark' ? 'hsl(0, 0%, 90%)' : 'gray';
+  const lightGray = 'hsl(0, 0%, 95%)';
+  const graphLabelColor = theme === 'dark' ? lightGray : 'gray';
   const graphHeaderColor = theme === 'light' ? 'black' : 'white';
   if (!hourlyWeather) return null;
 
