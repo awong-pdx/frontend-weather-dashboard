@@ -25,7 +25,8 @@ Chart.register(
 export default function HourlyTempGraph() {
   const { hourlyWeather } = useWeather();
   const { theme } = useTheme();
-  console.log(theme);
+  const graphLabelColor = theme === 'dark' ? 'hsl(0, 0%, 90%)' : 'gray';
+  const graphHeaderColor = theme === 'light' ? 'black' : 'white';
   if (!hourlyWeather) return null;
 
   const { timezone } = hourlyWeather.city;
@@ -47,6 +48,7 @@ export default function HourlyTempGraph() {
         display: true,
         text: 'Hourly Temperature',
         fontSize: 14,
+        color: graphHeaderColor,
       },
     },
     scales: {
@@ -55,10 +57,13 @@ export default function HourlyTempGraph() {
           display: true,
           text: 'Time',
           fontSize: 12,
-          color: 'white',
+          color: graphHeaderColor,
         },
         grid: {
-          color: 'white',
+          color: graphLabelColor,
+        },
+        ticks: {
+          color: graphLabelColor,
         },
       },
       y: {
@@ -66,10 +71,13 @@ export default function HourlyTempGraph() {
           display: true,
           text: 'Temperature (°F)',
           fontSize: 12,
-          color: 'white',
+          color: graphHeaderColor,
         },
         grid: {
-          color: 'white',
+          color: graphLabelColor,
+        },
+        ticks: {
+          color: graphLabelColor,
         },
       },
     },
