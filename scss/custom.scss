@@ -344,7 +344,8 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
   }
 
   .daily-weather {
-    font-family: $child-font-family;
+    font-family: $header-font-family;
+    padding-top: 5px;
   }
 
   .sun {
