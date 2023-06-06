@@ -305,6 +305,7 @@ $summary-window: #ccd8f075;
 
   .weather-detail {
     font-family: $child-font-family;
+    min-height: 100%;
   }
 
   .weather-detail-header {
