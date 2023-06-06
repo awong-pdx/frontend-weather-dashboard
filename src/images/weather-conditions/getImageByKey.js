@@ -5,6 +5,7 @@ import Drizzle from './static/drizzle.svg';
 import DustWind from './static/dust-wind.svg';
 import Dust from './static/dust.svg';
 import Fog from './static/fog.svg';
+import Haze from './static/haze.svg';
 import Mist from './static/mist.svg';
 import OvercastDay from './static/overcast-day.svg';
 import OvercastNight from './static/overcast-night.svg';
@@ -26,6 +27,7 @@ import DrizzleAnimated from './animated/drizzle.svg';
 import DustWindAnimated from './animated/dust-wind.svg';
 import DustAnimated from './animated/dust.svg';
 import FogAnimated from './animated/fog.svg';
+import HazeAnimated from './animated/haze.svg';
 import MistAnimated from './animated/mist.svg';
 import OvercastDayAnimated from './animated/overcast-day.svg';
 import OvercastNightAnimated from './animated/overcast-night.svg';
@@ -48,6 +50,7 @@ const images = {
   DustWind,
   Dust,
   Fog,
+  Haze,
   Mist,
   OvercastDay,
   OvercastNight,
@@ -68,6 +71,7 @@ const images = {
   DustWindAnimated,
   DustAnimated,
   FogAnimated,
+  HazeAnimated,
   MistAnimated,
   OvercastDayAnimated,
   OvercastNightAnimated,
