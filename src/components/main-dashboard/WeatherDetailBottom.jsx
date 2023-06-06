@@ -10,10 +10,10 @@ export default function WeatherDetailBottom() {
         <Pressure />
       </div>
       <div className="col-4">
-        <Humidity />
+        <WindStatus />
       </div>
       <div className="col-4">
-        <WindStatus />
+        <Humidity />
       </div>
     </div>
   );
