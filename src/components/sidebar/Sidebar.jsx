@@ -8,7 +8,7 @@ import { useTheme } from '../ThemeProvider';
 export default function Sidebar({ onLoginToggle, onNewSearch }) {
   const { theme } = useTheme();
   return (
-    <section className="sidebar-outer col-sm-4 border border-2 border-primary">
+    <section className="sidebar-outer col-sm-4">
       <div className={`sidebar-inner sidebar-inner-${theme} container`}>
         <div className="sidebar-top">
           <LoginButton onLoginToggle={onLoginToggle} />

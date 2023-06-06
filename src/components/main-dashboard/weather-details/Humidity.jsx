@@ -29,8 +29,8 @@ export default function Humidity() {
   }
 
   return (
-    <div className="weather-detail col-4 border border-primary rounded pb-3">
-      <div className="weather-detail-header pt-2">
+    <div className="weather-detail main-dashboard-detail rounded pb-3">
+      <div className="weather-detail-header">
         <h4>Humidity</h4>
         <img
           src={humidityIcon}

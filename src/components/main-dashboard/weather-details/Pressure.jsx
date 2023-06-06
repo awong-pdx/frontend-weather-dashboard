@@ -10,8 +10,8 @@ export default function Pressure() {
   const { pressure } = currentWeather.main;
 
   return (
-    <div className="weather-detail col-4 border border-primary rounded">
-      <div className="weather-detail-header pt-2">
+    <div className="weather-detail main-dashboard-detail rounded">
+      <div className="weather-detail-header">
         <h4>Pressure</h4>
         <img
           src={pressureIcon}

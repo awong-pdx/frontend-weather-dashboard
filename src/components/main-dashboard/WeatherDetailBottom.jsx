@@ -6,9 +6,15 @@ import Humidity from './weather-details/Humidity';
 export default function WeatherDetailBottom() {
   return (
     <div className="row px-2 mt-1">
-      <Pressure />
-      <WindStatus />
-      <Humidity />
+      <div className="col-4">
+        <Pressure />
+      </div>
+      <div className="col-4">
+        <Humidity />
+      </div>
+      <div className="col-4">
+        <WindStatus />
+      </div>
     </div>
   );
 }
