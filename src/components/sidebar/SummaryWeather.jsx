@@ -27,7 +27,7 @@ export default function SummaryWeather() {
         key={weatherForHour.dt}
         className="summary-font-4 row summary-hourly-row"
       >
-        <div className="summary-hourly-col-text col">
+        <div className="summary-hourly-col-left col">
           <span>{getHourString(toLocalDate(weatherForHour.dt), timezone)}</span>
         </div>
         <div className="summary-hourly-col-image col">
@@ -36,6 +36,9 @@ export default function SummaryWeather() {
             alt={`An icon representing ${weatherForHour.weather[0].description}`}
             className="summary-hourly-image "
           />
+        </div>
+        <div className="summary-hourly-col-right col">
+          <span>{`${Math.round(weatherForHour.main.temp)}°`}</span>
         </div>
       </div>
     ));
