@@ -123,6 +123,7 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
 .dashboard-container {
   height: 100vh;
   max-height: 100vh;
+  overflow: hidden;
 }
 
 .dashboard-modal {
@@ -157,10 +158,28 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
   display: flex;
   flex-direction: column;
 
+  @include media-breakpoint-down(md) {
+    height: 30vh;
+    position: relative;
+    .search-bar {
+      position: absolute;
+      top: 7vh;
+      left: 40vw;
+      right: 40vw;
+    }
+  }
+
   .sidebar-inner {
     max-width: 95%;
     height: 95%;
     border-radius: 30px;
+
+    @include media-breakpoint-down(md) {
+      max-width: 98%;
+      box-shadow: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
     .sidebar-top {
       margin-top: 0.5vw;
@@ -189,59 +208,61 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
       }
     }
     .summary-weather {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 85%;
-      max-height: 55%;
-      overflow: hidden auto;
-      font-size: 0.5em;
-      padding-top: 4em;
-      box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
-
-      .summary-font-1 {
-        font-size: 3em;
-      }
-      .summary-font-2 {
-        font-size: 2.5em;
-      }
-      .summary-font-4 {
-        font-size: 2em;
-      }
-      .summary-top {
-        .summary-image {
-          position: relative;
-          bottom: 50px;
-          margin-bottom: -100px;
-        }
-        .summary-description {
-          margin-bottom: 0;
-          position: relative;
-          z-index: 1;
-        }
-      }
-      .summary-hourly {
-        display: flex;
-        flex-direction: column;
-        font-family: $child-font-family;
-        width: 100%;
-      }
-      .summary-hourly-row {
-        max-height: 10vh;
-        .summary-hourly-col-text {
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          font-size: 0.9em;
-        }
-        .summary-hourly-col-image {
-          .summary-hourly-image {
-            max-height: 8vh;
-          }
-        }
-      }
+      display: none;
 
       @include media-breakpoint-up(md) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 85%;
+        max-height: 55%;
+        overflow: hidden auto;
+        font-size: 0.5em;
+        padding-top: 4em;
+        box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
+
+        .summary-font-1 {
+          font-size: 3em;
+        }
+        .summary-font-2 {
+          font-size: 2.5em;
+        }
+        .summary-font-4 {
+          font-size: 2em;
+        }
+        .summary-top {
+          .summary-image {
+            position: relative;
+            bottom: 50px;
+            margin-bottom: -100px;
+          }
+          .summary-description {
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+          }
+        }
+        .summary-hourly {
+          display: flex;
+          flex-direction: column;
+          font-family: $child-font-family;
+          width: 100%;
+        }
+        .summary-hourly-row {
+          max-height: 10vh;
+          .summary-hourly-col-text {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.9em;
+          }
+          .summary-hourly-col-image {
+            .summary-hourly-image {
+              max-height: 8vh;
+            }
+          }
+        }
+
         max-height: 75%;
 
         .summary-font-1 {
@@ -281,6 +302,20 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
   justify-content: center;
   display: flex;
   flex-direction: column;
+
+  @include media-breakpoint-down(md) {
+    position: relative;
+    z-index: 1;
+    bottom: 10vh;
+    height: 80vh;
+    .main-dashboard-inner {
+      position: relative;
+      z-index: 1;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: none;
+    }
+  }
 
   .main-dashboard-inner {
     max-width: 98%;
