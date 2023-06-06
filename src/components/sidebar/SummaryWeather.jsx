@@ -23,34 +23,39 @@ export default function SummaryWeather() {
   const hourlyForecast = hourlyWeather.list
     .slice(0, 5)
     .map((weatherForHour) => (
-      <div key={weatherForHour.dt} className="summary-font-4 row summary-hourly-row">
-<div className="col text-center m-auto">
-        {getHourString(toLocalDate(weatherForHour.dt), timezone)}
-</div>
+      <div
+        key={weatherForHour.dt}
+        className="summary-font-4 row summary-hourly-row"
+      >
+        <div className="col text-center m-auto">
+          {getHourString(toLocalDate(weatherForHour.dt), timezone)}
+        </div>
         <img
           src={getImageByKey(getIconName(weatherForHour.weather[0]))}
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
-          className='summary-hourly-image col'
+          className="summary-hourly-image col"
         />
       </div>
     ));
 
   return (
     <section className="summary-weather m-auto rounded">
-      <h1 className="summary-font-1">{summaryHeader}</h1>
-      <p className="summary-font-1">{summaryTemperature}</p>
-      <div className="summary-image">
-        <img
-          className="img-fluid"
-          src={getImageByKey(getIconName(currentWeather.weather[0], true))}
-          height="200"
-          width="200"
-          alt={summaryIconAltText}
-        />
+      <div className="summary-top text-center">
+        <h1 className="summary-font-1">{summaryHeader}</h1>
+        <p className="summary-font-1">{summaryTemperature}</p>
+        <div className="summary-image">
+          <img
+            className="img-fluid"
+            src={getImageByKey(getIconName(currentWeather.weather[0], true))}
+            height="200"
+            width="200"
+            alt={summaryIconAltText}
+          />
+        </div>
+        <p className="summary-description mb-2 summary-font-2">
+          {summaryDescription}
+        </p>
       </div>
-      <p className="summary-description mb-2 summary-font-2">
-        {summaryDescription}
-      </p>
       <hr />
       <div className="summary-hourly">
         <h2 className="visually-hidden">Hourly Forecast</h2>
