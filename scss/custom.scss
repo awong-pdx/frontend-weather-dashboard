@@ -372,19 +372,6 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
     justify-content: space-between;
   }
 
-  @media (max-width: 800px) {
-    .weather-detail-header {
-      display: block;
-      text-align: center;
-
-      .humidity-icon,
-      .wind-icon,
-      .pressure-icon {
-        display: none;
-      }
-    }
-  }
-
   .center-pressure-gauge {
     display: flex;
     justify-content: center;
