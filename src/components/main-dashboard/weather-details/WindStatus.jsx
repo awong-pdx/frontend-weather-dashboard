@@ -13,7 +13,7 @@ export default function WindStatus() {
 
   return (
     <div className="weather-detail main-dashboard-detail rounded">
-      <div className="weather-detail-header pt-2">
+      <div className="weather-detail-header">
         <h4>Wind</h4>
         <img
           src={windIcon}
