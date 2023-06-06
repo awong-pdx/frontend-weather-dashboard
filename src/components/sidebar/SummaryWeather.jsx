@@ -30,7 +30,7 @@ export default function SummaryWeather() {
         <img
           src={getImageByKey(getIconName(weatherForHour.weather[0]))}
           alt={`An icon representing ${weatherForHour.weather[0].description}`}
-          className='col'
+          className='summary-hourly-image col'
         />
       </div>
     ));

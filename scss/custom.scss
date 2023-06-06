@@ -210,9 +210,18 @@ $summary-window: #ccd8f075;
         bottom: 80px;
       }
       .summary-hourly {
+        display: flex;
+        flex-direction: column;
         font-family: $child-font-family;
         position: relative;
         bottom: 60px;
+        width: 100%;
+      }
+      .summary-hourly-row {
+        max-height: 10vh;
+      }
+      .summary-hourly-image {
+        max-height: 8vh;
       }
 
       @include media-breakpoint-up(md) {
@@ -235,11 +244,17 @@ $summary-window: #ccd8f075;
           position: relative;
           bottom: 65px;
         }
-        .summary-hourly {
-          position: relative;
-        }
+        // .summary-hourly {
+        //   position: relative;
+        // }
       }
       @include media-breakpoint-up(lg) {
+        .summary-hourly {
+          bottom: 95px;
+        }
+      }
+
+      @include media-breakpoint-up(xl) {
         overflow: hidden clip;
       }
       @include media-breakpoint-up(xxl) {
@@ -255,16 +270,16 @@ $summary-window: #ccd8f075;
           font-size: 3em;
         }
         .summary-image {
-          position: relative;
-          bottom: 55px;
+          // position: relative;
+          // bottom: 55px;
         }
         .summary-description {
-          position: relative;
+          // position: relative;
           bottom: 65px;
         }
         .summary-hourly {
-          position: relative;
-          bottom: 40px;
+          // position: relative;
+          // bottom: 40px;
         }
       }
     }
