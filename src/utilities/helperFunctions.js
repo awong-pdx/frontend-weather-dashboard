@@ -62,6 +62,74 @@ export const getIconSrc = function getWeatherIconSrcURL(iconId) {
   return `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 };
 
+export const getIconName = function matchIconNameWithID(
+  { id, icon },
+  animated = false
+) {
+  const iconMatches = [];
+  let iconMatch = '';
+
+  const iconNames = {
+    ThunderstormsRain: [200, 201, 202, 230, 231, 232],
+    Thunderstorms: [210, 211, 212, 221],
+    Drizzle: [
+      300, 301, 302, 310, 311, 312, 313, 314, 321, 520, 521, 522, 531, 804,
+    ],
+    Rain: [500, 501, 502, 503, 504],
+    Sleet: [511, 611, 612, 613, 615, 616],
+    Snow: [600, 601, 602, 620, 621, 622],
+    Mist: [701],
+    Smoke: [711, 762],
+    Haze: [721],
+    DustWind: [731, 751],
+    Dust: [761],
+    Wind: [771],
+    Tornado: [781],
+    ClearDay: [800],
+    ClearNight: [800],
+    PartlyCloudyDay: [801],
+    PartlyCloudyNight: [801],
+    Cloudy: [802],
+    OvercastDay: [803],
+    OvercastNight: [803],
+  };
+
+  Object.entries(iconNames).forEach(([key, value]) => {
+    if (value.includes(id)) iconMatches.push(key);
+  });
+
+  if (iconMatches) {
+    if (iconMatches.length === 1) {
+      [iconMatch] = iconMatches;
+    }
+    else if
+    (iconMatches.includes('ClearDay')) {
+      if (icon === '01d') {
+        iconMatch = 'ClearDay';
+      } else {
+        iconMatch = 'ClearNight';
+      }
+    } else if (iconMatches.includes('PartlyCloudyDay')) {
+      if (icon === '02d') {
+        iconMatch = 'PartlyCloudyDay';
+      } else {
+        iconMatch = 'PartlyCloudyNight';
+      }
+    } else if (iconMatches.includes('OvercastDay')) {
+      if (icon === '04d') {
+        iconMatch = 'OvercastDay';
+      } else {
+        iconMatch = 'OvercastNight';
+      }
+    }
+    if (animated) {
+      iconMatch = iconMatch.concat('Animated');
+    }
+  }
+
+  return iconMatch;
+};
+
 // time depends on system settings
 export const getCurrentTime = () => {
   const currentTime = new Date();
