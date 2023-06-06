@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { useWeather } from '../../WeatherProvider';
 import { toLocalDate, getHourString } from '../../../utilities/helperFunctions';
+import { useTheme } from '../../ThemeProvider';
 
 Chart.register(
   CategoryScale,
@@ -23,6 +24,8 @@ Chart.register(
 
 export default function HourlyTempGraph() {
   const { hourlyWeather } = useWeather();
+  const { theme } = useTheme();
+  console.log(theme);
   if (!hourlyWeather) return null;
 
   const { timezone } = hourlyWeather.city;
@@ -52,6 +55,10 @@ export default function HourlyTempGraph() {
           display: true,
           text: 'Time',
           fontSize: 12,
+          color: 'white',
+        },
+        grid: {
+          color: 'white',
         },
       },
       y: {
@@ -59,6 +66,10 @@ export default function HourlyTempGraph() {
           display: true,
           text: 'Temperature (°F)',
           fontSize: 12,
+          color: 'white',
+        },
+        grid: {
+          color: 'white',
         },
       },
     },
