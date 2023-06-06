@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/frontend-weather-dashboard/static/css/main.a694bd34.css",
+    "main.js": "/frontend-weather-dashboard/static/js/main.fdd6a6a7.js",
+    "static/media/wind.png": "/frontend-weather-dashboard/static/media/wind.d41f7eb3416d358fe241.png",
+    "static/media/barometer.png": "/frontend-weather-dashboard/static/media/barometer.049f56f177900d45a430.png",
+    "static/media/humidity.png": "/frontend-weather-dashboard/static/media/humidity.a4ee10f7dd0ddef2cb08.png",
+    "static/media/sleet.svg": "/frontend-weather-dashboard/static/media/sleet.2e1a46e2f663e0cc1602654cc8a14567.svg",
+    "static/media/snow.svg": "/frontend-weather-dashboard/static/media/snow.359be0223e5dad9e8aac13a71ed5d07b.svg",
+    "static/media/dust.svg": "/frontend-weather-dashboard/static/media/dust.1619ae29e2b2b8a62a04f0118e2183c7.svg",
+    "static/media/thunderstorms-rain.svg": "/frontend-weather-dashboard/static/media/thunderstorms-rain.577dda035337b37287a218d08d6cb834.svg",
+    "static/media/dust-wind.svg": "/frontend-weather-dashboard/static/media/dust-wind.a0b5494336bca62d722c3f3f0282387a.svg",
+    "static/media/rain.svg": "/frontend-weather-dashboard/static/media/rain.b0fa37737c8c97837caa05ebc44c69e2.svg",
+    "static/media/overcast-day.svg": "/frontend-weather-dashboard/static/media/overcast-day.f80d79cfc741a986d0d72c27949185fb.svg",
+    "static/media/overcast-night.svg": "/frontend-weather-dashboard/static/media/overcast-night.429c60fc22b01d665b7c97a0131df530.svg",
+    "static/media/smoke.svg": "/frontend-weather-dashboard/static/media/smoke.ceebd51af0acd6977d84d5882a8d9538.svg",
+    "static/media/haze.svg": "/frontend-weather-dashboard/static/media/haze.1e7f459a0b8b19d86bfacffeb42a3863.svg",
+    "static/media/drizzle.svg": "/frontend-weather-dashboard/static/media/drizzle.f3076f0d5a8a39b4177d5a776378df7f.svg",
+    "static/media/tornado.svg": "/frontend-weather-dashboard/static/media/tornado.e2a46590d26302bc497ef9f4a85a21ba.svg",
+    "static/media/fog.svg": "/frontend-weather-dashboard/static/media/fog.606986a469e011823f4e7a797481da8e.svg",
+    "static/media/partly-cloudy-day.svg": "/frontend-weather-dashboard/static/media/partly-cloudy-day.c570cb36ab9ba250cff76d1b8491bcfc.svg",
+    "static/media/partly-cloudy-night.svg": "/frontend-weather-dashboard/static/media/partly-cloudy-night.ac67d071f427a12289b1ce8d176d0751.svg",
+    "static/media/thunderstorms.svg": "/frontend-weather-dashboard/static/media/thunderstorms.f6df5979b98d173622b5e0c12bbfd280.svg",
+    "static/media/mist.svg": "/frontend-weather-dashboard/static/media/mist.671bae37cd34186db7d81dcb0e70a025.svg",
+    "static/media/sunset.svg": "/frontend-weather-dashboard/static/media/sunset.2e72a2679d587815cbb3f24e8ac39c51.svg",
+    "static/media/sunrise.svg": "/frontend-weather-dashboard/static/media/sunrise.2637e87d2c6bc9523cb890b9c29b31c5.svg",
+    "static/media/wind.svg": "/frontend-weather-dashboard/static/media/wind.2cfb9c3b496799964f74e4806c2f14b4.svg",
+    "static/media/clear-day.svg": "/frontend-weather-dashboard/static/media/clear-day.047b83fb21d100a02d645c5747904925.svg",
+    "static/media/clear-night.svg": "/frontend-weather-dashboard/static/media/clear-night.6f77b3dcf59e82f2f78b703d6e6c1068.svg",
+    "index.html": "/frontend-weather-dashboard/index.html",
+    "static/media/cloudy.svg": "/frontend-weather-dashboard/static/media/cloudy.162910bf2dab15346c0c7b7dbf6f2645.svg",
+    "main.a694bd34.css.map": "/frontend-weather-dashboard/static/css/main.a694bd34.css.map",
+    "main.fdd6a6a7.js.map": "/frontend-weather-dashboard/static/js/main.fdd6a6a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a694bd34.css",
+    "static/js/main.fdd6a6a7.js"
+  ]
+}
