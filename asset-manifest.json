@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend-weather-dashboard/static/css/main.a694bd34.css",
-    "main.js": "/frontend-weather-dashboard/static/js/main.fdd6a6a7.js",
+    "main.js": "/frontend-weather-dashboard/static/js/main.b1c21953.js",
     "static/media/wind.png": "/frontend-weather-dashboard/static/media/wind.d41f7eb3416d358fe241.png",
     "static/media/barometer.png": "/frontend-weather-dashboard/static/media/barometer.049f56f177900d45a430.png",
     "static/media/humidity.png": "/frontend-weather-dashboard/static/media/humidity.a4ee10f7dd0ddef2cb08.png",
@@ -30,10 +30,10 @@
     "index.html": "/frontend-weather-dashboard/index.html",
     "static/media/cloudy.svg": "/frontend-weather-dashboard/static/media/cloudy.162910bf2dab15346c0c7b7dbf6f2645.svg",
     "main.a694bd34.css.map": "/frontend-weather-dashboard/static/css/main.a694bd34.css.map",
-    "main.fdd6a6a7.js.map": "/frontend-weather-dashboard/static/js/main.fdd6a6a7.js.map"
+    "main.b1c21953.js.map": "/frontend-weather-dashboard/static/js/main.b1c21953.js.map"
   },
   "entrypoints": [
     "static/css/main.a694bd34.css",
-    "static/js/main.fdd6a6a7.js"
+    "static/js/main.b1c21953.js"
   ]
 }
