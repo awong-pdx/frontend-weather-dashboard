@@ -232,6 +232,7 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
           display: flex;
           justify-content: flex-end;
           align-items: center;
+          font-size: 0.9em;
         }
         .summary-hourly-col-image {
           .summary-hourly-image {
@@ -251,6 +252,9 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
         }
         .summary-font-4 {
           font-size: 2.5em;
+        }
+        .summary-hourly-col-text {
+          font-size: 1em;
         }
 
         @include media-breakpoint-up(xxl) {
