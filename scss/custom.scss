@@ -275,6 +275,72 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
     max-width: 98%;
     height: 97%;
     border-radius: 30px;
+    overflow: hidden scroll;
+  }
+
+  .welcome-header {
+    font-family: $header-font-family;
+  }
+
+  .main-dashboard-detail {
+    background-color: $summary-window;
+    box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
+  }
+
+  .sun {
+    font-family: $child-font-family;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hourly-graph {
+    height: 250px;
+  }
+
+  .weather-detail {
+    font-family: $child-font-family;
+    padding: 10px;
+    min-height: 100%;
+  }
+
+  .weather-detail-header {
+    font-family: $header-font-family;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 800px) {
+    .weather-detail-header {
+      display: block;
+      text-align: center;
+
+      .humidity-icon,
+      .wind-icon,
+      .pressure-icon {
+        display: none;
+      }
+    }
+  }
+
+  .center-pressure-gauge {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pressure-gauge-container {
+    height: 160px;
+    width: 160px;
+    max-width: 100%;
+
+    .pressure-gauge {
+      max-width: 100%;
+      max-height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 
@@ -293,64 +359,4 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
 
 .loading-screen {
   opacity: 0.5;
-}
-
-.welcome-header {
-  font-family: $header-font-family;
-}
-
-.sun {
-  font-family: $child-font-family;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100%;
-}
-
-.hourly-graph {
-  height: 250px;
-}
-
-.weather-detail {
-  font-family: $child-font-family;
-  min-height: 100%;
-}
-
-.weather-detail-header {
-  font-family: $header-font-family;
-  display: flex;
-  justify-content: space-between;
-}
-
-@media (max-width: 642px) {
-  .weather-detail-header {
-    display: block;
-    text-align: center;
-
-    .humidity-icon,
-    .wind-icon,
-    .pressure-icon {
-      display: none;
-    }
-  }
-}
-
-.center-pressure-gauge {
-  display: flex;
-  justify-content: center;
-}
-
-.pressure-gauge-container {
-  height: 160px;
-  width: 160px;
-  max-width: 100%;
-
-  .pressure-gauge {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }

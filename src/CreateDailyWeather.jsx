@@ -5,12 +5,8 @@ import { getIconName } from './utilities/helperFunctions';
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default function CreateDailyWeather({ weatherInfo }) {
-  const {
-    timestamp,
-    minTemperature,
-    maxTemperature,
-    weatherDescription,
-  } = weatherInfo;
+  const { timestamp, minTemperature, maxTemperature, weatherDescription } =
+    weatherInfo;
 
   const today = new Date(timestamp * 1000);
   const currentDay = today.getDay();
@@ -21,7 +17,7 @@ export default function CreateDailyWeather({ weatherInfo }) {
   const maxTemp = Math.round(maxTemperature);
 
   return (
-    <div className="col border border-primary rounded text-center m-1">
+    <div className="col daily-weather main-dashboard-detail rounded text-center m-1">
       <h5>{daysOfWeek[currentDay]}</h5>
       <p>
         {currentMonth + 1}/{currentDayOfMonth}

@@ -5,8 +5,12 @@ import HourlyTempGraph from './weather-details/HourlyTempGraph';
 export default function WeatherDetailTop() {
   return (
     <div className="row p-2">
-      <HourlyTempGraph />
-      <Sun />
+      <div className="col-8">
+        <HourlyTempGraph />
+      </div>
+      <div className="col-4">
+        <Sun />
+      </div>
     </div>
   );
 }
