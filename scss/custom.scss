@@ -20,6 +20,7 @@ $dark-button-primary: hsl(221, 99%, 5%);
 $dark-input-primary: hsl(221, 71%, 5%);
 $dark-input-secondary: hsl(221, 71%, 11%);
 
+$summary-window: #ccd8f075;
 $summary-window-light: hsla(220, 55%, 87%, 0.459);
 $summary-window-dark: hsla(220, 55%, 37%, 0.459);
 
@@ -196,7 +197,6 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
       overflow: hidden auto;
       font-size: 0.5em;
       padding-top: 4em;
-      // background-color: $summary-window;
       box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
 
       .summary-font-1 {
@@ -213,21 +213,15 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
           position: relative;
           bottom: 50px;
           margin-bottom: -100px;
-          // position: relative;
-          // bottom: 60px;
         }
         .summary-description {
           margin-bottom: 0;
-          // position: relative;
-          // bottom: 80px;
         }
       }
       .summary-hourly {
         display: flex;
         flex-direction: column;
         font-family: $child-font-family;
-        // position: relative;
-        // bottom: 60px;
         width: 100%;
       }
       .summary-hourly-row {
@@ -249,23 +243,6 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
         .summary-font-4 {
           font-size: 2.5em;
         }
-        .summary-image {
-          // position: relative;
-          // bottom: 55px;
-        }
-        .summary-description {
-          // position: relative;
-          // bottom: 65px;
-        }
-        // .summary-hourly {
-        //   position: relative;
-        // }
-      }
-      @include media-breakpoint-up(lg) {
-        .summary-hourly {
-          // bottom: 95px;
-        }
-      }
 
       @include media-breakpoint-up(xl) {
         overflow: hidden clip;
@@ -281,18 +258,6 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
         }
         .summary-font-4 {
           font-size: 3em;
-        }
-        .summary-image {
-          // position: relative;
-          // bottom: 55px;
-        }
-        .summary-description {
-          // position: relative;
-          // bottom: 65px;
-        }
-        .summary-hourly {
-          // position: relative;
-          // bottom: 40px;
         }
       }
     }
