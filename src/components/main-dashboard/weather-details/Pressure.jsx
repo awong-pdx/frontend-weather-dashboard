@@ -3,12 +3,15 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useWeather } from '../../WeatherProvider';
 import 'react-circular-progressbar/dist/styles.css';
 import pressureIcon from '../../../images/barometer.png';
+import { useTheme } from '../../ThemeProvider';
 
 export default function Pressure() {
   const { currentWeather } = useWeather();
+  const { theme } = useTheme();
+  const labelColor = theme === 'light' ? '#000' : '#fff';
+
   if (!currentWeather) return null;
   const { pressure } = currentWeather.main;
-
   return (
     <div className="weather-detail main-dashboard-detail rounded">
       <div className="weather-detail-header">
@@ -35,7 +38,7 @@ export default function Pressure() {
               rotation: 1 / 2 + 1 / 8,
               strokeLinecap: 'butt',
               trailColor: '#eee',
-              textColor: '#000',
+              textColor: labelColor,
               textSize: '21px',
             })}
           />
