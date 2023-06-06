@@ -8,7 +8,7 @@ export default function WeatherDetailTop() {
       <div className="col-md-8">
         <HourlyTempGraph />
       </div>
-      <div className="col-md-4">
+      <div className="sun-wrapper col-md-4">
         <Sun />
       </div>
     </div>

@@ -390,6 +390,17 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
       align-items: center;
     }
   }
+
+  @include media-breakpoint-down(md) {
+    .detail-bottom {
+      margin-top: 10px;
+    }
+
+    .sun-wrapper {
+      margin-top: 10px;
+      margin-bottom: -2px;
+    }
+  }
 }
 
 .animation-wrapper {
