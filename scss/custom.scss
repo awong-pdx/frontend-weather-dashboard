@@ -193,17 +193,17 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
       flex-direction: column;
       align-items: center;
       max-width: 85%;
-      max-height: 55%;
+      max-height: 80%;
       overflow: hidden auto;
       font-size: 0.5em;
       padding-top: 4em;
       box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
 
       .summary-font-1 {
-        font-size: 3em;
+        font-size: 6em;
       }
       .summary-font-2 {
-        font-size: 2.5em;
+        font-size: 5.5em;
       }
       .summary-font-4 {
         font-size: 2em;
@@ -228,21 +228,46 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
       }
       .summary-hourly-row {
         max-height: 10vh;
-        .summary-hourly-col-text {
+        .summary-hourly-col-left {
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          font-size: 0.9em;
+          font-size: 2em;
+          position: relative;
+          z-index: 1;
         }
         .summary-hourly-col-image {
+          display: flex;
+          justify-content: center;
+          padding: 0;
+          margin-left: -1em;
+          margin-right: -1em;
+          position: relative;
           .summary-hourly-image {
-            max-height: 8vh;
+            max-height: 12vh;
           }
+        }
+        .summary-hourly-col-right {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          font-size: 2em;
+          position: relative;
+          z-index: 1;
         }
       }
 
       @include media-breakpoint-up(md) {
-        max-height: 75%;
+        max-height: 70%;
+        .summary-font-1 {
+          font-size: 4.5em;
+        }
+        .summary-font-2 {
+          font-size: 4em;
+        }
+        .summary-font-4 {
+          font-size: 3em;
+        }
 
         .summary-font-1 {
           font-size: 3.5em;
@@ -253,10 +278,30 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
         .summary-font-4 {
           font-size: 2.5em;
         }
-        .summary-hourly-col-text {
-          font-size: 1em;
+
+        .summary-hourly-row {
+          .summary-hourly-col-left {
+            font-size: 0.7em;
+          }
+
+          .summary-hourly-col-right {
+            font-size: 0.7em;
+          }
         }
 
+        @include media-breakpoint-up(xl) {
+          max-height: 75%;
+
+          .summary-hourly-row {
+            .summary-hourly-col-left {
+              font-size: 1em;
+            }
+
+            .summary-hourly-col-right {
+              font-size: 1em;
+            }
+          }
+        }
         @include media-breakpoint-up(xxl) {
           max-height: 75%;
 
