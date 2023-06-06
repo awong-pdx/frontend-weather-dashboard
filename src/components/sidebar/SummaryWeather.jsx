@@ -27,14 +27,16 @@ export default function SummaryWeather() {
         key={weatherForHour.dt}
         className="summary-font-4 row summary-hourly-row"
       >
-        <div className="col text-center m-auto">
-          {getHourString(toLocalDate(weatherForHour.dt), timezone)}
+        <div className="summary-hourly-col-text col">
+          <span>{getHourString(toLocalDate(weatherForHour.dt), timezone)}</span>
         </div>
-        <img
-          src={getImageByKey(getIconName(weatherForHour.weather[0]))}
-          alt={`An icon representing ${weatherForHour.weather[0].description}`}
-          className="summary-hourly-image col"
-        />
+        <div className="summary-hourly-col-image col">
+          <img
+            src={getImageByKey(getIconName(weatherForHour.weather[0]))}
+            alt={`An icon representing ${weatherForHour.weather[0].description}`}
+            className="summary-hourly-image "
+          />
+        </div>
       </div>
     ));
 

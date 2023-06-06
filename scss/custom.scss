@@ -216,6 +216,8 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
         }
         .summary-description {
           margin-bottom: 0;
+          position: relative;
+          z-index: 1;
         }
       }
       .summary-hourly {
@@ -226,9 +228,16 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
       }
       .summary-hourly-row {
         max-height: 10vh;
-      }
-      .summary-hourly-image {
-        max-height: 8vh;
+        .summary-hourly-col-text {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+        .summary-hourly-col-image {
+          .summary-hourly-image {
+            max-height: 8vh;
+          }
+        }
       }
 
       @include media-breakpoint-up(md) {
@@ -244,20 +253,18 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
           font-size: 2.5em;
         }
 
-      @include media-breakpoint-up(xl) {
-        overflow: hidden clip;
-      }
-      @include media-breakpoint-up(xxl) {
-        max-height: 75%;
+        @include media-breakpoint-up(xxl) {
+          max-height: 75%;
 
-        .summary-font-1 {
-          font-size: 4.5em;
-        }
-        .summary-font-2 {
-          font-size: 4em;
-        }
-        .summary-font-4 {
-          font-size: 3em;
+          .summary-font-1 {
+            font-size: 4.5em;
+          }
+          .summary-font-2 {
+            font-size: 4em;
+          }
+          .summary-font-4 {
+            font-size: 3em;
+          }
         }
       }
     }
@@ -285,6 +292,10 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
   .main-dashboard-detail {
     background-color: $summary-window;
     box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
+  }
+
+  .daily-weather {
+    font-family: $child-font-family;
   }
 
   .sun {
