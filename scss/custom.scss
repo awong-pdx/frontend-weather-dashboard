@@ -237,8 +237,10 @@ $summary-window: #ccd8f075;
         }
         .summary-hourly {
           position: relative;
-          bottom: 40px;
         }
+      }
+      @include media-breakpoint-up(lg) {
+        overflow: hidden clip;
       }
       @include media-breakpoint-up(xxl) {
         max-height: 75%;
