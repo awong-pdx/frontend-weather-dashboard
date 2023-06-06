@@ -286,6 +286,11 @@ $summary-window: #ccd8f075;
     font-family: $header-font-family;
   }
 
+  .main-dashboard-detail {
+    background-color: rgba(204, 216, 240, 0.4588235294);
+    box-shadow: inset 0 1px 6px 1px rgba(40, 40, 40, 0.1);
+  }
+
   .sun {
     font-family: $child-font-family;
     display: flex;

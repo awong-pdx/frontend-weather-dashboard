@@ -79,7 +79,7 @@ export default function HourlyTempGraph() {
   };
 
   return (
-    <div className="col-8 border border-primary rounded py-1">
+    <div className="col-8 main-dashboard-detail rounded py-1">
       <Line className="hourly-graph" options={options} data={data} />
     </div>
   );

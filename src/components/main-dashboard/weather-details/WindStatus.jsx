@@ -12,7 +12,7 @@ export default function WindStatus() {
   const cardinalDirection = d2d(deg);
 
   return (
-    <div className="weather-detail col-4 border border-primary rounded">
+    <div className="weather-detail main-dashboard-detail col-4 rounded">
       <div className="weather-detail-header pt-2">
         <h4>Wind</h4>
         <img
