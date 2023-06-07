@@ -30,7 +30,7 @@ export default function DailyWeather() {
   }
 
   return (
-    <div className="row px-2 daily-weather-wrapper">
+    <div className="row px-3 daily-weather-wrapper">
       {weather.map((dailyForecastData) => (
         <CreateDailyWeather
           key={dailyForecastData.key}

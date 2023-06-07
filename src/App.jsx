@@ -66,7 +66,7 @@ function App() {
   }, [searchInput, loggedIn]);
 
   return (
-    <div className="App">
+    <div>
       {loading && (
         <div className="animation-wrapper">
           <Bars className="loading-bar" fill="#06bcee" />

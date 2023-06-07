@@ -165,6 +165,7 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
     max-width: 95%;
     height: 95%;
     border-radius: 30px;
+    overflow: hidden;
 
     .sidebar-top {
       margin-top: 0.5vw;
