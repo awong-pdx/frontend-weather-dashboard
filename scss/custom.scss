@@ -27,6 +27,10 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
 @import '../node_modules/bootstrap/scss/bootstrap';
 //additional custom code (for classes, etc.) comes after the @import
 
+.App {
+  overflow: hidden auto;
+}
+
 .dark {
   background: linear-gradient($dark-gradient-primary, $dark-gradient-secondary);
   color: $dark-text;
@@ -399,6 +403,12 @@ $summary-window-dark: hsla(220, 55%, 37%, 0.459);
     .sun-wrapper {
       margin-top: 10px;
       margin-bottom: -2px;
+    }
+
+    .daily-weather-wrapper {
+      display: grid;
+      grid-template-columns: repeat(7, auto);
+      overflow: scroll;
     }
   }
 }

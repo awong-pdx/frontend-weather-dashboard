@@ -17,7 +17,7 @@ export default function CreateDailyWeather({ weatherInfo }) {
   const maxTemp = Math.round(maxTemperature);
 
   return (
-    <div className="col daily-weather main-dashboard-detail rounded text-center m-1">
+    <div className="col-md daily-weather main-dashboard-detail rounded text-center m-1">
       <h5>{daysOfWeek[currentDay]}</h5>
       <p>
         {currentMonth + 1}/{currentDayOfMonth}
