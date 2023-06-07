@@ -34,6 +34,7 @@ function App() {
 
       const { data } = response;
       if (data.length === 0) {
+        setLoading(false);
         return new Error('city name does not exist');
       }
 
