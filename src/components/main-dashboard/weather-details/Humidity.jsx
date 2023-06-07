@@ -1,10 +1,13 @@
 import React from 'react';
 import ProgressBar from '@ramonak/react-progress-bar';
 import { useWeather } from '../../WeatherProvider';
+import { useTheme } from '../../ThemeProvider';
 import humidityIcon from '../../../images/humidity.png';
 
 export default function Humidity() {
   const { currentWeather } = useWeather();
+  const { theme } = useTheme();
+
   if (!currentWeather) return null;
 
   const red = '#dc3545';
@@ -29,7 +32,7 @@ export default function Humidity() {
   }
 
   return (
-    <div className="weather-detail main-dashboard-detail rounded pb-3">
+    <div className={`weather-detail main-dashboard-${theme} rounded pb-3`}>
       <div className="weather-detail-header">
         <h4>Humidity</h4>
         <img

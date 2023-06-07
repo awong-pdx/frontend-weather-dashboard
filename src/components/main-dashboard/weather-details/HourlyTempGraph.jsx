@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { useWeather } from '../../WeatherProvider';
 import { toLocalDate, getHourString } from '../../../utilities/helperFunctions';
+import { useTheme } from '../../ThemeProvider';
 
 Chart.register(
   CategoryScale,
@@ -21,8 +22,14 @@ Chart.register(
   Tooltip
 );
 
+Chart.defaults.font.family = 'DM Sans';
+
 export default function HourlyTempGraph() {
   const { hourlyWeather } = useWeather();
+  const { theme } = useTheme();
+  const lightGray = 'hsl(0, 0%, 95%)';
+  const graphLabelColor = theme === 'dark' ? lightGray : 'gray';
+  const graphHeaderColor = theme === 'light' ? 'black' : 'white';
   if (!hourlyWeather) return null;
 
   const { timezone } = hourlyWeather.city;
@@ -44,6 +51,7 @@ export default function HourlyTempGraph() {
         display: true,
         text: 'Hourly Temperature',
         fontSize: 14,
+        color: graphHeaderColor,
       },
     },
     scales: {
@@ -52,6 +60,13 @@ export default function HourlyTempGraph() {
           display: true,
           text: 'Time',
           fontSize: 12,
+          color: graphHeaderColor,
+        },
+        grid: {
+          color: graphLabelColor,
+        },
+        ticks: {
+          color: graphLabelColor,
         },
       },
       y: {
@@ -59,6 +74,13 @@ export default function HourlyTempGraph() {
           display: true,
           text: 'Temperature (°F)',
           fontSize: 12,
+          color: graphHeaderColor,
+        },
+        grid: {
+          color: graphLabelColor,
+        },
+        ticks: {
+          color: graphLabelColor,
         },
       },
     },
@@ -79,7 +101,7 @@ export default function HourlyTempGraph() {
   };
 
   return (
-    <div className="main-dashboard-detail weather-detail rounded py-1">
+    <div className={`main-dashboard-${theme} weather-detail rounded py-1`}>
       <Line className="hourly-graph" options={options} data={data} />
     </div>
   );

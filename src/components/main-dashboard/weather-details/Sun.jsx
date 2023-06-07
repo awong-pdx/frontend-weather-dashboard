@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useWeather } from '../../WeatherProvider';
+import { useTheme } from '../../ThemeProvider';
 import { getHourAndMinString } from '../../../utilities/helperFunctions';
 import sunriseImage from '../../../images/sunrise.svg';
 import sunsetImage from '../../../images/sunset.svg';
@@ -7,6 +8,7 @@ import sunsetImage from '../../../images/sunset.svg';
 export default function Sun() {
   const { currentWeather } = useWeather();
   const [weather, setWeather] = useState({});
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (currentWeather) {
@@ -24,7 +26,7 @@ export default function Sun() {
     return null;
   }
   return (
-    <div className="sun main-dashboard-detail weather-detail rounded">
+    <div className={`sun main-dashboard-${theme} weather-detail rounded`}>
       <h4>
         <img src={sunriseImage} alt="Sunrise icon" width="90px" />
         Sunrise: {weather.sunrise}
