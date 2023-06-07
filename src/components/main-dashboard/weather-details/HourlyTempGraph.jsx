@@ -101,7 +101,7 @@ export default function HourlyTempGraph() {
   };
 
   return (
-    <div className="main-dashboard-detail weather-detail rounded py-1">
+    <div className={`main-dashboard-${theme} weather-detail rounded py-1`}>
       <Line className="hourly-graph" options={options} data={data} />
     </div>
   );
