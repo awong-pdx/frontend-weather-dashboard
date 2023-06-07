@@ -7,7 +7,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import MainDashboard from './components/main-dashboard/MainDashboard';
 import { useUser } from './components/UserProvider';
 
-const geocodingURI = 'http://api.openweathermap.org/geo/1.0/direct?q=';
+const geocodingURI = 'https://api.openweathermap.org/geo/1.0/direct?q=';
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 function App() {
